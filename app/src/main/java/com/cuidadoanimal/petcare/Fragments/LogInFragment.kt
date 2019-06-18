@@ -1,4 +1,4 @@
-package com.cuidadoanimal.petcare.FragmentsActivity
+package com.cuidadoanimal.petcare.Fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
