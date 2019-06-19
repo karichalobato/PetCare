@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PetCare</string>
+    <string name="facebook_application_id" translatable="false">2258951821100560</string>
+    <string name="facebook_login_protocol_schema" translatable="false">fb2258951821100560</string>
 </resources>
