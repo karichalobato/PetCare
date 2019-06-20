@@ -23,9 +23,9 @@ interface UserDAO {
     fun setUserImage(username: String,profile_picture:String)
 
     @Query("DELETE FROM User")
-    fun deleteUsers()
+    suspend fun deleteUsers()
 
     @Query("DELETE FROM User WHERE idUser==:idUser")
-    fun deleteUserByID(idUser: Int): LiveData<List<User>>
+    suspend fun deleteUserByID(idUser: Int): LiveData<List<User>>
 
 }

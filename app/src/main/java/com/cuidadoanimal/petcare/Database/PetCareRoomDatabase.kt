@@ -11,7 +11,7 @@ import com.cuidadoanimal.petcare.Database.EntitiesDAO.*
     Pet::class,
     Article::class,
     Tag::class,
-    Vaccine::class], version = 1, exportSchema = false)
+    Vaccine::class,ArticleJOINTag::class,UserJOINArticle::class,VaccineJOINPet::class], version = 1, exportSchema = false)
 public abstract class PetCareRoomDatabase : RoomDatabase(){
 
     abstract fun userDAO():UserDAO

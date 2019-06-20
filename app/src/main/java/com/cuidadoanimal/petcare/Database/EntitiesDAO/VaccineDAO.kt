@@ -20,8 +20,8 @@ interface VaccineDAO {
     fun getAllVaccines(): LiveData<List<Vaccine>>
 
     @Query("DELETE FROM Vaccine WHERE idVaccine==:idVaccine")
-    fun deleteVaccineByID(idVaccine: Int): LiveData<List<Vaccine>>
+    suspend fun deleteVaccineByID(idVaccine: Int)
 
     @Query("DELETE FROM Vaccine")
-    fun deleteVaccines()
+    suspend fun deleteVaccines()
 }

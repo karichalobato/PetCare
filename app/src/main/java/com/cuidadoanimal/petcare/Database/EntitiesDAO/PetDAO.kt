@@ -24,8 +24,8 @@ interface PetDAO {
 
     //TODO BORRA SEGUN EL ID DE LA MASCOTA
     @Query("DELETE FROM Pet WHERE idPet==:idPet")
-    fun deletePetByID(idPet: Int): LiveData<List<Pet>>
+    suspend fun deletePetByID(idPet: Int)
 
     @Query("DELETE FROM Pet")
-    fun deletePets()
+    suspend fun deletePets()
 }

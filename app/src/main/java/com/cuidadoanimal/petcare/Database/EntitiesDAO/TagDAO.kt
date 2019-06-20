@@ -23,5 +23,5 @@ interface TagDAO {
     fun deleteTagByID(idTag:Int): LiveData<List<Tag>>
 
     @Query("DELETE FROM Tag")
-    fun deleteTags()
+    suspend fun deleteTags()
 }
