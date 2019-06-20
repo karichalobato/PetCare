@@ -1,11 +1,11 @@
-package com.cuidadoanimal.petcare.ViewModel
+package com.cuidadoanimal.petcare.viewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.cuidadoanimal.petcare.Database.Entities.*
-import com.cuidadoanimal.petcare.Database.PetCareRoomDatabase
-import com.cuidadoanimal.petcare.Repository.PetCareRepository
+import com.cuidadoanimal.petcare.database.entities.*
+import com.cuidadoanimal.petcare.database.PetCareRoomDatabase
+import com.cuidadoanimal.petcare.repository.PetCareRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

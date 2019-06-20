@@ -1,9 +1,9 @@
-package com.cuidadoanimal.petcare.Repository
+package com.cuidadoanimal.petcare.repository
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import com.cuidadoanimal.petcare.Database.Entities.*
-import com.cuidadoanimal.petcare.Database.EntitiesDAO.*
+import com.cuidadoanimal.petcare.database.entities.*
+import com.cuidadoanimal.petcare.database.entitiesDAO.*
 
 class PetCareRepository (private val UserDAO:UserDAO,private val PetDAO:PetDAO,private val ArticleDAO:ArticleDAO, private val TagDAO:TagDAO,private val VaccineDAO:VaccineDAO,private val ArticleJOINTagDAO:ArticleJOINTagDAO, private val UserJOINArticleDAO:UserJOINArticleDAO,private val VaccineJOINPetDAO:VaccineJOINPetDAO) {
     //GetAll

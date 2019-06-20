@@ -1,11 +1,11 @@
-package com.cuidadoanimal.petcare.Database.EntitiesDAO
+package com.cuidadoanimal.petcare.database.entitiesDAO
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.cuidadoanimal.petcare.Database.Entities.Article
+import com.cuidadoanimal.petcare.database.entities.Article
 
 @Dao
 interface ArticleDAO {

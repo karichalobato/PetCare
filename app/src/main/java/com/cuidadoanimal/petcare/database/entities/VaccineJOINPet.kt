@@ -1,4 +1,4 @@
-package com.cuidadoanimal.petcare.Database.Entities
+package com.cuidadoanimal.petcare.database.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

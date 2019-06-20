@@ -1,4 +1,4 @@
-package com.cuidadoanimal.petcare.GoogleMaps
+package com.cuidadoanimal.petcare.googleMaps
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

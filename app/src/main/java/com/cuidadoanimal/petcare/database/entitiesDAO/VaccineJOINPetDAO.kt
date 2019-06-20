@@ -1,13 +1,13 @@
-package com.cuidadoanimal.petcare.Database.EntitiesDAO
+package com.cuidadoanimal.petcare.database.entitiesDAO
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.cuidadoanimal.petcare.Database.Entities.Pet
-import com.cuidadoanimal.petcare.Database.Entities.Vaccine
-import com.cuidadoanimal.petcare.Database.Entities.VaccineJOINPet
+import com.cuidadoanimal.petcare.database.entities.Pet
+import com.cuidadoanimal.petcare.database.entities.Vaccine
+import com.cuidadoanimal.petcare.database.entities.VaccineJOINPet
 
 @Dao
 interface VaccineJOINPetDAO {
