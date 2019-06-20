@@ -20,7 +20,7 @@ interface ArticleDAO {
     fun getAllArticles(): LiveData<List<Article>>
 
     @Query("DELETE FROM Article WHERE idArticle==:idArticle")
-    fun deleteArticleByID(idArticle:Int): LiveData<List<Article>>
+    suspend fun deleteArticleByID(idArticle:Int)
 
     @Query("DELETE FROM Article")
     suspend fun deleteArticles()
