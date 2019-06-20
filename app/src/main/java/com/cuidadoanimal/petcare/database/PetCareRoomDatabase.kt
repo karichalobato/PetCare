@@ -14,7 +14,10 @@ import com.example.gameon.data.database.converters.Converters
         Pet::class,
         Article::class,
         Tag::class,
-        Vaccine::class, ArticleJOINTag::class, UserJOINArticle::class, VaccineJOINPet::class],
+        Vaccine::class,
+        ArticleJOINTag::class,
+        UserJOINArticle::class,
+        VaccineJOINPet::class],
     version = 1,
     exportSchema = false
 )

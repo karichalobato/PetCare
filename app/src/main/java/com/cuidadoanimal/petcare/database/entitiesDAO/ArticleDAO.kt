@@ -11,7 +11,7 @@ import com.cuidadoanimal.petcare.database.entities.Article
 interface ArticleDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertArticle(article: Article): LiveData<List<Article>>
+    suspend fun insertArticle(article: Article)
 
     @Query("SELECT * FROM Article WHERE title==:title")
     fun getArticleByTitle(title:String): LiveData<List<Article>>

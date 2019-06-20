@@ -13,14 +13,14 @@ import com.cuidadoanimal.petcare.database.entities.UserJOINArticle
 interface UserJOINArticleDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(ua:UserJOINArticle)
+    suspend fun insert(ua: UserJOINArticle)
 
-    @Query("SELECT * FROM ArticleJOINTag")
-    fun getAllUserJOINArticles():LiveData<List<UserJOINArticle>>
+    @Query("SELECT * FROM article_x_tag")
+    fun getAllUserJOINArticles(): LiveData<List<UserJOINArticle>>
 
     @Query("SELECT * FROM User INNER JOIN UserJOINArticle ON User.idUser = UserJOINArticle.userID WHERE UserJOINArticle.articleID=:userID")
-    fun getUserOfArticles(userID:Int): LiveData<List<User>>
+    fun getUserOfArticles(userID: Int): LiveData<List<User>>
 
     @Query("SELECT * FROM Article INNER JOIN UserJOINArticle ON Article.idArticle = UserJOINArticle.articleID WHERE UserJOINArticle.articleID=:articleID")
-    fun getArticlesOfUsers(articleID:Int): LiveData<List<Article>>
+    fun getArticlesOfUsers(articleID: Int): LiveData<List<Article>>
 }
