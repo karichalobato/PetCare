@@ -20,12 +20,12 @@ interface UserDAO {
     fun getAllUsers(): LiveData<List<User>>
 
     @Query("UPDATE User SET Profile_Picture = :profile_picture  WHERE Username = :username")
-    fun setUserImage(username: String,profile_picture:String)
+    fun setUserImage(username: String, profile_picture: String)
 
     @Query("DELETE FROM User")
     suspend fun deleteUsers()
 
     @Query("DELETE FROM User WHERE idUser==:idUser")
-    suspend fun deleteUserByID(idUser: Int): LiveData<List<User>>
+    suspend fun deleteUserByID(idUser: Int)
 
 }
