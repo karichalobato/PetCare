@@ -15,8 +15,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val MY_REQUEST_CODE: Int = 7117 // Any number you want
-    lateinit var providers : List<AuthUI.IdpConfig>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
