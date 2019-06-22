@@ -15,6 +15,7 @@ import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.view.*
 import java.util.*
 
 
@@ -37,7 +38,7 @@ class login : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private val MY_REQUEST_CODE: Int = 7117 // Any number you want
-    lateinit var providers : List<AuthUI.IdpConfig>
+    lateinit var providers: List<AuthUI.IdpConfig>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +47,6 @@ class login : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
 
 
         //Init
@@ -58,21 +58,6 @@ class login : Fragment() {
         )
 
         showSignInOptions()
-
-        //Event
-        btn_sign_out.setOnClickListener {
-            //SingOut
-            AuthUI.getInstance().signOut(this!!.context!!)
-                .addOnCompleteListener {
-                    btn_sign_out.isEnabled = false
-                    showSignInOptions() //Si todo es correcto se mostraran las optiones de entrada.
-                }
-                .addOnFailureListener {
-                        exception -> Toast.makeText(this!!.context!!,exception.message, Toast.LENGTH_SHORT).show()
-                }
-        }
-
-
     }
 
     override fun onCreateView(
@@ -80,8 +65,23 @@ class login : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        var v = inflater.inflate(R.layout.fragment_login, container, false)
+
+        v.btn_sign_out.setOnClickListener {
+            //SingOut
+            AuthUI.getInstance().signOut(this!!.context!!)
+                .addOnCompleteListener {
+                    btn_sign_out.isEnabled = false
+                    showSignInOptions() //Si todo es correcto se mostraran las optiones de entrada.
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this!!.context!!, exception.message, Toast.LENGTH_SHORT).show()
+                }
+        }
+
+        return v
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -89,18 +89,15 @@ class login : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == MY_REQUEST_CODE)
-        {
+        if (requestCode == MY_REQUEST_CODE) {
             val response = IdpResponse.fromResultIntent(data)
-            if (resultCode == Activity.RESULT_OK)
-            {
+            if (resultCode == Activity.RESULT_OK) {
                 val user = FirebaseAuth.getInstance().currentUser // Get current user
-                Toast.makeText(this!!.context!!,""+user!!.email,Toast.LENGTH_SHORT).show()
+                Toast.makeText(this!!.context!!, "" + user!!.email, Toast.LENGTH_SHORT).show()
 
                 btn_sign_out.isEnabled = true
-            }
-            else{
-                Toast.makeText(this!!.context!!,""+response!!.error!!.message,Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this!!.context!!, "" + response!!.error!!.message, Toast.LENGTH_SHORT).show()
 
             }
 
@@ -108,29 +105,11 @@ class login : Fragment() {
     }
 
     private fun showSignInOptions() {
-        startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
-            .setAvailableProviders(providers)
-            .setTheme(R.style.MyTheme)
-            .build(),MY_REQUEST_CODE)
+        startActivityForResult(
+            AuthUI.getInstance().createSignInIntentBuilder()
+                .setAvailableProviders(providers)
+                .setTheme(R.style.MyTheme)
+                .build(), MY_REQUEST_CODE
+        )
     }
 }
-
-
-// TODO: Rename method, update argument and hook method into UI event
-
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
-
-
-
-
