@@ -9,7 +9,7 @@
     </style>
 
     <style name="MyTheme" parent="AppTheme">
-        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
     </style>
 
 

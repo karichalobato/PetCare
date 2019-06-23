@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.DrawableRes
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
@@ -108,6 +109,7 @@ class login : Fragment() {
         startActivityForResult(
             AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(providers)
+                .setLogo(R.drawable.cat)
                 .setTheme(R.style.MyTheme)
                 .build(), MY_REQUEST_CODE
         )
