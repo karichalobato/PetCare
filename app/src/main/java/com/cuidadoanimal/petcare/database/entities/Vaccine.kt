@@ -17,5 +17,5 @@ data class Vaccine(
     val contraindications: String
 ) {
     @PrimaryKey(autoGenerate = true)
-    var idVaccine: Int = 0
+    var idVaccine: Long = 0
 }
