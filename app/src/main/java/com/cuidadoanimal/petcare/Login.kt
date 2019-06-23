@@ -15,46 +15,49 @@ import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
-import java.util.*
-
 
 class Login : Fragment() {
     private val MY_REQUEST_CODE: Int = 7117 // Any number you want
     lateinit var providers: List<AuthUI.IdpConfig>
+    private val auth = FirebaseAuth.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (auth.currentUser == null) {
 
-        //Init
-        providers = listOf(
-            AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.FacebookBuilder().build(),
-            AuthUI.IdpConfig.GoogleBuilder().build(),
-            AuthUI.IdpConfig.PhoneBuilder().build()
-        )
-
-        showSignInOptions()
+            providers = listOf(
+                AuthUI.IdpConfig.EmailBuilder().build(),
+                AuthUI.IdpConfig.FacebookBuilder().build(),
+                AuthUI.IdpConfig.GoogleBuilder().build(),
+                AuthUI.IdpConfig.PhoneBuilder().build()
+            )
+            showSignInOptions()
+        }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_login, container, false)
-        .apply {
-            btn_sign_out.setOnClickListener {
-                //SignOut
-                AuthUI.getInstance().signOut(this!!.context!!)
-                    .addOnCompleteListener {
-                        btn_sign_out.isEnabled = false
-                        welcome.isEnabled = false
-                        showSignInOptions()
-                    }
-                    .addOnFailureListener { exception ->
-                        Toast.makeText(this!!.context!!, exception.message, Toast.LENGTH_SHORT).show()
-                    }
-            }
+    ): View? = inflater.inflate(
+        R.layout.fragment_login,
+        container,
+        false
+    ).apply {
+        btn_sign_out.setOnClickListener {
+            //SignOut
+            AuthUI.getInstance().signOut(this!!.context!!)
+                .addOnCompleteListener {
+                    btn_sign_out.isEnabled = false
+                    welcome.isEnabled = false
+                    showSignInOptions()
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this!!.context!!, exception.message, Toast.LENGTH_SHORT).show()
+                }
         }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -68,7 +71,7 @@ class Login : Fragment() {
         if (requestCode == MY_REQUEST_CODE) {
             val response = IdpResponse.fromResultIntent(data)
             if (resultCode == Activity.RESULT_OK) {
-                val user = FirebaseAuth.getInstance().currentUser // Get current user
+                val user = auth.currentUser // Get current user
                 Toast.makeText(this!!.context!!, "" + user!!.email, Toast.LENGTH_SHORT).show()
                 welcome.isEnabled = true
                 btn_sign_out.isEnabled = true
