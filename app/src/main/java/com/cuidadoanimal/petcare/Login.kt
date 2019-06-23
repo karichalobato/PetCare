@@ -18,15 +18,7 @@ import kotlinx.android.synthetic.main.fragment_login.view.*
 import java.util.*
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-
-class login : Fragment() {
-    // TODO: Rename and change types of parameters
-
+class Login : Fragment() {
     private val MY_REQUEST_CODE: Int = 7117 // Any number you want
     lateinit var providers: List<AuthUI.IdpConfig>
 
@@ -34,13 +26,12 @@ class login : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         //Init
-        providers = Arrays.asList<AuthUI.IdpConfig>(
-            AuthUI.IdpConfig.EmailBuilder().build(), //Email login
-            AuthUI.IdpConfig.FacebookBuilder().build(), // Facebook login
-            AuthUI.IdpConfig.GoogleBuilder().build(), // Google login
-            AuthUI.IdpConfig.PhoneBuilder().build() // Phone login
+        providers = listOf(
+            AuthUI.IdpConfig.EmailBuilder().build(),
+            AuthUI.IdpConfig.FacebookBuilder().build(),
+            AuthUI.IdpConfig.GoogleBuilder().build(),
+            AuthUI.IdpConfig.PhoneBuilder().build()
         )
 
         showSignInOptions()
@@ -49,25 +40,21 @@ class login : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        var v = inflater.inflate(R.layout.fragment_login, container, false)
-
-        v.btn_sign_out.setOnClickListener {
-            //SingOut
-            AuthUI.getInstance().signOut(this!!.context!!)
-                .addOnCompleteListener {
-                    btn_sign_out.isEnabled = false
-                    welcome.isEnabled = false
-                    showSignInOptions() //Si todo es correcto se mostraran las optiones de entrada.
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(this!!.context!!, exception.message, Toast.LENGTH_SHORT).show()
-                }
+    ): View? = inflater.inflate(R.layout.fragment_login, container, false)
+        .apply {
+            btn_sign_out.setOnClickListener {
+                //SignOut
+                AuthUI.getInstance().signOut(this!!.context!!)
+                    .addOnCompleteListener {
+                        btn_sign_out.isEnabled = false
+                        welcome.isEnabled = false
+                        showSignInOptions()
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(this!!.context!!, exception.message, Toast.LENGTH_SHORT).show()
+                    }
+            }
         }
-
-        return v
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
