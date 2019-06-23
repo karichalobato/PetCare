@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "489147492025-qhbrlaate8mm498vh43965qu5mong2u6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cuidadoanimal.petcare",
+            "certificate_hash": "f9aec31c978597120a408e26e84c3bea4cadee81"
+          }
+        },
+        {
           "client_id": "489147492025-smffa21gtqkee5fb04eanrdtqi3nid27.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
