@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.Navigation
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
@@ -21,29 +23,17 @@ import java.util.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [login.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [login.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
+
 class login : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
     private val MY_REQUEST_CODE: Int = 7117 // Any number you want
     lateinit var providers: List<AuthUI.IdpConfig>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
 
 
         //Init
@@ -69,6 +59,7 @@ class login : Fragment() {
             AuthUI.getInstance().signOut(this!!.context!!)
                 .addOnCompleteListener {
                     btn_sign_out.isEnabled = false
+                    welcome.isEnabled = false
                     showSignInOptions() //Si todo es correcto se mostraran las optiones de entrada.
                 }
                 .addOnFailureListener { exception ->
@@ -81,7 +72,8 @@ class login : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        view.findViewById<TextView>(R.id.welcome)?.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.welcome_action, null))
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -91,7 +83,7 @@ class login : Fragment() {
             if (resultCode == Activity.RESULT_OK) {
                 val user = FirebaseAuth.getInstance().currentUser // Get current user
                 Toast.makeText(this!!.context!!, "" + user!!.email, Toast.LENGTH_SHORT).show()
-
+                welcome.isEnabled = true
                 btn_sign_out.isEnabled = true
             } else {
                 Toast.makeText(this!!.context!!, "" + response!!.error!!.message, Toast.LENGTH_SHORT).show()

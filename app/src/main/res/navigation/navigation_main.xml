@@ -5,5 +5,23 @@
             app:startDestination="@id/login">
 
     <fragment android:id="@+id/login" android:name="com.cuidadoanimal.petcare.login" android:label="fragment_login"
-              tools:layout="@layout/fragment_login"/>
+              tools:layout="@layout/fragment_login">
+        <action android:id="@+id/welcome_action" app:destination="@id/main"/>
+    </fragment>
+    <fragment android:id="@+id/settings" android:name="com.cuidadoanimal.petcare.settings"
+              android:label="fragment_settings" tools:layout="@layout/fragment_settings"/>
+    <fragment android:id="@+id/main" android:name="com.cuidadoanimal.petcare.main" android:label="fragment_main"
+              tools:layout="@layout/fragment_main">
+        <action android:id="@+id/action_main_to_settings" app:destination="@id/settings"/>
+        <action android:id="@+id/action_main_to_newpet" app:destination="@id/newpet"/>
+        <action android:id="@+id/action_main_to_pet" app:destination="@id/pet"/>
+    </fragment>
+    <fragment android:id="@+id/newpet" android:name="com.cuidadoanimal.petcare.newpet" android:label="fragment_newpet"
+              tools:layout="@layout/fragment_newpet"/>
+    <fragment android:id="@+id/pet" android:name="com.cuidadoanimal.petcare.pet" android:label="fragment_pet"
+              tools:layout="@layout/fragment_pet">
+        <action android:id="@+id/action_pet_to_vaccine" app:destination="@id/vaccine"/>
+    </fragment>
+    <fragment android:id="@+id/vaccine" android:name="com.cuidadoanimal.petcare.vaccine"
+              android:label="fragment_vaccine" tools:layout="@layout/fragment_vaccine"/>
 </navigation>
