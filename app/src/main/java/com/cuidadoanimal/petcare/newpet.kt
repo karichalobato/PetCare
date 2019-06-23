@@ -48,7 +48,7 @@ class newpet : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =inflater.inflate(R.layout.fragment_list_pet_item, container, false)
+        val view =inflater.inflate(R.layout.fragment_newpet , container, false)
         view.findViewById<Button>(R.id.btncreatePet)?.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_newpet_to_main, null))
         initSearchButton(view)
@@ -57,6 +57,16 @@ class newpet : Fragment() {
     }
 
 
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is NewPetListener) {
+            listenerTool = context
+        } else {
+            throw RuntimeException("Se necesita una implementación de  la interfaz")
+        }
+    }
 
 
 
