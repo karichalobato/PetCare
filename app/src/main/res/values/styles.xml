@@ -9,7 +9,8 @@
     </style>
 
     <style name="MyTheme" parent="AppTheme">
-        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:windowBackground">@drawable/gradiente_background</item>
+
     </style>
 
 
