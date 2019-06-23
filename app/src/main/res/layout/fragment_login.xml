@@ -6,13 +6,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-
     <Button
             android:id="@+id/btn_sign_out"
             android:text="SIGNOUT"
-            android:layout_centerInParent="true"
             android:enabled="false"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="391dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="198dp" android:layout_marginBottom="174dp"/>
+
+
+    <Button
+            android:id="@+id/welcome"
+            android:text="Welcome"
+            android:enabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" tools:layout_editor_absoluteY="203dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="151dp" android:layout_marginBottom="239dp"/>
+
 
 </RelativeLayout>
