@@ -18,25 +18,25 @@ import kotlinx.android.synthetic.main.fragment_newpet.view.*
 import kotlinx.android.synthetic.main.fragment_newpet.view.PetName
 
 
-
-
 class newpet : Fragment() {
 
 
-    var listenerTool :  NewPetListener? = null
+    var listenerTool: NewPetListener? = null
 
 
-    interface NewPetListener{
+    interface NewPetListener {
         fun insertpet(petname: String)
 
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
     }
-    fun initSearchButton(container:View) = container.btncreatePet.setOnClickListener {
-        Log.d("holi","quepex")
+
+    fun initSearchButton(container: View) = container.btncreatePet.setOnClickListener {
+        Log.d("holi", "quepex")
         listenerTool?.insertpet(PetName.text.toString())
     }
 
@@ -48,15 +48,14 @@ class newpet : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =inflater.inflate(R.layout.fragment_newpet , container, false)
+        val view = inflater.inflate(R.layout.fragment_newpet, container, false)
         view.findViewById<Button>(R.id.btncreatePet)?.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_newpet_to_main, null))
+            Navigation.createNavigateOnClickListener(R.id.action_newpet_to_main, null)
+        )
         initSearchButton(view)
         // Inflate the layout for this fragment
         return view
     }
-
-
 
 
     override fun onAttach(context: Context) {
@@ -69,12 +68,10 @@ class newpet : Fragment() {
     }
 
 
-
     override fun onDetach() {
         super.onDetach()
         listenerTool = null
     }
-
 
 
 }
