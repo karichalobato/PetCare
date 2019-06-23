@@ -11,7 +11,7 @@
     <Button
             android:id="@+id/btn_sign_out"
             android:text="SIGNOUT"
-            android:enabled="false"
+            android:enabled="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -23,7 +23,7 @@
     <Button
             android:id="@+id/welcome"
             android:text="Welcome"
-            android:enabled="false"
+            android:enabled="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
