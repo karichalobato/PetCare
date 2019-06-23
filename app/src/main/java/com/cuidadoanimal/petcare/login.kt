@@ -105,7 +105,7 @@ class login : Fragment() {
         startActivityForResult(
             AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(providers)
-                .setLogo(R.drawable.ic_cat_logo_login)
+                .setLogo(R.drawable.cat)
                 .setTheme(R.style.MyTheme)
                 .build(), MY_REQUEST_CODE
         )
