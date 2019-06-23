@@ -2,7 +2,7 @@ package com.cuidadoanimal.petcare
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-<<<<<<< HEAD
+
 import android.util.Log
 import android.widget.Toast
 import com.cuidadoanimal.petcare.R
@@ -14,8 +14,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
-=======
->>>>>>> 97e39a4580e32205efc4ca5dee70dd86d63efa20
+
 
 class MainActivity : AppCompatActivity(), newpet.NewPetListener {
     lateinit var viewModel:PetCareViewModel
