@@ -35,7 +35,6 @@ class login : Fragment() {
         super.onCreate(savedInstanceState)
 
 
-
         //Init
         providers = Arrays.asList<AuthUI.IdpConfig>(
             AuthUI.IdpConfig.EmailBuilder().build(), //Email login
@@ -73,7 +72,8 @@ class login : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<TextView>(R.id.welcome)?.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.welcome_action, null))
+            Navigation.createNavigateOnClickListener(R.id.welcome_action, null)
+        )
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -99,6 +99,7 @@ class login : Fragment() {
                 .setAvailableProviders(providers)
                 .setLogo(R.drawable.cat)
                 .setTheme(R.style.MyTheme)
+                .setIsSmartLockEnabled(false)
                 .build(), MY_REQUEST_CODE
         )
     }
