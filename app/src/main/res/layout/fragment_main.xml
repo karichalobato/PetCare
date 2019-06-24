@@ -28,7 +28,7 @@
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_pets"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_353sdp"/>
+                    android:layout_height="@dimen/_300sdp"/>
 
 
         </LinearLayout>
@@ -38,20 +38,20 @@
 
     <TextView
             android:text="Your pets"
-            android:layout_width="@dimen/_163sdp"
-            android:layout_height="@dimen/_88sdp" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:layout_marginEnd="@dimen/_207sdp"
-            android:id="@+id/textView" android:layout_marginTop="162dp" android:layout_marginRight="@dimen/_207sdp"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_70sdp" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:layout_marginEnd="@dimen/_180sdp"
+            android:id="@+id/textView" android:layout_marginTop="176dp" android:layout_marginRight="@dimen/_180sdp"
             android:gravity="center"
 
             android:autoText="false" app:autoSizeTextType="uniform"/>
     <Button
             android:text="New"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_86sdp" android:layout_alignParentRight="true"
+            android:layout_height="@dimen/_66sdp" android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" android:layout_alignParentTop="true"
-            android:layout_marginEnd="@dimen/_68sdp"
-            android:id="@+id/butnew" android:layout_marginTop="@dimen/_166sdp" android:layout_marginRight="@dimen/_68sdp"
+            android:layout_marginEnd="@dimen/_76sdp"
+            android:id="@+id/butnew" android:layout_marginTop="@dimen/_121sdp" android:layout_marginRight="@dimen/_76sdp"
 
 
             android:textColor="#FFFFFF"/>
