@@ -68,6 +68,11 @@ class Login : Fragment() {
         container,
         false
     ).apply {
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         btn_sign_out.setOnClickListener {
             //SignOut
             AuthUI.getInstance().signOut(this!!.context!!)
@@ -80,10 +85,6 @@ class Login : Fragment() {
                     Toast.makeText(this.context!!, exception.message, Toast.LENGTH_SHORT).show()
                 }
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         view.findViewById<TextView>(R.id.welcome)?.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.welcome_action, null)
         )

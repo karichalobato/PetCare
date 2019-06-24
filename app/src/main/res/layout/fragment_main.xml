@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="47dp"
+            android:layout_marginBottom="@dimen/_47sdp"
 
             android:layout_alignParentStart="true" android:layout_marginStart="0dp">
 
@@ -20,15 +20,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginEnd="@dimen/_50sdp"
         >
 
 
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_pets"
                     android:layout_width="match_parent"
-                    android:layout_height="333dp"/>
+                    android:layout_height="@dimen/_353sdp"/>
 
 
         </LinearLayout>
@@ -38,19 +38,20 @@
 
     <TextView
             android:text="Your pets"
-            android:layout_width="172dp"
-            android:layout_height="84dp" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:layout_marginEnd="213dp"
-            android:id="@+id/textView" android:layout_marginTop="118dp" android:layout_marginRight="213dp"
+            android:layout_width="@dimen/_163sdp"
+            android:layout_height="@dimen/_88sdp" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:layout_marginEnd="@dimen/_207sdp"
+            android:id="@+id/textView" android:layout_marginTop="162dp" android:layout_marginRight="@dimen/_207sdp"
             android:gravity="center"
 
             android:autoText="false" app:autoSizeTextType="uniform"/>
     <Button
             android:text="New"
-            android:layout_width="142dp"
-            android:layout_height="115dp" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:layout_marginEnd="21dp"
-            android:id="@+id/butnew" android:layout_marginTop="91dp" android:layout_marginRight="21dp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_86sdp" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" android:layout_alignParentTop="true"
+            android:layout_marginEnd="@dimen/_68sdp"
+            android:id="@+id/butnew" android:layout_marginTop="@dimen/_166sdp" android:layout_marginRight="@dimen/_68sdp"
 
 
             android:textColor="#FFFFFF"/>

@@ -38,7 +38,7 @@ class PetsAdapter(var items:List<Pet>): RecyclerView.Adapter<PetsAdapter.ViewHol
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Pet) = with(itemView) {
-       itemView.ttv_name.text = item.name
+       itemView.nombreTextView.text = item.name
 
         }
     }

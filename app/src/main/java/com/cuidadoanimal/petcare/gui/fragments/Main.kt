@@ -1,5 +1,6 @@
 package com.cuidadoanimal.petcare.gui.fragments
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,8 +10,10 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cuidadoanimal.petcare.R
+import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.adapters.PetsAdapter
 import kotlinx.android.synthetic.main.fragment_main.view.*
@@ -54,7 +57,15 @@ class Main : Fragment() {
         viewAdapter = PetsAdapter(ArrayList())
 
         view.rv_pets.adapter = this.viewAdapter
-        view.rv_pets.layoutManager = LinearLayoutManager(this.context)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
+            view.rv_pets.layoutManager = GridLayoutManager(this.context,3)
+        else {
+
+
+
+            view.rv_pets.layoutManager = LinearLayoutManager(this.context)
+        }
+
 
         viewModel.allPets.observe(this, Observer {
             viewAdapter.updateList(it)
