@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradiente_background"
+        android:layout_gravity="center"
+        tools:context=".MainActivity">
+    <Button
+            android:id="@+id/btn_sign_out"
+            android:text="SIGNOUT"
+            android:enabled="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="391dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="198dp" android:layout_marginBottom="174dp"/>
+
+
+    <Button
+            android:id="@+id/welcome"
+            android:text="Welcome"
+            android:enabled="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" tools:layout_editor_absoluteY="203dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="151dp" android:layout_marginBottom="239dp"/>
+
+
+</RelativeLayout>
