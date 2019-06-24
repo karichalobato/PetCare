@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/gradiente_background"
         android:layout_gravity="center"
-        tools:context=".MainActivity">
+        tools:context=".gui.activities.MainActivity">
     <Button
             android:id="@+id/btn_sign_out"
             android:text="SIGNOUT"

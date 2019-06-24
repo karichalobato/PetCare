@@ -32,10 +32,10 @@
                 android:value="@string/google_maps_key"/>
 
         <activity
-                android:name=".googleMaps.MapsActivity"
+                android:name="com.cuidadoanimal.petcare.data.api.googleMaps.MapsActivity"
                 android:label="@string/title_activity_maps">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".gui.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
