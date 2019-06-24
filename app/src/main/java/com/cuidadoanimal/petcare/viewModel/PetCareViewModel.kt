@@ -46,8 +46,12 @@ class PetCareViewModel(app: Application) : AndroidViewModel(app) {
         allArticleJOINTags = Repository.allArticleJOINTags
     }
 
-    fun insert(user: User) = viewModelScope.launch(Dispatchers.IO) {
-        Repository.insertUser(user)
+    fun insert(user: User): Long {
+        var id: Long = 0
+        viewModelScope.launch(Dispatchers.IO) {
+            id = Repository.insertUser(user)
+        }
+        return id
     }
 
     fun insert(pet: Pet) = viewModelScope.launch(Dispatchers.IO) {

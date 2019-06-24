@@ -13,18 +13,16 @@ import androidx.room.PrimaryKey
 )
 data class Pet(
 
-    @ColumnInfo(name = "Pet_Photo")
-    val pet_photo: String,
     @ColumnInfo(name = "Name")
-    val name: String,
+    val name: String? = "N/A",
     @ColumnInfo(name = "Owner")
-    val owner: Long,
+    val owner: Long = 1,
     @ColumnInfo(name = "Sex")
-    val sex: String,
+    val sex: String? = "N/A",
     @ColumnInfo(name = "Pet_Breed")
-    val pet_breed: String,
+    val pet_breed: String? = "N/A",
     @ColumnInfo(name = "Size")
-    val size: String
+    val size: String? = "N/A"
 ) {
     @PrimaryKey(autoGenerate = true)
     var idPet: Long = 0

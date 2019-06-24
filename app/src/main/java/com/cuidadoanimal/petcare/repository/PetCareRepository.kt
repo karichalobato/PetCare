@@ -27,13 +27,8 @@ class PetCareRepository(
 
     //User
     @WorkerThread
-    suspend fun insertUser(user: User) {
+    suspend fun insertUser(user: User): Long =
         UserDAO.insertUser(user)
-    }
-
-    fun setProjectImage(username: String, profile_picture: String) {
-        UserDAO.setUserImage(username, profile_picture)
-    }
 
     fun getUserByName(name: String): LiveData<List<User>> {
         return UserDAO.getUserByName(name)
@@ -57,10 +52,6 @@ class PetCareRepository(
 
     fun geyPetByName(name: String): LiveData<List<Pet>> {
         return PetDAO.geyPetByName(name)
-    }
-
-    fun setPetImage(name: String, pet_photo: String) {
-        PetDAO.setPetImage(name, pet_photo)
     }
 
     @WorkerThread

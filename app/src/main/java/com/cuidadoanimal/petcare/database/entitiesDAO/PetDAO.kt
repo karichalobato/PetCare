@@ -16,9 +16,6 @@ interface PetDAO {
     @Query("SELECT * FROM Pet WHERE name==:name")
     fun geyPetByName(name: String): LiveData<List<Pet>>
 
-    @Query("UPDATE Pet SET Pet_Photo = :pet_photo  WHERE Name = :name")
-    fun setPetImage(name: String, pet_photo: String)
-
     @Query("SELECT * FROM Pet")
     fun getAllPets(): LiveData<List<Pet>>
 

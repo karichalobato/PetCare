@@ -6,16 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "User")
 data class User(
-    @ColumnInfo(name = "Profile_Picture")
-    val profile_picture: String = "N/A",
     @ColumnInfo(name = "Name")
-    val name: String = "2 N/A",
-    @ColumnInfo(name = "Username")
-    val username: String = "N/A",
-    @ColumnInfo(name = "Password")
-    val password: String = "N/A",
+    var name: String? = "N/A",
     @ColumnInfo(name = "Email")
-    val email: String = "N/A"
+    var email: String? = "N/A"
 ) {
     @PrimaryKey(autoGenerate = true)
     var idUser: Long = 0
