@@ -13,7 +13,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/_47sdp"
 
-            android:layout_alignParentStart="true" android:layout_marginStart="0dp">
+            android:layout_alignParentStart="true" android:layout_marginStart="
+">
 
 
         <LinearLayout

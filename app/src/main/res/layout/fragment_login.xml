@@ -5,31 +5,43 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradiente_background"
+        android:background="@drawable/jodhpur_background"
         android:layout_gravity="center"
         tools:context=".gui.activities.MainActivity">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="218dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/cat"/>
     <Button
             android:id="@+id/btn_sign_out"
             android:text="SIGNOUT"
             android:enabled="true"
-            android:layout_width="wrap_content"
+            android:layout_width="206dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:textColor="@android:color/white"
+            android:theme="@style/MyButton"
             android:layout_alignParentStart="true" app:layout_constraintEnd_toEndOf="parent"
             tools:layout_editor_absoluteY="391dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="198dp" android:layout_marginBottom="174dp"/>
+            android:layout_marginStart="97dp" android:layout_marginBottom="273dp"/>
 
 
     <Button
             android:id="@+id/welcome"
             android:text="Welcome"
             android:enabled="true"
-            android:layout_width="wrap_content"
+            android:layout_width="206dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:textColor="@android:color/white"
+            android:theme="@style/MyButton"
             android:layout_alignParentStart="true" tools:layout_editor_absoluteY="203dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="151dp" android:layout_marginBottom="239dp"/>
+            android:layout_marginStart="94dp" android:layout_marginBottom="385dp"/>
 
 
 </RelativeLayout>
