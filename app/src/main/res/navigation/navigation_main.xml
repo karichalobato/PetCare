@@ -29,5 +29,7 @@
     <fragment android:id="@+id/list_pet_item" android:name="com.cuidadoanimal.petcare.gui.fragments.ListPetItem"
               android:label="fragment_list_pet_item" tools:layout="@layout/fragment_list_pet_item"/>
     <fragment android:id="@+id/signInFragment" android:name="com.cuidadoanimal.petcare.gui.fragments.SignInFragment"
-              android:label="fragment_sign_in" tools:layout="@layout/fragment_sign_in"/>
+              android:label="fragment_sign_in" tools:layout="@layout/fragment_sign_in">
+        <action android:id="@+id/action_sing" app:destination="@id/login"/>
+    </fragment>
 </navigation>

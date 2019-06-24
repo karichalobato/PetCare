@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.navigation.Navigation
 import com.cuidadoanimal.petcare.R
+import com.cuidadoanimal.petcare.gui.interfaces.OnDataPass
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -54,12 +57,19 @@ class SignInFragment : Fragment() {
         }
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        view.findViewById<TextView>(R.id.btn_signup)?.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_sing, null)
+        )
+    }
+
         override fun onDetach() {
             super.onDetach()
             listener = null
         }
 
-        interface OnDataPass {
-            fun saveUser(user: FirebaseUser)
-        }
+
     }

@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.cuidadoanimal.petcare.R
+import com.cuidadoanimal.petcare.gui.interfaces.OnDataPass
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
@@ -25,10 +26,6 @@ class Login : Fragment() {
     private val auth = FirebaseAuth.getInstance()
 
     private var listenerTool: OnDataPass? = null
-
-    interface OnDataPass {
-        fun saveUser(user: FirebaseUser)
-    }
 
     fun saveUser(user: FirebaseUser) {    // mandarlo a llamar con los datos completos luego de la validación de auth
         listenerTool?.saveUser(user)

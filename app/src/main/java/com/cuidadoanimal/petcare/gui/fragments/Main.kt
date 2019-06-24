@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.adapters.PetsAdapter
@@ -54,7 +55,7 @@ class Main : Fragment() {
         viewAdapter = PetsAdapter(ArrayList())
 
         view.rv_pets.adapter = this.viewAdapter
-        view.rv_pets.layoutManager = LinearLayoutManager(this.context)
+        view.rv_pets.layoutManager = LinearLayoutManager(this.context) as RecyclerView.LayoutManager?
 
         viewModel.allPets.observe(this, Observer {
             viewAdapter.updateList(it)

@@ -12,13 +12,14 @@ import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.fragments.Login
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
 import com.cuidadoanimal.petcare.gui.fragments.SignInFragment
+import com.cuidadoanimal.petcare.gui.interfaces.OnDataPass
 import com.google.firebase.auth.FirebaseUser
 
 
 class MainActivity :
     AppCompatActivity(),
     NewPet.NewPetListener,
-    SignInFragment.OnDataPass {
+    OnDataPass {
 
     lateinit var viewModel: PetCareViewModel
     private var userID: Long = 0
