@@ -1,5 +1,6 @@
 package com.cuidadoanimal.petcare.gui.activities
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -10,13 +11,14 @@ import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.fragments.Login
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
+import com.cuidadoanimal.petcare.gui.fragments.SignInFragment
 import com.google.firebase.auth.FirebaseUser
 
 
 class MainActivity :
     AppCompatActivity(),
     NewPet.NewPetListener,
-    Login.OnDataPass {
+    SignInFragment.OnDataPass {
 
     lateinit var viewModel: PetCareViewModel
     private var userID: Long = 0

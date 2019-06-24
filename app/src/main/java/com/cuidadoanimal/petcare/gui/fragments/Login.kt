@@ -43,11 +43,14 @@ class Login : Fragment() {
         }
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        listenerTool = null
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val user = auth.currentUser
-        if (user == null) {
-
             providers = listOf(
                 AuthUI.IdpConfig.EmailBuilder().build(),
                 AuthUI.IdpConfig.FacebookBuilder().build(),
@@ -55,8 +58,6 @@ class Login : Fragment() {
                 AuthUI.IdpConfig.PhoneBuilder().build()
             )
             showSignInOptions()
-
-        }
     }
 
     override fun onCreateView(
@@ -95,7 +96,7 @@ class Login : Fragment() {
             val response = IdpResponse.fromResultIntent(data)
             if (resultCode == Activity.RESULT_OK) {
                 val user = auth.currentUser // Get current user
-                saveUser(user!!) // TODO("Usuario no registrado en base de datos local") Guardar al usuario y mandar el ID como parámetro entre destinos en NavEditor
+                saveUser(user!!)
                 Toast.makeText(this.context!!, "" + user.email, Toast.LENGTH_SHORT).show()
                 welcome.isEnabled = true
                 btn_sign_out.isEnabled = true

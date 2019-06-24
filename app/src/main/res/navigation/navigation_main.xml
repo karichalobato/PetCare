@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_main"
-            app:startDestination="@id/login">
+            app:startDestination="@id/signInFragment">
 
     <fragment android:id="@+id/login" android:name="com.cuidadoanimal.petcare.gui.fragments.Login" android:label="fragment_login"
               tools:layout="@layout/fragment_login">
@@ -28,4 +28,6 @@
               android:label="fragment_vaccine" tools:layout="@layout/fragment_vaccine"/>
     <fragment android:id="@+id/list_pet_item" android:name="com.cuidadoanimal.petcare.gui.fragments.ListPetItem"
               android:label="fragment_list_pet_item" tools:layout="@layout/fragment_list_pet_item"/>
+    <fragment android:id="@+id/signInFragment" android:name="com.cuidadoanimal.petcare.gui.fragments.SignInFragment"
+              android:label="fragment_sign_in" tools:layout="@layout/fragment_sign_in"/>
 </navigation>
