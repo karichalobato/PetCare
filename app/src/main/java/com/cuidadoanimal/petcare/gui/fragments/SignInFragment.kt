@@ -82,8 +82,8 @@ class SignInFragment : Fragment() {
                         }
                     }
                 })
-
-        }*/
+*/
+        }
 
     }
 
