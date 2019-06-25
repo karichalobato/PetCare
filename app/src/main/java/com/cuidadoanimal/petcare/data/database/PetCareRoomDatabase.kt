@@ -13,16 +13,16 @@ import androidx.room.migration.Migration
 
 
 @Database(
-    entities = [User::class,
-        Pet::class,
-        Article::class,
-        Tag::class,
-        Vaccine::class,
-        ArticleJOINTag::class,
-        UserJOINArticle::class,
-        VaccineJOINPet::class],
-    version = 2,
-    exportSchema = false
+        entities = [User::class,
+            Pet::class,
+            Article::class,
+            Tag::class,
+            Vaccine::class,
+            ArticleJOINTag::class,
+            UserJOINArticle::class,
+            VaccineJOINPet::class],
+        version = 3,
+        exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class PetCareRoomDatabase : RoomDatabase() {
@@ -53,11 +53,21 @@ abstract class PetCareRoomDatabase : RoomDatabase() {
             }
         }
 
+        private val MIGRATION_2_3: Migration = object : Migration(2, 3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+
+                database.execSQL("CREATE TABLE `Pet_backup` AS SELECT `idPet`, `Name`, `Owner`, `Sex`, `Pet_Breed` FROM `Pet`")
+                database.execSQL("DROP TABLE `Pet`")
+                database.execSQL("ALTER TABLE `Pet_backup` RENAME TO `Pet`")
+
+            }
+        }
+
         @Volatile
         private var INSTANCE: PetCareRoomDatabase? = null
 
         fun getInstance(
-            context: Context
+                context: Context
         ): PetCareRoomDatabase {
             val temInstance = INSTANCE
             if (temInstance != null) {
@@ -65,13 +75,13 @@ abstract class PetCareRoomDatabase : RoomDatabase() {
             }
             synchronized(this) {
                 val instance = Room
-                    .databaseBuilder(
-                        context, PetCareRoomDatabase::class.java,
-                        "PetCare_DataBase"
-                    )
-                    .fallbackToDestructiveMigration()
-                    .addMigrations(MIGRATION_1_2)
-                    .build()
+                        .databaseBuilder(
+                                context, PetCareRoomDatabase::class.java,
+                                "PetCare_DataBase"
+                        )
+                        .fallbackToDestructiveMigration()
+                        .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                        .build()
                 INSTANCE = instance
                 return instance
             }
