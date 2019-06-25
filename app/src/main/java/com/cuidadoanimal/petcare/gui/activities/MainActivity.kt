@@ -42,7 +42,7 @@ class MainActivity :
 
         val pet = Pet(           // TODO("Solicitar datos de mascota desde UI.")
                 name = petName,
-                breed = petBreed
+                pet_breed = petBreed,
                 owner = 1 /* TODO("ID del propietario quemado.") Acceder al ID del usuario actual en Room y mandarlo como FK*/
         )
 
