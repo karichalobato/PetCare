@@ -8,15 +8,15 @@ import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
-import com.cuidadoanimal.petcare.gui.fragments.Login
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
+import com.cuidadoanimal.petcare.gui.interfaces.OnDataPass
 import com.google.firebase.auth.FirebaseUser
 
 
 class MainActivity :
     AppCompatActivity(),
     NewPet.NewPetListener,
-    Login.OnDataPass {
+    OnDataPass {
 
     lateinit var viewModel: PetCareViewModel
     private var userID: Long = 0

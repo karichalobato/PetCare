@@ -12,12 +12,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.cuidadoanimal.petcare.R
+import com.cuidadoanimal.petcare.gui.interfaces.OnDataPass
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.android.synthetic.main.fragment_login.view.*
 
 class Login : Fragment() {
     private val MY_REQUEST_CODE: Int = 7117 // Any number you want
@@ -26,11 +26,7 @@ class Login : Fragment() {
 
     private var listenerTool: OnDataPass? = null
 
-    interface OnDataPass {
-        fun saveUser(user: FirebaseUser)
-    }
-
-    fun saveUser(user: FirebaseUser) {    // mandarlo a llamar con los datos completos luego de la validación de auth
+    fun saveUser(user: FirebaseUser) {
         listenerTool?.saveUser(user)
     }
 
@@ -43,11 +39,14 @@ class Login : Fragment() {
         }
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        listenerTool = null
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val user = auth.currentUser
-        if (user == null) {
-
             providers = listOf(
                 AuthUI.IdpConfig.EmailBuilder().build(),
                 AuthUI.IdpConfig.FacebookBuilder().build(),
@@ -55,8 +54,6 @@ class Login : Fragment() {
                 AuthUI.IdpConfig.PhoneBuilder().build()
             )
             showSignInOptions()
-
-        }
     }
 
     override fun onCreateView(
@@ -67,9 +64,7 @@ class Login : Fragment() {
         R.layout.fragment_login,
         container,
         false
-    ).apply {
-
-    }
+    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -96,7 +91,7 @@ class Login : Fragment() {
             val response = IdpResponse.fromResultIntent(data)
             if (resultCode == Activity.RESULT_OK) {
                 val user = auth.currentUser // Get current user
-                saveUser(user!!) // TODO("Usuario no registrado en base de datos local") Guardar al usuario y mandar el ID como parámetro entre destinos en NavEditor
+                saveUser(user!!)
                 Toast.makeText(this.context!!, "" + user.email, Toast.LENGTH_SHORT).show()
                 welcome.isEnabled = true
                 btn_sign_out.isEnabled = true

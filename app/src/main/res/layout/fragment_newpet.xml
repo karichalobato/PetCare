@@ -38,7 +38,7 @@
                     android:paddingEnd="10dp"
                     android:paddingStart="10dp"
                     android:textColor="@color/colorAccent"
-                    android:textColorHint="@color/colorBackground"
+                    android:textColorHint="@color/place_autocomplete_search_hint"
                     android:textSize="15sp"/>
 
 
