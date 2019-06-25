@@ -1,4 +1,4 @@
-package com.cuidadoanimal.petcare.data.api.googleMaps
+package com.cuidadoanimal.petcare.gui.activities
 
 import android.app.Activity
 import android.content.Intent
@@ -132,7 +132,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         ) {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                LOCATION_PERMISSION_REQUEST_CODE
             )
             return
         }
@@ -251,7 +252,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val builder = PlacePicker.IntentBuilder()
 
         try {
-            startActivityForResult(builder.build(this@MapsActivity), PLACE_PICKER_REQUEST)
+            startActivityForResult(builder.build(this@MapsActivity),
+                PLACE_PICKER_REQUEST
+            )
         } catch (e: GooglePlayServicesRepairableException) {
             e.printStackTrace()
         } catch (e: GooglePlayServicesNotAvailableException) {
