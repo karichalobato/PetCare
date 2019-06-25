@@ -16,4 +16,6 @@
     <string name="btn_link_to_register">¿No eres miembro? ¡Regístrate!</string>
     <string name="btn_link_to_login">Already registered. Login Me!</string>
     <string name="btn_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 </resources>

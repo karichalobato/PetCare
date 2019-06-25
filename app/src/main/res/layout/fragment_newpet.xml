@@ -49,11 +49,30 @@
                 android:textColorHint="@color/place_autocomplete_search_hint"
                 android:textSize="@dimen/_15sdp" />
 
-            <!--<RadioGroup
+            <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-            </RadioGroup>-->
+
+                <RadioGroup
+                    android:id="@+id/rg_pet_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_sex_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/female" />
+
+                    <RadioButton
+                        android:id="@+id/rb_sex_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/male" />
+                </RadioGroup>
+            </RadioGroup>
 
             <Button
                 android:id="@+id/btncreatePet"
