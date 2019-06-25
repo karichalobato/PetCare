@@ -20,7 +20,7 @@ class NewPet : Fragment() {
     var listenerTool: NewPetListener? = null
 
     interface NewPetListener {
-        fun insertPet(petName: String)
+        fun insertPet(petName: String, petBreed: String)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,28 +28,22 @@ class NewPet : Fragment() {
     }
 
     fun initSearchButton(container: View) =
-        container.btncreatePet.setOnClickListener {
-            listenerTool?.insertPet(PetName.text.toString())
-        }
-
-    //fun initSearchButton(container:View) = container.btncreateMatch.setOnClickListener {
-    //   listenerTool?.insertMatch{val match: Match=Match(team1 = container.team1.text.toString(),
-    //        team2 = container.team2.text.toString(),date = "dd/mm/yy",commit = "nice",id = 0)}
-    //  }
+            container.btncreatePet.setOnClickListener {
+                listenerTool?.insertPet(PetName.text.toString(), PetBreed.text.toString())
+            }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_newpet, container, false)
         view.findViewById<Button>(R.id.btncreatePet)?.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_newpet_to_main, null)
+                Navigation.createNavigateOnClickListener(R.id.action_newpet_to_main, null)
         )
         initSearchButton(view)
         // Inflate the layout for this fragment
         return view
     }
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
