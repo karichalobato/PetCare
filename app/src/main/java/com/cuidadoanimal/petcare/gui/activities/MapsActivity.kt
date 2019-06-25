@@ -28,6 +28,7 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.IOException
+import java.lang.Exception
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     override fun onMarkerClick(p0: Marker?): Boolean = false
@@ -258,6 +259,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         } catch (e: GooglePlayServicesRepairableException) {
             e.printStackTrace()
         } catch (e: GooglePlayServicesNotAvailableException) {
+            e.printStackTrace()
+        }  catch (e: Exception){
             e.printStackTrace()
         }
     }

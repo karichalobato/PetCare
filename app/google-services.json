@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "489147492025-pb64mc66lofu92s3tpjd99mqheignllv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cuidadoanimal.petcare",
+            "certificate_hash": "a7487d53ea936a38392f7a1fc2090fd50f8a5d2c"
+          }
+        },
+        {
+          "client_id": "489147492025-etkvo7rolm8jar03p2ps3vdoaebfl1o9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cuidadoanimal.petcare",
+            "certificate_hash": "c4c1b4d69225f2741b825e2d6b6877a53664c3a1"
+          }
+        },
+        {
           "client_id": "489147492025-qhbrlaate8mm498vh43965qu5mong2u6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -37,7 +53,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZ8S9dYaKBQUudLGeMJIRDsol7sL6XSVo"
+          "current_key": "AIzaSyAx9vzvzeJhobPPYaEUHTcYjT1sD4LWwWM"
         }
       ],
       "services": {
