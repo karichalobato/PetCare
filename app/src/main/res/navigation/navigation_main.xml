@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_main"
-            app:startDestination="@id/signInFragment">
+            app:startDestination="@id/login">
 
     <fragment android:id="@+id/login" android:name="com.cuidadoanimal.petcare.gui.fragments.Login" android:label="fragment_login"
               tools:layout="@layout/fragment_login">
