@@ -20,9 +20,7 @@ data class Pet(
     @ColumnInfo(name = "Sex")
     val sex: String? = "N/A",
     @ColumnInfo(name = "Pet_Breed")
-    val pet_breed: String? = "N/A",
-    @ColumnInfo(name = "Size")
-    val size: String? = "N/A"
+    val pet_breed: String? = "N/A"
 ) {
     @PrimaryKey(autoGenerate = true)
     var idPet: Long = 0

@@ -15,9 +15,9 @@ import com.google.firebase.auth.FirebaseUser
 
 
 class MainActivity :
-    AppCompatActivity(),
-    NewPet.NewPetListener,
-    OnDataPass {
+        AppCompatActivity(),
+        NewPet.NewPetListener,
+        OnDataPass {
 
     lateinit var viewModel: PetCareViewModel
     private var userID: Long = 0
@@ -34,16 +34,17 @@ class MainActivity :
         }
 
         userID = /* Guardar ID del registro nuevo */
-            viewModel.insert(newUser)
+                viewModel.insert(newUser)
 
 
     }
 
-    override fun insertPet(petName: String) {
+    override fun insertPet(petName: String, petBreed: String) {
 
         val pet = Pet(           // TODO("Solicitar datos de mascota desde UI.")
-            name = petName,
-            owner = 1 /* TODO("ID del propietario quemado.") Acceder al ID del usuario actual en Room y mandarlo como FK*/
+                name = petName,
+                pet_breed = petBreed,
+                owner = 1 /* TODO("ID del propietario quemado.") Acceder al ID del usuario actual en Room y mandarlo como FK*/
         )
 
         viewModel.insert(pet)

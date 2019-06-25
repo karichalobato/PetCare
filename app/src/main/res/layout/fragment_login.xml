@@ -30,8 +30,8 @@
             tools:layout_editor_absoluteY="@dimen/_203sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/_55sdp"
-            android:layout_marginBottom="@dimen/_203sdp"
+            android:layout_marginStart="@dimen/_60sdp"
+            android:layout_marginBottom="@dimen/_160sdp"
             android:background="#F97CC8"/>
 
     <Button
@@ -48,8 +48,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:layout_editor_absoluteY="@dimen/_391sdp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/_55sdp"
-            android:layout_marginBottom="@dimen/_160sdp"
+            android:layout_marginStart="@dimen/_60sdp"
+            android:layout_marginBottom="@dimen/_100sdp"
             android:background="#D22D92"/>
 
 </RelativeLayout>
