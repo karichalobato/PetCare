@@ -29,7 +29,7 @@
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_pets"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_300sdp"
+                    android:layout_height="@dimen/_290sdp"
                     android:layout_marginTop="@dimen/_100sdp"
                     android:background="#D7BDE2"/>
 
@@ -48,11 +48,11 @@
             android:layout_alignParentTop="true"
             android:layout_marginEnd="@dimen/_100sdp"
             android:id="@+id/textView"
-            android:layout_marginTop="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_38sdp"
             android:gravity="center"
             android:textColor="@android:color/white"
             android:autoText="false"
-            app:autoSizeTextType="uniform"/>
+            app:autoSizeTextType="uniform" android:layout_marginRight="120dp"/>
 
     <Button
             android:id="@+id/butnew"
@@ -62,9 +62,9 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="@dimen/_90sdp"
-            android:layout_marginTop="@dimen/_160sdp"
+            android:layout_marginEnd="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_122sdp"
             android:background="#F97CC8"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" android:layout_marginRight="106dp"/>
 
 </RelativeLayout>

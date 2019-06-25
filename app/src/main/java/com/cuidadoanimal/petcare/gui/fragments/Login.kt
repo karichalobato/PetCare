@@ -3,6 +3,7 @@ package com.cuidadoanimal.petcare.gui.fragments
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -47,6 +48,7 @@ class Login : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         if (auth.currentUser == null) {
             providers = listOf(
                 AuthUI.IdpConfig.EmailBuilder().build(),
