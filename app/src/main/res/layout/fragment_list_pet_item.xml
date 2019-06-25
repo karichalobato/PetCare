@@ -3,20 +3,24 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="vertical"
-android:background="@color/fui_transparent">
+              android:background="@drawable/sound_cloud_background">
 
     <ImageView
             android:id="@+id/fotoImageView"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_width="@dimen/_96sdp"
+            android:layout_height="@dimen/_96sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"/>
 
     <TextView
             android:id="@+id/nombreTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
             android:gravity="center_horizontal"
             android:text="@string/app_name"
+            android:textSize="@dimen/_18sdp"
+            android:textColor="@android:color/white"
             android:textAllCaps="true" />
 
 </LinearLayout>

@@ -3,61 +3,51 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
-                tools:context="com.cuidadoanimal.petcare.login">
+                android:background="@drawable/sound_cloud_background"
+                tools:context="com.cuidadoanimal.petcare.gui.fragments.Login">
 
 
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="277dp"
-
-            android:layout_alignParentStart="true" android:layout_marginStart="-3dp">
+            android:layout_marginBottom="@dimen/_125sdp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_3sdp">
 
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
-        >
-
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginEnd="@dimen/_50sdp">
 
             <AutoCompleteTextView
                     android:id="@+id/PetName"
                     android:inputType="textEmailAddress"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="10dp"
-
-                    android:drawablePadding="10dp"
-
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:drawablePadding="@dimen/_10sdp"
                     android:hint="@string/pet_name"
-                    android:paddingEnd="10dp"
-                    android:paddingStart="10dp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_10sdp"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/place_autocomplete_search_hint"
-                    android:textSize="15sp"/>
-
-
-
-
-
+                    android:textSize="@dimen/_20sdp"/>
 
             <Button
                     android:id="@+id/btncreatePet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/create"
-                    android:textColor="#FFFFFF"/>
-
+                    android:background="#85c1e9"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@android:color/white"/>
 
         </LinearLayout>
-
 
     </ScrollView>
 
