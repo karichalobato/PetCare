@@ -47,6 +47,7 @@ class Login : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (auth.currentUser == null) {
             providers = listOf(
                 AuthUI.IdpConfig.EmailBuilder().build(),
                 AuthUI.IdpConfig.FacebookBuilder().build(),
@@ -54,6 +55,7 @@ class Login : Fragment() {
                 AuthUI.IdpConfig.PhoneBuilder().build()
             )
             showSignInOptions()
+        }
     }
 
     override fun onCreateView(
