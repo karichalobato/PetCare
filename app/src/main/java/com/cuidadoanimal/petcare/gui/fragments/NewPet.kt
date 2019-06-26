@@ -32,7 +32,10 @@ class NewPet : Fragment(), View.OnClickListener {
 
             if (PetName.text.isEmpty() || PetBreed.text.isEmpty()) {
                 Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()
-            } else listenerTool?.insertPet(PetName.text.toString(), PetBreed.text.toString(), sex)
+            } else {
+                Toast.makeText(this.context!!, "Mascota añadida exitosamente", Toast.LENGTH_SHORT).show()
+                listenerTool?.insertPet(PetName.text.toString(), PetBreed.text.toString(), sex)
+            }
         }
 
     override fun onCreateView(
