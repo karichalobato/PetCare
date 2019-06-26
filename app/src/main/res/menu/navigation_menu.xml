@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_user"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Usuario" />
+
+    <item
+        android:id="@+id/action_articles"
+        android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
+        android:title="Artículos" />
+
+    <item
+        android:id="@+id/action_to_map"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Mapa" />
+</menu>

@@ -15,27 +15,31 @@ import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
 import com.cuidadoanimal.petcare.gui.interfaces.OnDataPass
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity :
         AppCompatActivity(),
-        NewPet.NewPetListener,
-        OnDataPass {
+        NewPet.NewPetListener {
     private var doubleBackToExitPressedOnce = false
+
+    private val auth = FirebaseAuth.getInstance()
 
     lateinit var viewModel: PetCareViewModel
     private var userID: Long = 0
 
-    override fun saveUser(user: FirebaseUser) {
+    fun saveUser(displayName: String, email: String) {
 
         // Ingresar el usuario recientemente registrado, a la base de datos.
         var newUser = User()  // Crear nuevo usuario
 
         with(newUser) {
             // Asignar los valores del usuario actual
-            name = user.displayName
-            email = user.email
+            this.name = displayName
+            this.email = email
         }
 
         userID = /* Guardar ID del registro nuevo */
@@ -56,11 +60,19 @@ class MainActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
+
         viewModel = ViewModelProviders.of(this).get(PetCareViewModel::class.java)
         if (resources.getBoolean(R.bool.portrait_only)) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
         }
+
+        var displayName: String? = intent?.getStringExtra("displayName")
+        var email: String? = intent?.getStringExtra("email")
+
+        if (displayName != null && email != null) saveUser(displayName, email)
+
     }
 
     override fun onBackPressed() {
@@ -74,4 +86,6 @@ class MainActivity :
 
         Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
+
+
 }

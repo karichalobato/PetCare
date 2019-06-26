@@ -109,7 +109,8 @@ class Login : Fragment() {
 
     private fun showSignInOptions() {
         startActivityForResult(
-            AuthUI.getInstance().createSignInIntentBuilder()
+            AuthUI.getInstance()
+                .createSignInIntentBuilder()
                 .setAvailableProviders(providers)  // TODO("Providers no inicializado con persistencia de sesión.") App crashea al querer cerrar sesión porque no se ejecutó instrucción que inicializa luego del registro, debido a la persistencia.
                 .setLogo(R.drawable.cat)
                 .setTheme(R.style.MyTheme)
