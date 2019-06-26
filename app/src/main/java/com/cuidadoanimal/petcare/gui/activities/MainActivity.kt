@@ -3,6 +3,8 @@ package com.cuidadoanimal.petcare.gui.activities
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.RadioButton
 
 import androidx.lifecycle.ViewModelProviders
 import com.cuidadoanimal.petcare.R
@@ -15,9 +17,9 @@ import com.google.firebase.auth.FirebaseUser
 
 
 class MainActivity :
-        AppCompatActivity(),
-        NewPet.NewPetListener,
-        OnDataPass {
+    AppCompatActivity(),
+    NewPet.NewPetListener,
+    OnDataPass {
 
     lateinit var viewModel: PetCareViewModel
     private var userID: Long = 0
@@ -34,19 +36,19 @@ class MainActivity :
         }
 
         userID = /* Guardar ID del registro nuevo */
-                viewModel.insert(newUser)
+            viewModel.insert(newUser)
 
 
     }
 
-    override fun insertPet(petName: String, petBreed: String) {
+    override fun insertPet(petName: String, petBreed: String, petSex: String) {
 
-        val pet = Pet(           // TODO("Solicitar datos de mascota desde UI.")
-                name = petName,
-                pet_breed = petBreed,
-                owner = 1 /* TODO("ID del propietario quemado.") Acceder al ID del usuario actual en Room y mandarlo como FK*/
+        val pet = Pet(
+            name = petName,
+            pet_breed = petBreed,
+            owner = 1, /* TODO("ID del propietario quemado.") Acceder al ID del usuario actual en Room y mandarlo como FK*/
+            sex = petSex
         )
-
         viewModel.insert(pet)
     }
 
@@ -55,7 +57,7 @@ class MainActivity :
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         viewModel = ViewModelProviders.of(this).get(PetCareViewModel::class.java)
-        if(getResources().getBoolean(R.bool.portrait_only)){
+        if (getResources().getBoolean(R.bool.portrait_only)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
     }
