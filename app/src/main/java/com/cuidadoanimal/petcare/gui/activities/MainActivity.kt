@@ -17,6 +17,7 @@ import com.cuidadoanimal.petcare.gui.fragments.NewPet
 import androidx.navigation.ui.setupWithNavController
 import com.cuidadoanimal.petcare.gui.fragments.MapsFragment
 import com.cuidadoanimal.petcare.gui.fragments.ArticlesFragment
+import com.cuidadoanimal.petcare.gui.fragments.Vaccine
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -25,9 +26,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity :
     AppCompatActivity(),
     NewPet.NewPetListener,
-    MapsFragment.OnFragmentInteractionListener,
-    ArticlesFragment.OnFragmentInteractionListener {
-    override fun interaction(uri: Uri) {
+    ArticlesFragment.OnFragmentInteractionListener,
+    Vaccine.OnFragmentInteractionListener {
+
+    override fun onInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

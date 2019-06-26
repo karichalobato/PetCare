@@ -17,7 +17,7 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
  * [ListPetItem.OnFragmentInteractionListener] interface
- * to handle interaction events.
+ * to handle onInteraction events.
  * Use the [ListPetItem.newInstance] factory method to
  * create an instance of this fragment.
  *
