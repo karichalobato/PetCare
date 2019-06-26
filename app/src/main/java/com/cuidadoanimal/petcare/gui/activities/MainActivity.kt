@@ -6,17 +6,22 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity :
-        AppCompatActivity(),
-        NewPet.NewPetListener {
+    AppCompatActivity(),
+    NewPet.NewPetListener {
     private var doubleBackToExitPressedOnce = false
 
     private val auth = FirebaseAuth.getInstance()
@@ -36,16 +41,16 @@ class MainActivity :
         }
 
         userID = /* Guardar ID del registro nuevo */
-                viewModel.insert(newUser)
+            viewModel.insert(newUser)
     }
 
     override fun insertPet(petName: String, petBreed: String, petSex: String) {
 
         val pet = Pet(
-                name = petName,
-                pet_breed = petBreed,
-                owner = 1, /* TODO("ID del propietario quemado.") Acceder al ID del usuario actual en Room y mandarlo como FK*/
-                sex = petSex
+            name = petName,
+            pet_breed = petBreed,
+            owner = 1, /* TODO("ID del propietario quemado.") Acceder al ID del usuario actual en Room y mandarlo como FK*/
+            sex = petSex
         )
         viewModel.insert(pet)
     }
@@ -66,6 +71,9 @@ class MainActivity :
 
         if (displayName != null && email != null) saveUser(displayName, email)
 
+        val navController = findNavController(nav_host_fragment)
+        setupBottomNavMenu(navController)
+
     }
 
     override fun onBackPressed() {
@@ -80,5 +88,15 @@ class MainActivity :
         Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
 
+//    /*override */fun setupBottomNavMenu(navController: NavController) {
+//        findViewById<Button>(R.id.main).setOnClickListener(
+//                Navigation.createNavigateOnClickListener(R.id.main, null)
+//        )
 
+//    }
+
+    private fun setupBottomNavMenu(navController: NavController) {
+        findViewById<BottomNavigationView>(R.id.bottom_nav_view)
+            .setupWithNavController(navController)
+    }
 }
