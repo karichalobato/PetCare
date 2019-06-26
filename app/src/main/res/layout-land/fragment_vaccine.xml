@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".gui.fragments.Vaccine">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/witching_background"
+                tools:context="com.cuidadoanimal.petcare.gui.fragments.Main">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_43sdp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_184sdp">
 
-</FrameLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginEnd="@dimen/_50sdp"
+        >
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_pets"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_272sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_50sdp"
+                    android:background="#D7BDE2"/>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <TextView
+            android:id="@+id/textView"
+            android:text="Your pets"
+            android:layout_width="@dimen/_105sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginEnd="@dimen/_420sdp"
+            android:gravity="center"
+            android:autoText="false"
+            android:textColor="@android:color/white"
+            app:autoSizeTextType="uniform"/>
+    <Button
+            android:id="@+id/butnew"
+            android:text="New Pet"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_160sdp"
+            android:layout_marginEnd="@dimen/_400sdp"
+            android:background="#F97CC8"
+            android:textColor="@android:color/white"/>
+
+</RelativeLayout>

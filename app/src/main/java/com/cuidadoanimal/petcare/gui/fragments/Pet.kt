@@ -7,7 +7,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.cuidadoanimal.petcare.R
+import kotlinx.android.synthetic.main.fragment_list_pet_item.view.*
+import kotlinx.android.synthetic.main.fragment_newpet.*
+import kotlinx.android.synthetic.main.fragment_newpet.view.*
+import kotlinx.android.synthetic.main.fragment_newpet.view.PetBreed
+import kotlinx.android.synthetic.main.fragment_newpet.view.PetName
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,7 +37,7 @@ class Pet : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,24 +55,17 @@ class Pet : Fragment() {
         return inflater.inflate(R.layout.fragment_pet, container, false)
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnDataPass")
-        }
+        view.findViewById<TextView>(R.id.btnvacine)?.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.vacine_action, null)
+        )
     }
+}
 
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
-    }
+
+
 
     /**
      * This interface must be implemented by activities that contain this
@@ -76,28 +78,7 @@ class Pet : Fragment() {
      * (http://developer.android.com/training/basics/fragments/communicating.html)
      * for more information.
      */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Pet.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Pet().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
-}
+
+
+

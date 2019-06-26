@@ -6,7 +6,10 @@
                                    android:layout_margin="8dp"
                                    app:cardCornerRadius="5dp"
                                    app:cardElevation="10dp"
-app:cardBackgroundColor="@color/colorPrimary">
+                                   android:id="@+id/cardview"
+                           app:cardBackgroundColor="@color/colorPrimary">
+
+
 
     <TextView
             android:id="@+id/nombreTextView"

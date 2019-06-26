@@ -32,9 +32,6 @@
         <action
             android:id="@+id/action_new"
             app:destination="@+id/newpet" />
-        <action
-            android:id="@+id/action_main_to_pet"
-            app:destination="@id/pet" />
     </fragment>
     <fragment
         android:id="@+id/newpet"
@@ -50,12 +47,12 @@
             app:popUpToInclusive="true"/>
     </fragment>
     <fragment
-        android:id="@+id/pet"
+        android:id="@+id/pet_dest"
         android:name="com.cuidadoanimal.petcare.gui.fragments.Pet"
         android:label="fragment_pet"
         tools:layout="@layout/fragment_pet">
         <action
-            android:id="@+id/action_pet_to_vaccine"
+            android:id="@+id/vacine_action"
             app:destination="@id/vaccine" />
     </fragment>
     <fragment
@@ -67,5 +64,7 @@
         android:id="@+id/list_pet_item"
         android:name="com.cuidadoanimal.petcare.gui.fragments.ListPetItem"
         android:label="fragment_list_pet_item"
-        tools:layout="@layout/fragment_list_pet_item" />
+        tools:layout="@layout/fragment_list_pet_item" >
+        <action android:id="@+id/pet_action" app:destination="@id/pet_dest"/>
+    </fragment>
 </navigation>
