@@ -88,13 +88,6 @@ class MainActivity :
         Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
 
-//    /*override */fun setupBottomNavMenu(navController: NavController) {
-//        findViewById<Button>(R.id.main).setOnClickListener(
-//                Navigation.createNavigateOnClickListener(R.id.main, null)
-//        )
-
-//    }
-
     private fun setupBottomNavMenu(navController: NavController) {
         findViewById<BottomNavigationView>(R.id.bottom_nav_view)
             .setupWithNavController(navController)
