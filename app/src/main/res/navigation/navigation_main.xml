@@ -6,17 +6,6 @@
     app:startDestination="@id/main">
 
     <fragment
-        android:id="@+id/login"
-        android:name="com.cuidadoanimal.petcare.gui.fragments.Login"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/welcome_action"
-            app:destination="@id/main"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
-    </fragment>
-    <fragment
         android:id="@+id/settings"
         android:name="com.cuidadoanimal.petcare.gui.fragments.Settings"
         android:label="fragment_settings"

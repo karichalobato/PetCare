@@ -4,21 +4,14 @@ import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
-import android.widget.RadioButton
 import android.widget.Toast
-
 import androidx.lifecycle.ViewModelProviders
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
-import com.cuidadoanimal.petcare.gui.interfaces.OnDataPass
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity :
@@ -65,7 +58,7 @@ class MainActivity :
 
         viewModel = ViewModelProviders.of(this).get(PetCareViewModel::class.java)
         if (resources.getBoolean(R.bool.portrait_only)) {
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
 
         var displayName: String? = intent?.getStringExtra("displayName")
