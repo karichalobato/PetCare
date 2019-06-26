@@ -1,6 +1,7 @@
 package com.cuidadoanimal.petcare.gui.activities
 
 import android.content.pm.ActivityInfo
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -14,6 +15,8 @@ import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
 import androidx.navigation.ui.setupWithNavController
+import com.cuidadoanimal.petcare.gui.fragments.MapsFragment
+import com.cuidadoanimal.petcare.gui.fragments.ArticlesFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,7 +24,18 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity :
     AppCompatActivity(),
-    NewPet.NewPetListener {
+    NewPet.NewPetListener,
+    MapsFragment.OnFragmentInteractionListener,
+    ArticlesFragment.OnFragmentInteractionListener {
+    override fun interaction(uri: Uri) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun fragmentInteraction(uri: Uri) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+
     private var doubleBackToExitPressedOnce = false
 
     private val auth = FirebaseAuth.getInstance()

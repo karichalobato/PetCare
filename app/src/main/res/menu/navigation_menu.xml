@@ -7,12 +7,12 @@
         android:title="Usuario" />
 
     <item
-        android:id="@+id/action_articles"
+        android:id="@+id/articles_fragment"
         android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
         android:title="Artículos" />
 
     <item
-        android:id="@+id/action_to_map"
+        android:id="@+id/maps_fragment"
         android:icon="@drawable/ic_person_black_24dp"
         android:title="Mapa" />
 </menu>
