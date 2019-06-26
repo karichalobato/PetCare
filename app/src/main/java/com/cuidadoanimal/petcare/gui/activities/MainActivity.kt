@@ -37,8 +37,6 @@ class MainActivity :
 
         userID = /* Guardar ID del registro nuevo */
             viewModel.insert(newUser)
-
-
     }
 
     override fun insertPet(petName: String, petBreed: String, petSex: String) {
@@ -61,6 +59,4 @@ class MainActivity :
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
     }
-
-
 }

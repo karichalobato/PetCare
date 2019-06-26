@@ -60,13 +60,8 @@ class Main : Fragment() {
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
             view.rv_pets.layoutManager = GridLayoutManager(this.context,3)
         else {
-
-
-
             view.rv_pets.layoutManager = LinearLayoutManager(this.context)
         }
-
-
         viewModel.allPets.observe(this, Observer {
             viewAdapter.updateList(it)
         })
@@ -76,11 +71,8 @@ class Main : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         view.findViewById<TextView>(R.id.butnew)?.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_new, null)
         )
     }
-
-
 }

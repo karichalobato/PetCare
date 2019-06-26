@@ -18,7 +18,7 @@
     </fragment>
     <fragment android:id="@+id/newpet" android:name="com.cuidadoanimal.petcare.gui.fragments.NewPet" android:label="fragment_newpet"
               tools:layout="@layout/fragment_newpet">
-        <action android:id="@+id/action_newpet_to_main" app:destination="@id/main"/>
+        <action android:id="@+id/action_newpet_to_main" app:destination="@+id/main"/>
     </fragment>
     <fragment android:id="@+id/pet" android:name="com.cuidadoanimal.petcare.gui.fragments.Pet" android:label="fragment_pet"
               tools:layout="@layout/fragment_pet">
