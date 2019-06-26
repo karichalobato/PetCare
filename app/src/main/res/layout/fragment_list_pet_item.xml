@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:background="@drawable/sound_cloud_background">
-
-    <ImageView
-            android:id="@+id/fotoImageView"
-            android:layout_width="@dimen/_96sdp"
-            android:layout_height="@dimen/_96sdp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_20sdp"/>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_margin="8dp"
+                                   app:cardCornerRadius="5dp"
+                                   app:cardElevation="10dp"
+app:cardBackgroundColor="@color/colorPrimary">
 
     <TextView
             android:id="@+id/nombreTextView"
@@ -23,4 +19,4 @@
             android:textColor="@android:color/white"
             android:textAllCaps="true" />
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>
