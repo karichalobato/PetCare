@@ -81,7 +81,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:text="@string/create"
+                    android:text="@string/create_pet"
                     android:background="#85c1e9"
                     android:textSize="@dimen/_15sdp"
                     android:textColor="@android:color/white"/>
