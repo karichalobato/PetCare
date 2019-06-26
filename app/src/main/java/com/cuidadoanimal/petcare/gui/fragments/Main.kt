@@ -56,7 +56,7 @@ class Main : Fragment() {
         viewModel = ViewModelProviders.of(this).get(PetCareViewModel::class.java)
         viewAdapter = PetsAdapter(ArrayList())
 
-        git view.rv_pets.adapter = this.viewAdapter
+        view.rv_pets.adapter = this.viewAdapter
         view.rv_pets.layoutManager = GridLayoutManager(this.context,3)
 
         viewModel.allPets.observe(this, Observer {
