@@ -29,20 +29,23 @@ class NewPet : Fragment(), View.OnClickListener {
     }
 
     private fun initSearchButton(container: View) =
-        container.btncreatePet.setOnClickListener {
+            container.btncreatePet.setOnClickListener {
 
-            if (PetName.text.isEmpty() || PetBreed.text.isEmpty()) {
-                Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this.context!!, "Mascota añadida exitosamente", Toast.LENGTH_SHORT).show()
-                listenerTool?.insertPet(PetName.text.toString(), PetBreed.text.toString(), sex)
-                findNavController(this).navigate(R.id.action_newpet_to_main)
+                if (PetName.text.isEmpty() || PetBreed.text.isEmpty()) {
+                    Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this.context!!, "Mascota añadida exitosamente", Toast.LENGTH_SHORT).show()
+
+                    listenerTool?.insertPet(PetName.text.toString(), PetBreed.text.toString(), sex)
+
+                    findNavController(this)
+                            .navigate(R.id.action_newpet_to_main)
+                }
             }
-        }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_newpet, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
