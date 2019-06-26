@@ -56,12 +56,9 @@ class Main : Fragment() {
         viewModel = ViewModelProviders.of(this).get(PetCareViewModel::class.java)
         viewAdapter = PetsAdapter(ArrayList())
 
-        view.rv_pets.adapter = this.viewAdapter
-        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
-            view.rv_pets.layoutManager = GridLayoutManager(this.context,3)
-        else {
-            view.rv_pets.layoutManager = LinearLayoutManager(this.context)
-        }
+        git view.rv_pets.adapter = this.viewAdapter
+        view.rv_pets.layoutManager = GridLayoutManager(this.context,3)
+
         viewModel.allPets.observe(this, Observer {
             viewAdapter.updateList(it)
         })
