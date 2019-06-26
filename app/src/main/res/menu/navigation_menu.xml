@@ -13,6 +13,6 @@
 
     <item
         android:id="@+id/maps_fragment"
-        android:icon="@drawable/ic_person_black_24dp"
+        android:icon="@drawable/ic_person_pin_circle_black_24dp"
         android:title="Mapa" />
 </menu>
