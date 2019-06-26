@@ -3,7 +3,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/witching_background"
+                android:background="@color/color6"
                 tools:context="com.cuidadoanimal.petcare.gui.fragments.Main">
 
 
@@ -31,7 +31,7 @@
                     android:layout_height="@dimen/_272sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:layout_marginEnd="@dimen/_50sdp"
-                    android:background="#D7BDE2"/>
+                    android:background="@color/color5"/>
 
 
         </LinearLayout>
@@ -43,27 +43,27 @@
             android:id="@+id/textView"
             android:text="Your pets"
             android:layout_width="@dimen/_105sdp"
-            android:layout_height="@dimen/_36sdp"
+            android:layout_height="@dimen/_46sdp"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/_100sdp"
-            android:layout_marginEnd="@dimen/_420sdp"
+            android:layout_marginEnd="@dimen/_437sdp"
             android:gravity="center"
             android:autoText="false"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colortexto"
             app:autoSizeTextType="uniform"/>
     <Button
             android:id="@+id/butnew"
             android:text="New Pet"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/_160sdp"
-            android:layout_marginEnd="@dimen/_400sdp"
-            android:background="#F97CC8"
-            android:textColor="@android:color/white"/>
+            android:layout_marginEnd="@dimen/_445sdp"
+            android:backgroundTint="#85c1e9"
+            android:textColor="@color/colortexto"/>
 
 </RelativeLayout>

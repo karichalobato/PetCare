@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".gui.fragments.Pet">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                tools:context="com.cuidadoanimal.petcare.gui.fragments.NewPet">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-3dp"
+            android:layout_marginBottom="@dimen/_65sdp">
 
-</FrameLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginEnd="@dimen/_50sdp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/colorAccent"
+                    android:layout_height="wrap_content" android:id="@+id/textView4"/>
+            <TextView
+                    android:text="TextView2"
+                    android:textColor="@color/colorAccent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView5"/>
+            <TextView
+                    android:text="TextView3"
+                    android:textColor="@color/colorAccent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView6"/>
+
+
+
+            <Button
+                    android:id="@+id/btnvacine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="#85c1e9"
+                    android:text="@string/vacine"
+                    android:textColor="@color/colortexto"/>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+    <ImageView
+            android:src="@drawable/vaccine"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_225sdp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/imageView"
+            android:layout_marginTop="@dimen/_25sdp"/>
+
+</RelativeLayout>

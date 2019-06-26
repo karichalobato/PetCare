@@ -4,7 +4,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/witching_background"
+                android:background="@color/colorPrimary"
                 tools:context="com.cuidadoanimal.petcare.gui.fragments.Main">
 
 
@@ -31,7 +31,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_290sdp"
                     android:layout_marginTop="@dimen/_100sdp"
-                    android:background="#D7BDE2"/>
+                    android:background="@color/color5"/>
 
 
         </LinearLayout>
@@ -39,20 +39,15 @@
 
     </ScrollView>
 
-    <TextView
-            android:text="Vaccine"
-            android:layout_width="@dimen/_120sdp"
-            android:layout_height="@dimen/_70sdp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
+    <ImageView
+            android:src="@drawable/vaccine"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_112sdp"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="@dimen/_100sdp"
-            android:id="@+id/textView"
-            android:layout_marginTop="@dimen/_38sdp"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:autoText="false"
-            app:autoSizeTextType="uniform" android:layout_marginRight="120dp"/>
+            android:id="@+id/imageView"
+            android:layout_marginTop="@dimen/_15sdp"/>
 
     <Button
             android:id="@+id/butnew"
@@ -62,9 +57,11 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="@dimen/_80sdp"
-            android:layout_marginTop="@dimen/_122sdp"
-            android:background="#F97CC8"
-            android:textColor="@android:color/white" android:layout_marginRight="106dp"/>
+            android:layout_toStartOf="@id/imageView"
+            android:layout_marginEnd="@dimen/_85sdp"
+            android:layout_marginTop="@dimen/_125sdp"
+            android:background="#85c1e9"
+            android:textColor="@color/colortexto"
+            android:layout_marginRight="@dimen/_106sdp"/>
 
 </RelativeLayout>

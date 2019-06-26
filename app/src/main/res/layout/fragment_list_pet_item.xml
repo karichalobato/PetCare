@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                   android:layout_width="match_parent"
-                                   android:layout_height="wrap_content"
-                                   android:layout_margin="8dp"
-                                   app:cardCornerRadius="5dp"
-                                   app:cardElevation="10dp"
-                                   android:id="@+id/cardview"
-                           app:cardBackgroundColor="@color/colorPrimary">
-
-
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="@dimen/_10sdp"
+        android:id="@+id/cardview"
+        app:cardBackgroundColor="@color/colorPrimary">
 
     <TextView
             android:id="@+id/nombreTextView"
@@ -19,7 +18,7 @@
             android:gravity="center_horizontal"
             android:text="@string/app_name"
             android:textSize="@dimen/_18sdp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorPrimaryDark"
             android:textAllCaps="true" />
 
 </androidx.cardview.widget.CardView>

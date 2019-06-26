@@ -18,5 +18,5 @@
     <string name="btn_forgot_password">¿Olvidaste tu contraseña?</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
-    <string name="vacine">Vaccine</string>
+    <string name="vacine">New Vaccine</string>
 </resources>

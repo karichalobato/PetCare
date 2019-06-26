@@ -3,7 +3,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/sound_cloud_background"
+                android:background="@color/colorPrimary"
                 tools:context="com.cuidadoanimal.petcare.gui.fragments.NewPet">
 
 
@@ -13,7 +13,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="-3dp"
-            android:layout_marginBottom="@dimen/_230sdp">
+            android:layout_marginBottom="@dimen/_160sdp">
 
 
         <LinearLayout
@@ -26,13 +26,16 @@
             <TextView
                     android:text="TextView"
                     android:layout_width="match_parent"
+                    android:textColor="@color/colorAccent"
                     android:layout_height="wrap_content" android:id="@+id/textView4"/>
             <TextView
                     android:text="TextView2"
+                    android:textColor="@color/colorAccent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/textView5"/>
             <TextView
                     android:text="TextView3"
+                    android:textColor="@color/colorAccent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/textView6"/>
 
@@ -45,7 +48,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="#85c1e9"
                     android:text="@string/vacine"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@color/colortexto"/>
 
 
         </LinearLayout>
@@ -53,10 +56,10 @@
 
     </ScrollView>
     <ImageView
-            android:src="@drawable/cat"
-            android:layout_width="170dp"
-            android:layout_height="155dp" android:layout_alignParentStart="true"
-            android:layout_marginStart="111dp" android:layout_alignParentTop="true" android:id="@+id/imageView"
-            android:layout_marginTop="71dp"/>
+            android:src="@drawable/vaccine"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_155sdp" android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_75sdp" android:layout_alignParentTop="true" android:id="@+id/imageView"
+            android:layout_marginTop="@dimen/_71sdp"/>
 
 </RelativeLayout>

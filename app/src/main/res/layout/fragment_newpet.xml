@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/sound_cloud_background"
+                android:background="@color/colorPrimary"
                 tools:context="com.cuidadoanimal.petcare.gui.fragments.NewPet">
 
 
@@ -13,7 +13,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="-3dp"
-            android:layout_marginBottom="@dimen/_230sdp">
+            android:layout_marginBottom="@dimen/_130sdp">
 
 
         <LinearLayout
@@ -32,8 +32,8 @@
                     android:hint="@string/pet_name"
                     android:paddingStart="@dimen/_10sdp"
                     android:paddingEnd="@dimen/_10sdp"
-                    android:textColor="@color/colorAccent"
-                    android:textColorHint="@color/place_autocomplete_search_hint"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colortexto"
                     android:textSize="@dimen/_15sdp"/>
 
             <AutoCompleteTextView
@@ -45,8 +45,8 @@
                     android:hint="Breed"
                     android:paddingStart="@dimen/_10sdp"
                     android:paddingEnd="@dimen/_10sdp"
-                    android:textColor="@color/colorAccent"
-                    android:textColorHint="@color/place_autocomplete_search_hint"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colortexto"
                     android:textSize="@dimen/_15sdp"/>
 
             <RadioGroup
@@ -65,12 +65,16 @@
                             android:id="@+id/rb_sex_female"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textColorHint="@color/colortexto"
                             android:text="@string/female"/>
 
                     <RadioButton
                             android:id="@+id/rb_sex_male"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textColorHint="@color/colortexto"
                             android:text="@string/male"/>
                 </RadioGroup>
             </RadioGroup>
@@ -82,12 +86,20 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="#85c1e9"
                     android:text="@string/create_pet"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@color/colortexto"/>
 
 
         </LinearLayout>
-
-
     </ScrollView>
+
+    <ImageView
+            android:src="@drawable/registration"
+            android:layout_width="@dimen/_170sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/_60sdp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/imageView"
+            android:layout_marginTop="@dimen/_71sdp"/>
 
 </RelativeLayout>

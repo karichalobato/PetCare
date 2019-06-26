@@ -25,9 +25,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:menu="@menu/navigation_menu"
-            android:background="@color/cardview_light_background"
-            app:itemIconTint="@color/colorPrimaryDark"
-            app:itemTextColor="@color/colorPrimaryDark"
+            android:background="@color/color11"
+            app:itemIconTint="@color/color5"
+            app:itemTextColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
