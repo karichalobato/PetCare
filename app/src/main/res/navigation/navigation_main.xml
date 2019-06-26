@@ -58,4 +58,8 @@
             android:id="@+id/pet_action"
             app:destination="@id/pet_dest" />
     </fragment>
+    <fragment android:id="@+id/articles_fragment" android:name="com.cuidadoanimal.petcare.gui.fragments.ArticlesFragment"
+              android:label="fragment_articles" tools:layout="@layout/fragment_articles"/>
+    <fragment android:id="@+id/maps_fragment" android:name="com.cuidadoanimal.petcare.gui.fragments.MapsFragment"
+              android:label="fragment_maps" tools:layout="@layout/fragment_maps"/>
 </navigation>
