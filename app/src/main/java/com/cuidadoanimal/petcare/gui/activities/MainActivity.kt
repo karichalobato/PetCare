@@ -64,7 +64,7 @@ class MainActivity :
     }
 
     override fun onBackPressed() {
-        if (doubleBackToExitPressedOnce || fragmentManager.backStackEntryCount != 0) {
+        if (doubleBackToExitPressedOnce || supportFragmentManager.backStackEntryCount != 0) {
             super.onBackPressed()
             return
         }
