@@ -84,7 +84,7 @@ class ArticlesFragment : Fragment() {
         medico.setOnClickListener {
 
             val url =
-                "https://www.clarin.com/entremujeres/hogar-y-familia/mascotas-veterinario-perro-gato-signos-sintomas-enfermedad_0_HkaWyJqD7x.html"
+                "http://www.consumer.es/web/es/mascotas/perros/salud/vacunas-y-enfermedades/2018/03/27/225834.php"
 
             var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
