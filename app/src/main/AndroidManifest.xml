@@ -17,6 +17,8 @@
             android:roundIcon="@mipmap/ic_launcher"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".gui.activities.ArticlesActivity">
+        </activity>
         <activity android:name=".gui.activities.AuthenticationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -55,11 +57,14 @@
             -->
         </activity>
         <activity android:name=".gui.activities.MainActivity">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
     </application>
 
