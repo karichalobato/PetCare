@@ -10,7 +10,7 @@ data class Vaccine(
     @ColumnInfo(name = "Name")
     val name: String,
     @ColumnInfo(name = "Next_Application")
-    val next_application: Long,
+    val next_application: String,
     @ColumnInfo(name = "Contraindications")
     val contraindications: String
 ) {

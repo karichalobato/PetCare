@@ -13,11 +13,8 @@ import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
-import com.cuidadoanimal.petcare.gui.fragments.NewPet
 import androidx.navigation.ui.setupWithNavController
-import com.cuidadoanimal.petcare.gui.fragments.MapsFragment
-import com.cuidadoanimal.petcare.gui.fragments.ArticlesFragment
-import com.cuidadoanimal.petcare.gui.fragments.Vaccine
+import com.cuidadoanimal.petcare.gui.fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,7 +23,18 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity :
     AppCompatActivity(),
     NewPet.NewPetListener,
-    Vaccine.OnFragmentInteractionListener {
+    Vaccine.OnFragmentInteractionListener,
+newVaccine.NewPetListener{
+    override fun insertVaccine(VaccineName: String, date: String) {
+        val vaccine = com.cuidadoanimal.petcare.data.database.entities.Vaccine(
+            name = VaccineName,
+            next_application = date,
+            contraindications = "null"
+
+        )
+        viewModel.insert(vaccine)
+    }
+
 
     override fun onInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

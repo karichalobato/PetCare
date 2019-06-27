@@ -21,7 +21,7 @@ import androidx.room.migration.Migration
             ArticleJOINTag::class,
             UserJOINArticle::class,
             VaccineJOINPet::class],
-        version = 3,
+        version = 4,
         exportSchema = false
 )
 @TypeConverters(Converters::class)
@@ -63,6 +63,16 @@ abstract class PetCareRoomDatabase : RoomDatabase() {
             }
         }
 
+        private val MIGRATION_3_4: Migration = object : Migration(2, 3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+
+                database.execSQL("CREATE TABLE `Vaccine_backup` AS SELECT `idVaccine`, `Name`, `Next_Application`, `Contraindications` FROM `Vaccine`")
+                database.execSQL("DROP TABLE `Vaccine`")
+                database.execSQL("ALTER TABLE `Vaccine_backup` RENAME TO `Vaccine`")
+
+            }
+        }
+
         @Volatile
         private var INSTANCE: PetCareRoomDatabase? = null
 
@@ -80,7 +90,7 @@ abstract class PetCareRoomDatabase : RoomDatabase() {
                                 "PetCare_DataBase"
                         )
                         .fallbackToDestructiveMigration()
-                        .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                        .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
                         .build()
                 INSTANCE = instance
                 return instance

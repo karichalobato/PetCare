@@ -23,5 +23,7 @@
     <string name="vacine">New Vaccine</string>
 
     <string name="pet_food">https://www.youtube.com/watch?v=vuej1XI2lWQ</string>
+    <string name="vaccine_name">Vaccine name</string>
+    <string name="create_vaccine">Create Vaccine</string>
 
 </resources>

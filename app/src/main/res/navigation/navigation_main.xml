@@ -1,65 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_main"
-    app:startDestination="@id/main_fragment">
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation_main"
+            app:startDestination="@+id/main_fragment">
 
     <fragment
-        android:id="@+id/settings"
-        android:name="com.cuidadoanimal.petcare.gui.fragments.Settings"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+            android:id="@+id/settings"
+            android:name="com.cuidadoanimal.petcare.gui.fragments.Settings"
+            android:label="fragment_settings"
+            tools:layout="@layout/fragment_settings"/>
     <fragment
-        android:id="@+id/main_fragment"
-        android:name="com.cuidadoanimal.petcare.gui.fragments.Main"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main">
+            android:id="@+id/main_fragment"
+            android:name="com.cuidadoanimal.petcare.gui.fragments.Main"
+            android:label="fragment_main"
+            tools:layout="@layout/fragment_main">
         <action
-            android:id="@+id/action_main_to_settings"
-            app:destination="@id/settings" />
+                android:id="@+id/action_main_to_settings"
+                app:destination="@id/settings"/>
         <action
-            android:id="@+id/action_new"
-            app:destination="@+id/newpet" />
+                android:id="@+id/action_new"
+                app:destination="@+id/newpet"/>
     </fragment>
     <fragment
-        android:id="@+id/newpet"
-        android:name="com.cuidadoanimal.petcare.gui.fragments.NewPet"
-        android:label="fragment_newpet"
-        tools:layout="@layout/fragment_newpet">
+            android:id="@+id/newpet"
+            android:name="com.cuidadoanimal.petcare.gui.fragments.NewPet"
+            android:label="fragment_newpet"
+            tools:layout="@layout/fragment_newpet">
         <action
-            android:id="@+id/action_newpet_to_main"
-            app:destination="@+id/main_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@+id/navigation_main"
-            app:popUpToInclusive="true" />
+                android:id="@+id/action_newpet_to_main"
+                app:destination="@+id/main_fragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popUpTo="@+id/navigation_main"
+                app:popUpToInclusive="true"/>
     </fragment>
     <fragment
-        android:id="@+id/pet_dest"
-        android:name="com.cuidadoanimal.petcare.gui.fragments.Pet"
-        android:label="fragment_pet"
-        tools:layout="@layout/fragment_pet">
-        <action
-            android:id="@+id/vacine_action"
-            app:destination="@id/vaccine" />
+            android:id="@+id/pet_dest"
+            android:name="com.cuidadoanimal.petcare.gui.fragments.Pet"
+            android:label="fragment_pet"
+            tools:layout="@layout/fragment_pet">
+        <action android:id="@+id/action_pet_dest_to_newVaccine_dest" app:destination="@id/newVaccine_dest"/>
     </fragment>
     <fragment
-        android:id="@+id/vaccine"
-        android:name="com.cuidadoanimal.petcare.gui.fragments.Vaccine"
-        android:label="fragment_vaccine"
-        tools:layout="@layout/fragment_vaccine" />
-    <fragment
-        android:id="@+id/list_pet_item"
-        android:name="com.cuidadoanimal.petcare.gui.fragments.ListPetItem"
-        android:label="fragment_list_pet_item"
-        tools:layout="@layout/fragment_list_pet_item">
+            android:id="@+id/list_pet_item"
+            android:name="com.cuidadoanimal.petcare.gui.fragments.ListPetItem"
+            android:label="fragment_list_pet_item"
+            tools:layout="@layout/fragment_list_pet_item">
         <action
-            android:id="@+id/pet_action"
-            app:destination="@id/pet_dest" />
+                android:id="@+id/pet_action"
+                app:destination="@id/pet_dest"/>
     </fragment>
-    <fragment android:id="@+id/articles_fragment" android:name="com.cuidadoanimal.petcare.gui.fragments.ArticlesFragment"
+    <fragment android:id="@+id/articles_fragment"
+              android:name="com.cuidadoanimal.petcare.gui.fragments.ArticlesFragment"
               android:label="fragment_articles" tools:layout="@layout/fragment_articles"/>
     <fragment android:id="@+id/maps_fragment" android:name="com.cuidadoanimal.petcare.gui.fragments.MapsFragment"
               android:label="fragment_maps" tools:layout="@layout/fragment_maps"/>
+    <fragment android:id="@+id/newVaccine_dest" android:name="com.cuidadoanimal.petcare.gui.fragments.newVaccine"
+              android:label="fragment_new_vaccine" tools:layout="@layout/fragment_new_vaccine">
+        <action android:id="@+id/action_newVaccine_dest_to_pet_dest" app:destination="@id/pet_dest"/>
+    </fragment>
 </navigation>

@@ -40,7 +40,7 @@
     </ScrollView>
 
     <TextView
-            android:text="Your pets"
+            android:text="Pet Breed"
             android:layout_width="78dp"
             android:layout_height="42dp"
             android:layout_alignParentRight="true"
@@ -48,13 +48,14 @@
             android:layout_alignParentTop="true"
             android:layout_marginEnd="289dp"
             android:id="@+id/textView"
+            android:visibility="invisible"
             android:layout_marginTop="130dp"
             android:gravity="center"
             android:textColor="@color/color4"
             android:autoText="false"
             app:autoSizeTextType="uniform" android:layout_marginRight="289dp"/>
     <TextView
-            android:text="Your pets"
+            android:text="Pet Vaccines"
             android:layout_width="wrap_content"
             android:layout_height="47dp"
             android:layout_alignParentRight="true"
@@ -69,11 +70,12 @@
             app:autoSizeTextType="uniform" android:layout_marginRight="243dp"/>
 
     <TextView
-            android:text="Your pets"
+            android:text="Pet Name"
             android:layout_width="wrap_content"
             android:layout_height="47dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:visibility="invisible"
             android:layout_alignParentTop="true"
             android:layout_marginEnd="307dp"
             android:id="@+id/textView3"
@@ -85,7 +87,7 @@
 
     <Button
             android:id="@+id/butnew"
-            android:text="New Pet"
+            android:text="New Vaccine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
