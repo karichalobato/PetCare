@@ -28,7 +28,7 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
  * [Pet.OnFragmentInteractionListener] interface
- * to handle interaction events.
+ * to handle onInteraction events.
  * Use the [Pet.newInstance] factory method to
  * create an instance of this fragment.
  *
@@ -69,7 +69,7 @@ class Pet : Fragment() {
 
     /**
      * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
+     * fragment to allow an onInteraction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
      *

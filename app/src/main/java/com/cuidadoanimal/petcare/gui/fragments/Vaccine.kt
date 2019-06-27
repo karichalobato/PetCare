@@ -19,7 +19,7 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
  * [Vaccine.OnFragmentInteractionListener] interface
- * to handle interaction events.
+ * to handle onInteraction events.
  * Use the [Vaccine.newInstance] factory method to
  * create an instance of this fragment.
  *
@@ -48,7 +48,7 @@ class Vaccine : Fragment() {
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
+        listener?.onInteraction(uri)
     }
 
     override fun onAttach(context: Context) {
@@ -67,7 +67,7 @@ class Vaccine : Fragment() {
 
     /**
      * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
+     * fragment to allow an onInteraction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
      *
@@ -78,7 +78,7 @@ class Vaccine : Fragment() {
      */
     interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
+        fun onInteraction(uri: Uri)
     }
 
     companion object {
