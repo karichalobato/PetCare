@@ -41,7 +41,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
 
     override fun onMarkerClick(p0: Marker?): Boolean = false
 
-    private lateinit var map: GoogleMap
+    private var map: GoogleMap? = null
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var lastLocation: Location //Obtiene la última localización del cliente
     private lateinit var locationCallback: LocationCallback
@@ -84,9 +84,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
             }
         }
         createLocationRequest()
-
         return v
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -95,7 +93,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
         fr_fab.setOnClickListener {
             loadPlacePicker()
         }
-
     }
 
     /**
@@ -110,8 +107,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
 
-        map.setOnMarkerClickListener(this) //Dicha actividad se encargará de los mapas
-        map.uiSettings.isZoomControlsEnabled = true //Habilitando Zoom
+        map?.setOnMarkerClickListener(this) //Dicha actividad se encargará de los mapas
+        map?.uiSettings?.isZoomControlsEnabled = true //Habilitando Zoom
         setUpMap()
     }
 
@@ -133,8 +130,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
             return
         }
 
-        map.isMyLocationEnabled = true //Desplegar nuestra localización
-        map.mapType = GoogleMap.MAP_TYPE_HYBRID
+        map?.isMyLocationEnabled = true //Desplegar nuestra localización
+        map?.mapType = GoogleMap.MAP_TYPE_HYBRID
 
         activity?.let {
             fusedLocationClient.lastLocation.addOnSuccessListener(it) { location ->
@@ -144,7 +141,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
                     lastLocation = location
                     val currentLatLong = LatLng(location.latitude, location.longitude)
                     placeMarker(currentLatLong)
-                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 15f))
+                    map?.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 15f))
 
                 }
             }
@@ -159,7 +156,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
 
         val titleStr = getAddress(location)
         markerOption.title(titleStr)
-        map.addMarker(markerOption)
+        map?.addMarker(markerOption)
     }
 
     /*Función que convierte una coordenada en dirección*/
