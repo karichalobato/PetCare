@@ -28,7 +28,7 @@ class ArticlesFragment : Fragment() {
             var intent = Intent()
             intent.putExtra("url", url)
 
-            startActivity(intent)
+            activity!!.startActivity(intent)
 
         }
 
@@ -40,7 +40,7 @@ class ArticlesFragment : Fragment() {
             var intent = Intent()
             intent.putExtra("url", url)
 
-            startActivity(intent)
+            activity!!.startActivity(intent)
 
         }
 
@@ -52,7 +52,7 @@ class ArticlesFragment : Fragment() {
             var intent = Intent()
             intent.putExtra("url", url)
 
-            startActivity(intent)
+            activity!!.startActivity(intent)
 
         }
 
@@ -64,7 +64,7 @@ class ArticlesFragment : Fragment() {
             var intent = Intent()
             intent.putExtra("url", url)
 
-            startActivity(intent)
+            activity!!.startActivity(intent)
 
         }
 
@@ -76,7 +76,7 @@ class ArticlesFragment : Fragment() {
             var intent = Intent()
             intent.putExtra("url", url)
 
-            startActivity(intent)
+            activity!!.startActivity(intent)
 
         }
 
@@ -88,7 +88,7 @@ class ArticlesFragment : Fragment() {
             var intent = Intent()
             intent.putExtra("url", url)
 
-            startActivity(intent)
+            activity!!.startActivity(intent)
 
         }
 
