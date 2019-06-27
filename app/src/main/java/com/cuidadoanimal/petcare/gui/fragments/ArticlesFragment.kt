@@ -42,7 +42,11 @@ class ArticlesFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
+        pic1.setOnClickListener {
 
+            val uri = Uri.parse("https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java")
+
+        }
 
     }
 
