@@ -10,12 +10,16 @@ import kotlinx.android.synthetic.main.activity_web_view.*
 
 class WebViewActivity : AppCompatActivity() {
 
-    private val BASE_URL = "https://www.google.com"
+    private var BASE_URL = "https://www.google.com"
     private val SEARCH_PATH = "/search?q=" //PATH que se mostrará al hacer una busqueda especifica.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
+
+        var getUrl = intent?.getStringExtra("url")
+
+        if (getUrl != null) BASE_URL = getUrl
 
         //Refresh
         swipeRefresh.setOnRefreshListener {
@@ -23,6 +27,7 @@ class WebViewActivity : AppCompatActivity() {
         }
 
         //Search
+/*
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
 
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -43,13 +48,14 @@ class WebViewActivity : AppCompatActivity() {
                 return false
             }
         })
+*/
 
         //WebView
-        webView.webChromeClient = object : WebChromeClient(){
+        webView.webChromeClient = object : WebChromeClient() {
 
         }
 
-        webView.webViewClient = object : WebViewClient(){
+        webView.webViewClient = object : WebViewClient() {
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                 return false
@@ -58,8 +64,8 @@ class WebViewActivity : AppCompatActivity() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
 
-                searchView.setQuery(url, false) //vista de la busqueda del usuario.
-
+                /*searchView.setQuery(url, false) //vista de la busqueda del usuario.
+*/
                 swipeRefresh.isRefreshing = true
             }
 
@@ -79,7 +85,7 @@ class WebViewActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if (webView.canGoBack()) {
             webView.goBack()
-        }else{
+        } else {
             super.onBackPressed()
         }
     }

@@ -26,17 +26,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity :
     AppCompatActivity(),
     NewPet.NewPetListener,
-    ArticlesFragment.OnFragmentInteractionListener,
     Vaccine.OnFragmentInteractionListener {
 
     override fun onInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
-    override fun fragmentInteraction(uri: Uri) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
 
     private var doubleBackToExitPressedOnce = false
 
