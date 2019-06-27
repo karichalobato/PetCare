@@ -29,7 +29,7 @@
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_pets"
                     android:layout_width="match_parent"
-                    android:layout_height="206dp"
+                    android:layout_height="334dp"
                     android:layout_marginTop="@dimen/_100sdp"
                     android:background="@color/color5"/>
 
