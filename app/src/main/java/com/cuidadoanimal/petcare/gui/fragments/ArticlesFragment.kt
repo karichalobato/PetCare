@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.cuidadoanimal.petcare.gui.activities.WebViewActivity
 import kotlinx.android.synthetic.main.fragment_articles.*
 
 class ArticlesFragment : Fragment() {
@@ -25,10 +26,10 @@ class ArticlesFragment : Fragment() {
             val url =
                 "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
 
-            var intent = Intent()
+            var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
 
-            activity!!.startActivity(intent)
+            startActivity(intent)
 
         }
 
@@ -37,10 +38,10 @@ class ArticlesFragment : Fragment() {
             val url =
                 "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
 
-            var intent = Intent()
+            var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
 
-            activity!!.startActivity(intent)
+            startActivity(intent)
 
         }
 
@@ -49,10 +50,10 @@ class ArticlesFragment : Fragment() {
             val url =
                 "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
 
-            var intent = Intent()
+            var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
 
-            activity!!.startActivity(intent)
+            startActivity(intent)
 
         }
 
@@ -61,10 +62,10 @@ class ArticlesFragment : Fragment() {
             val url =
                 "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
 
-            var intent = Intent()
+            var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
 
-            activity!!.startActivity(intent)
+            startActivity(intent)
 
         }
 
@@ -73,10 +74,10 @@ class ArticlesFragment : Fragment() {
             val url =
                 "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
 
-            var intent = Intent()
+            var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
 
-            activity!!.startActivity(intent)
+            startActivity(intent)
 
         }
 
@@ -85,10 +86,10 @@ class ArticlesFragment : Fragment() {
             val url =
                 "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
 
-            var intent = Intent()
+            var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
 
-            activity!!.startActivity(intent)
+            startActivity(intent)
 
         }
 
