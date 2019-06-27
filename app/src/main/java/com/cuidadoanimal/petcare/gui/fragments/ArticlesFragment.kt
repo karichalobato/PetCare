@@ -24,7 +24,7 @@ class ArticlesFragment : Fragment() {
         alimentacion.setOnClickListener {
 
             val url =
-                "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
+                "https://misanimales.com/alimentar-de-forma-adecuada-mascotas/"
 
             var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
@@ -36,7 +36,7 @@ class ArticlesFragment : Fragment() {
         atencion.setOnClickListener {
 
             val url =
-                "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
+                "http://mundo.petsy.mx/cuanto-tiempo-debo-dedicarle-a-mi-mascota/"
 
             var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
@@ -48,7 +48,7 @@ class ArticlesFragment : Fragment() {
         recreacion.setOnClickListener {
 
             val url =
-                "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
+                "https://veterinariaraymari.wordpress.com/2013/04/18/cuanto-tiempo-debo-dedicar-a-mi-mascota/"
 
             var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
@@ -60,7 +60,7 @@ class ArticlesFragment : Fragment() {
         cuidado.setOnClickListener {
 
             val url =
-                "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
+                "https://misanimales.com/trucos-y-consejos-para-peinar-tu-perro/"
 
             var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
@@ -72,7 +72,7 @@ class ArticlesFragment : Fragment() {
         limpieza.setOnClickListener {
 
             val url =
-                "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
+                "https://www.huffingtonpost.es/2015/11/02/como-banar-a-mi-perro-y-g_n_8415912.html"
 
             var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
@@ -84,7 +84,7 @@ class ArticlesFragment : Fragment() {
         medico.setOnClickListener {
 
             val url =
-                "https://github.com/karichalobato/GridLayout/blob/master/app/src/main/java/com/example/gridlayout/MainActivity.java"
+                "https://www.clarin.com/entremujeres/hogar-y-familia/mascotas-veterinario-perro-gato-signos-sintomas-enfermedad_0_HkaWyJqD7x.html"
 
             var intent = Intent(this.context!!, WebViewActivity::class.java)
             intent.putExtra("url", url)
