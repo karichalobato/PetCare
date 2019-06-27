@@ -47,13 +47,13 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="@dimen/_100sdp"
+            android:layout_marginEnd="@dimen/_149sdp"
             android:id="@+id/textView"
-            android:layout_marginTop="@dimen/_38sdp"
+            android:layout_marginTop="@dimen/_37sdp"
             android:gravity="center"
-            android:textColor="@color/colortexto"
+            android:textColor="@color/color4"
             android:autoText="false"
-            app:autoSizeTextType="uniform" android:layout_marginRight="120dp"/>
+            app:autoSizeTextType="uniform" android:layout_marginRight="199dp"/>
 
     <Button
             android:id="@+id/butnew"
@@ -63,10 +63,10 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="@dimen/_110sdp"
-            android:layout_marginTop="@dimen/_122sdp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginTop="77dp"
             android:backgroundTint="#85c1e9"
-            android:textColor="@color/colortexto"/>
+            android:textColor="@color/colorPrimary" android:layout_marginRight="60dp"/>
 
 
 </RelativeLayout>
