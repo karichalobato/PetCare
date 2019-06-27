@@ -48,7 +48,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="#85c1e9"
                     android:text="@string/vacine"
-                    android:textColor="@color/colortexto"/>
+                    android:textColor="@color/colorPrimary"/>
 
 
         </LinearLayout>
@@ -56,7 +56,7 @@
 
     </ScrollView>
     <ImageView
-            android:src="@drawable/vaccine"
+            android:src="@drawable/pet"
             android:layout_width="@dimen/_160sdp"
             android:layout_height="@dimen/_155sdp" android:layout_alignParentStart="true"
             android:layout_marginStart="@dimen/_75sdp" android:layout_alignParentTop="true" android:id="@+id/imageView"
