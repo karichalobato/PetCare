@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                tools:context="com.cuidadoanimal.petcare.gui.fragments.NewPet">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.cuidadoanimal.petcare.gui.fragments.NewPet">
 
 
     <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="8dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="1dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="8dp">
 
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="@dimen/_50sdp"
-                android:layout_marginEnd="@dimen/_50sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:orientation="vertical"
 
-        >
+            >
 
 
             <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_pets"
-                    android:layout_width="match_parent"
-                    android:layout_height="334dp"
-                    android:layout_marginTop="@dimen/_100sdp"
-                    android:background="@color/color5"/>
+                android:id="@+id/rv_pets"
+                android:layout_width="match_parent"
+                android:layout_height="334dp"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:background="@color/color5" />
 
 
         </LinearLayout>
@@ -40,70 +41,78 @@
     </ScrollView>
 
     <TextView
-            android:text="Pet Breed"
-            android:layout_width="78dp"
-            android:layout_height="42dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="289dp"
-            android:id="@+id/textView"
-            android:visibility="invisible"
-            android:layout_marginTop="130dp"
-            android:gravity="center"
-            android:textColor="@color/color4"
-            android:autoText="false"
-            app:autoSizeTextType="uniform" android:layout_marginRight="289dp"/>
-    <TextView
-            android:text="Pet Vaccines"
-            android:layout_width="wrap_content"
-            android:layout_height="47dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="243dp"
-            android:id="@+id/textView2"
-            android:layout_marginTop="213dp"
-            android:gravity="center"
-            android:textColor="@color/color4"
-            android:autoText="false"
-            app:autoSizeTextType="uniform" android:layout_marginRight="243dp"/>
+        android:id="@+id/textView"
+        android:layout_width="78dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="289dp"
+        android:layout_marginRight="289dp"
+        android:autoText="false"
+        android:gravity="center"
+        android:text="Pet Breed"
+        android:textColor="@color/color4"
+        android:visibility="invisible"
+        app:autoSizeTextType="uniform" />
 
     <TextView
-            android:text="Pet Name"
-            android:layout_width="wrap_content"
-            android:layout_height="47dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:visibility="invisible"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="307dp"
-            android:id="@+id/textView3"
-            android:layout_marginTop="57dp"
-            android:gravity="center"
-            android:textColor="@color/color4"
-            android:autoText="false"
-            app:autoSizeTextType="uniform" android:layout_marginRight="307dp"/>
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="213dp"
+        android:layout_marginEnd="243dp"
+        android:layout_marginRight="243dp"
+        android:autoText="false"
+        android:gravity="center"
+        android:text="Pet Vaccines"
+        android:textColor="@color/color4"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="307dp"
+        android:layout_marginRight="307dp"
+        android:autoText="false"
+        android:gravity="center"
+        android:text="Pet Name"
+        android:textColor="@color/color4"
+        android:visibility="invisible"
+        app:autoSizeTextType="uniform" />
 
     <Button
-            android:id="@+id/butnew"
-            android:text="New Vaccine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="56dp"
-            android:layout_marginTop="223dp"
-            android:backgroundTint="#85c1e9"
-            android:textColor="@color/colorPrimary" android:layout_marginRight="56dp"/>
+        android:id="@+id/butnew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="223dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:backgroundTint="#85c1e9"
+        android:text="New Vaccine"
+        android:textColor="@color/colorPrimary" />
 
     <ImageView
-            android:src="@drawable/pet"
-            android:layout_width="@dimen/_129sdp"
-            android:layout_height="@dimen/_107sdp" android:layout_alignParentStart="true"
-            android:layout_marginStart="166dp" android:layout_alignParentTop="true" android:id="@+id/imageView"
-            android:layout_marginTop="37dp"/>
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/_129sdp"
+        android:layout_height="@dimen/_107sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="37dp"
+        android:src="@drawable/pet" />
 
 
 </RelativeLayout>

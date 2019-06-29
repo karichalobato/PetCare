@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                tools:context="com.cuidadoanimal.petcare.gui.fragments.Main">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.cuidadoanimal.petcare.gui.fragments.Main">
 
 
     <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/_47sdp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="0dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="@dimen/_47sdp">
 
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="@dimen/_50sdp"
-                android:layout_marginEnd="@dimen/_50sdp"
-        >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:orientation="vertical">
 
 
             <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_pets"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_290sdp"
-                    android:layout_marginTop="@dimen/_100sdp"
-                    android:background="@color/color5"/>
+                android:id="@+id/rv_pets"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_290sdp"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:background="@color/color5" />
 
 
         </LinearLayout>
@@ -40,28 +38,28 @@
     </ScrollView>
 
     <ImageView
-            android:src="@drawable/vaccine"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/_112sdp"
-            android:layout_alignParentTop="true"
-            android:id="@+id/imageView"
-            android:layout_marginTop="@dimen/_15sdp"/>
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/_112sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:src="@drawable/vaccine" />
 
     <Button
-            android:id="@+id/butnew"
-            android:text="New Pet"
-            android:layout_width="@dimen/_140sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_toStartOf="@id/imageView"
-            android:layout_marginEnd="@dimen/_85sdp"
-            android:layout_marginTop="@dimen/_125sdp"
-            android:background="#85c1e9"
-            android:textColor="@color/colortexto"
-            android:layout_marginRight="@dimen/_106sdp"/>
+        android:id="@+id/butnew"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_125sdp"
+        android:layout_marginEnd="@dimen/_85sdp"
+        android:layout_marginRight="@dimen/_106sdp"
+        android:layout_toStartOf="@id/imageView"
+        android:background="#85c1e9"
+        android:text="New Pet"
+        android:textColor="@color/colortexto" />
 
 </RelativeLayout>
