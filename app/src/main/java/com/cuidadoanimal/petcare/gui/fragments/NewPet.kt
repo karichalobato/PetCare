@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.Toast
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.cuidadoanimal.petcare.R
 
@@ -29,7 +28,7 @@ class NewPet : Fragment(), View.OnClickListener {
     }
 
     private fun initSearchButton(container: View) =
-            container.btncreatePet.setOnClickListener {
+            container.btncreateVaccine.setOnClickListener {
 
                 if (PetName.text.isEmpty() || PetBreed.text.isEmpty()) {
                     Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()

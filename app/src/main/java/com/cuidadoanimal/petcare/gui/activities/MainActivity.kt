@@ -24,7 +24,7 @@ class MainActivity :
     AppCompatActivity(),
     NewPet.NewPetListener,
     Vaccine.OnFragmentInteractionListener,
-newVaccine.NewPetListener{
+    newVaccine.NewPetListener {
     override fun insertVaccine(VaccineName: String, date: String) {
         val vaccine = com.cuidadoanimal.petcare.data.database.entities.Vaccine(
             name = VaccineName,
@@ -67,7 +67,7 @@ newVaccine.NewPetListener{
         val pet = Pet(
             name = petName,
             pet_breed = petBreed,
-            owner = 1, /* TODO("ID del propietario quemado.") Acceder al ID del usuario actual en Room y mandarlo como FK*/
+            idUser = 1, /* TODO("ID del propietario quemado.") Acceder al ID del usuario actual en Room y mandarlo como FK*/
             sex = petSex
         )
         viewModel.insert(pet)

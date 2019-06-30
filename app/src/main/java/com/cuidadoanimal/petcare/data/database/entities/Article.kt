@@ -15,5 +15,6 @@ data class Article(
     val url: String
 ) {
     @PrimaryKey(autoGenerate = true)
-    var idArticle: Long = 0
+    @ColumnInfo(index = true)
+    var articleID: Long = 0
 }

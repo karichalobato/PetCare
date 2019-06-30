@@ -1,7 +1,6 @@
 package com.cuidadoanimal.petcare.gui.fragments
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,7 +38,7 @@ class newVaccine : Fragment() {
     }
 
     private fun initSearchButton(container: View) =
-        container.btncreatePet.setOnClickListener {
+        container.btncreateVaccine.setOnClickListener {
 
             if (VaccineName.text.isEmpty() || Date.text.isEmpty()) {
                 Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()

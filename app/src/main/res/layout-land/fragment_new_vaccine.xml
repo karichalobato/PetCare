@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <AutoCompleteTextView
-                android:id="@+id/PetName"
+                android:id="@+id/VaccineName"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
@@ -37,7 +37,7 @@
                 android:textSize="@dimen/_15sdp" />
 
             <AutoCompleteTextView
-                android:id="@+id/PetBreed"
+                android:id="@+id/Date"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
@@ -51,7 +51,7 @@
 
 
             <Button
-                android:id="@+id/btncreatePet"
+                android:id="@+id/btncreateVaccine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"

@@ -13,16 +13,16 @@ import com.cuidadoanimal.petcare.data.database.entities.VaccineJOINPet
 interface VaccineJOINPetDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(vp:VaccineJOINPet)
+    suspend fun insert(vp: VaccineJOINPet)
 
     @Query("SELECT * FROM VaccineJOINPet")
-    fun getAllVaccineJOINPets():LiveData<List<VaccineJOINPet>>
+    fun getAllVaccineJOINPets(): LiveData<List<VaccineJOINPet>>
 
-    @Query("SELECT * FROM Vaccine INNER JOIN VaccineJOINPet ON Vaccine.idVaccine = VaccineJOINPet.vacunaID WHERE VaccineJOINPet.mascotaID=:vacunaID")
-    fun getVaccineOfPets(vacunaID:Int): LiveData<List<Vaccine>>
+    @Query("SELECT * FROM Vaccine INNER JOIN VaccineJOINPet ON Vaccine.idVaccine = VaccineJOINPet.idVaccine WHERE VaccineJOINPet.idPet=:idVaccine")
+    fun getVaccineOfPets(idVaccine: Int): LiveData<List<Vaccine>>
 
-    @Query("SELECT * FROM Pet INNER JOIN VaccineJOINPet ON Pet.idPet = VaccineJOINPet.mascotaID WHERE VaccineJOINPet.mascotaID=:mascotaID")
-    fun getPetsOfVaccines(mascotaID:Int): LiveData<List<Pet>>
+    @Query("SELECT * FROM Pet INNER JOIN VaccineJOINPet ON Pet.idPet = VaccineJOINPet.idPet WHERE VaccineJOINPet.idPet=:idPet")
+    fun getPetsOfVaccines(idPet: Int): LiveData<List<Pet>>
 
     //LUEGO DE HABER SELECCIONADO UNA MASCOTA Y VER SUS VACUNAS SE PODRA FILTRAR SEGUN UN MES SELECCIONADO.
 }

@@ -15,5 +15,6 @@ data class User(
         var email: String? = "N/A"
 ) {
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(index = true)
     var idUser: Long = 0
 }
