@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.cuidadoanimal.petcare.R
+import com.cuidadoanimal.petcare.data.database.entities.Application
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
 import com.cuidadoanimal.petcare.gui.fragments.NewVaccine
 import com.cuidadoanimal.petcare.gui.fragments.NewVaccineApplication
@@ -21,10 +22,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity :
-    AppCompatActivity(),
-    NewPet.NewPetListener,
-    NewVaccineApplication.NewVaccineApplicationListener,
-    NewVaccine.NewVaccineListener {
+        AppCompatActivity(),
+        NewPet.NewPetListener,
+        NewVaccineApplication.NewVaccineApplicationListener,
+        NewVaccine.NewVaccineListener {
 
     private var doubleBackToExitPressedOnce = false
 
@@ -32,86 +33,88 @@ class MainActivity :
 
 //    lateinit var viewModel: PetCareViewModel
 
-    /*private var userID: Long = 0*/
-
     /* Obtener instancia de base de datos */
     private var myDB = FirebaseFirestore.getInstance()
 
-    override fun insertApplication(petName: String, vaccineName: String, date: String) {
+    override fun insertApplication(petName: String, vaccineName: String, year: String, month: String, day: String) {
+        var appDate = "$year/$month/$day"
+
         myDB
-            .collection("users")
-            .document(auth.currentUser?.email.toString())
-            .collection("pets")
-            .document(petName)
-            .collection("vaccines")
-            .document(vaccineName)
-            .collection("applications")
-            .document(date)
-            .set(
-                mapOf(
-                    "application_date" to date
-                )
-            )
+                .collection("users")
+                .document(auth.currentUser?.email.toString())
+                .collection("pets")
+                .document(petName)
+                .collection("vaccines")
+                .document(vaccineName)
+                .collection("applications")
+                .add(Application(
+                        application_date = appDate,
+                        application_day = day.toInt(),
+                        application_month = month.toInt(),
+                        application_year = year.toInt()
+                ))
     }
 
-    override fun insertVaccine(petName: String, vaccineName: String, date: String) {
+    override fun insertVaccine(petName: String, vaccineName: String, year: String, month: String, day: String) {
 
         var vaccine: DocumentReference = myDB
-            .collection("users")
-            .document(auth.currentUser?.email.toString())
-            .collection("pets")
-            .document(petName)
-            .collection("vaccines")
-            .document(vaccineName)
+                .collection("users")
+                .document(auth.currentUser?.email.toString())
+                .collection("pets")
+                .document(petName)
+                .collection("vaccines")
+                .document(vaccineName)
 
         vaccine.set(
-            mapOf(
-                "vaccine_name" to vaccineName
-            )
+                mapOf(
+                        "vaccine_name" to vaccineName
+                )
         )
 
-        insertFirstApplication(vaccine, date)
+        insertFirstApplication(vaccine, year, month, day)
     }
 
-    private fun insertFirstApplication(vaccine: DocumentReference, date: String) {
+    private fun insertFirstApplication(vaccine: DocumentReference, year: String, month: String, day: String) {
+
+        var appDate = "$year/$month/$day"
 
         vaccine.collection("applications")
-            .document(date)
-            .set(
-                mapOf(
-                    "application_date" to date
-                )
-            )
+                .add(Application(
+                        application_date = appDate,
+                        application_day = day.toInt(),
+                        application_month = month.toInt(),
+                        application_year = year.toInt()
+                ))
 
     }
 
     private fun saveUser() {
 
         myDB
-            .collection("users")
-            .document(auth.currentUser?.email.toString())
-            .set(
-                mapOf(
-                    "display_name" to auth.currentUser?.displayName.toString(),
-                    "email" to auth.currentUser?.email.toString()
+                .collection("users")
+                .document(auth.currentUser?.email.toString())
+                .set(
+                        mapOf(
+                                "display_name" to auth.currentUser?.displayName.toString(),
+                                "email" to auth.currentUser?.email.toString()
+                        )
                 )
-            )
     }
 
     override fun insertPet(petName: String, petBreed: String, petSex: String) {
 
         myDB
-            .collection("users")
-            .document(auth.currentUser?.email.toString())
-            .collection("pets")
-            .document(petName)
-            .set(
-                mapOf(
-                    "pet_name" to petName,
-                    "pet_breed" to petBreed,
-                    "pet_sex" to petSex
+                .collection("users")
+                .document(auth.currentUser?.email.toString())
+                .collection("pets")
+                .document(petName)
+                .set(
+                        mapOf(
+                                "pet_name" to petName,
+                                "pet_breed" to petBreed,
+                                "pet_sex" to petSex
+                        )
                 )
-            )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -148,7 +151,7 @@ class MainActivity :
 
     private fun setupBottomNavMenu(navController: NavController) {
         findViewById<BottomNavigationView>(R.id.bottom_nav_view)
-            .setupWithNavController(navController)
+                .setupWithNavController(navController)
     }
 }
 

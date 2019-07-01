@@ -1,5 +1,6 @@
 package com.cuidadoanimal.petcare.gui.fragments
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,10 +12,15 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.cuidadoanimal.petcare.R
 import kotlinx.android.synthetic.main.fragment_new_vaccine.*
 import kotlinx.android.synthetic.main.fragment_new_vaccine.view.*
+import java.util.*
 
 private const val ARG_PET_NAME = "petName"
 
 class NewVaccine : Fragment() {
+
+    private var day = 1
+    private var month = 1
+    private var year = 1
 
     private var petName: String? = null
 
@@ -29,30 +35,51 @@ class NewVaccine : Fragment() {
     }
 
     interface NewVaccineListener {
-        fun insertVaccine(petName: String, vaccineName: String, date: String)
+        fun insertVaccine(petName: String, vaccineName: String, year: String, month: String, day: String)
     }
 
-    private fun initSearchButton(container: View) =
+    private fun initSearchButton(container: View) {
+
+        container.selectDate.setOnClickListener {
+
+            val calendar = Calendar.getInstance()
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            val month = calendar.get(Calendar.MONTH)
+            val year = calendar.get(Calendar.YEAR)
+
+            var picker = DatePickerDialog(this.context!!,
+                    DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                        view.selectDate?.text = "$dayOfMonth/${monthOfYear + 1}/$year"
+
+                        this.year = year
+                        this.month = monthOfYear + 1
+                        this.day = dayOfMonth
+
+                    }, year, month, day)
+            picker.show()
+        }
+
         container.btncreateVaccine.setOnClickListener {
 
-            if (VaccineName.text.isEmpty() || Date.text.isEmpty()) {
+            if (VaccineName.text.isEmpty() || this.year == 1/*Date.text.isEmpty()*/) {
                 Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this.context!!, "Vacuna añadida exitosamente", Toast.LENGTH_SHORT).show()
 
-                listenerTool?.insertVaccine(petName!!, VaccineName.text.toString(), Date.text.toString())
+                listenerTool?.insertVaccine(petName!!, VaccineName.text.toString(), this.year.toString(), this.month.toString(), this.day.toString())
 
                 val bundle = Bundle()
                 bundle.putString("petName", petName)
 
                 findNavController(this)
-                    .navigate(R.id.action_newVaccine_dest_to_pet_dest, bundle)
+                        .navigate(R.id.action_newVaccine_dest_to_pet_dest, bundle)
             }
         }
+    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_new_vaccine, container, false)
         bind(view)

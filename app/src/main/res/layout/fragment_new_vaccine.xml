@@ -36,18 +36,18 @@
                     android:textColorHint="@color/color4"
                     android:textSize="@dimen/_15sdp"/>
 
-            <AutoCompleteTextView
-                    android:id="@+id/Date"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:drawablePadding="@dimen/_10sdp"
-                    android:hint="Date"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/color4"
-                    android:textSize="@dimen/_15sdp"/>
+            <TextView
+                android:id="@+id/selectDate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:hint="Select Date"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/color4"
+                android:textSize="@dimen/_15sdp"/>
 
 
             <Button

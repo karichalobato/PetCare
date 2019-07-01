@@ -12,22 +12,22 @@ import kotlinx.android.synthetic.main.vaccine_application_list_item.view.*
 
 class FirestoreApplicationAdapter
 internal constructor(options: FirestoreRecyclerOptions<Application>) :
-    FirestoreRecyclerAdapter<Application, FirestoreApplicationAdapter.ApplicationViewHolder>(options) {
+        FirestoreRecyclerAdapter<Application, FirestoreApplicationAdapter.ApplicationViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ApplicationViewHolder(
-            LayoutInflater
-                .from(parent.context)
-                .inflate(
-                    R.layout.vaccine_application_list_item,
-                    parent,
-                    false
-                )
-        )
+            ApplicationViewHolder(
+                    LayoutInflater
+                            .from(parent.context)
+                            .inflate(
+                                    R.layout.vaccine_application_list_item,
+                                    parent,
+                                    false
+                            )
+            )
 
     override fun onBindViewHolder(
-        viewHolder: ApplicationViewHolder,
-        p1: Int, application: Application
+            viewHolder: ApplicationViewHolder,
+            p1: Int, application: Application
     ) {
         viewHolder.bind(application)
     }
@@ -35,7 +35,8 @@ internal constructor(options: FirestoreRecyclerOptions<Application>) :
     inner class ApplicationViewHolder
     internal constructor(view: View) : RecyclerView.ViewHolder(view) {
         internal fun bind(application: Application) {
-            itemView.tv_application_date.text = application.application_date
+            var displayDate = "${application.application_day}/${application.application_month}/${application.application_year}"
+            itemView.tv_application_date.text = displayDate
         }
     }
 }
