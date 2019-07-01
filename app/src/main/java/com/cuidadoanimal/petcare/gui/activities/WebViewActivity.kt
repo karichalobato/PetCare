@@ -1,23 +1,26 @@
 package com.cuidadoanimal.petcare.gui.activities
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.webkit.*
-import android.widget.SearchView
+import android.webkit.WebChromeClient
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
 import com.cuidadoanimal.petcare.R
 import kotlinx.android.synthetic.main.activity_web_view.*
 
 class WebViewActivity : AppCompatActivity() {
 
     private var BASE_URL = "https://www.google.com"
-    private val SEARCH_PATH = "/search?q=" //PATH que se mostrará al hacer una busqueda especifica.
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
 
-        var getUrl = intent?.getStringExtra("url")
+        val getUrl = intent?.getStringExtra("url")
 
         if (getUrl != null) BASE_URL = getUrl
 

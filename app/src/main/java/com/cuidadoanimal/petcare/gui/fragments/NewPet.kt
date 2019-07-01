@@ -79,7 +79,7 @@ class NewPet : Fragment(), View.OnClickListener {
         if (context is NewPetListener) {
             listenerTool = context
         } else {
-            throw RuntimeException("Se necesita una implementación de  la interfaz NewPetListener")
+            throw RuntimeException("Se necesita una implementación de  la interfaz NewVaccineListener")
         }
     }
 

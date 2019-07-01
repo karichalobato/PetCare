@@ -2,9 +2,9 @@ package com.cuidadoanimal.petcare.gui.activities
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.cuidadoanimal.petcare.R
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 class AuthenticationActivity : AppCompatActivity() {
 
     private val MY_REQUEST_CODE: Int = 7117 // Any number you want
-    lateinit var providers: List<AuthUI.IdpConfig>
+    private lateinit var providers: List<AuthUI.IdpConfig>
     private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,10 +28,10 @@ class AuthenticationActivity : AppCompatActivity() {
             setContentView(R.layout.activity_authentication)
 
             providers = listOf(
-                    AuthUI.IdpConfig.EmailBuilder().build(),
-                    AuthUI.IdpConfig.FacebookBuilder().build(),
-                    AuthUI.IdpConfig.GoogleBuilder().build(),
-                    AuthUI.IdpConfig.PhoneBuilder().build()
+                AuthUI.IdpConfig.EmailBuilder().build(),
+                AuthUI.IdpConfig.FacebookBuilder().build(),
+                AuthUI.IdpConfig.GoogleBuilder().build(),
+                AuthUI.IdpConfig.PhoneBuilder().build()
             )
             showSignInOptions()
 
@@ -58,11 +58,12 @@ class AuthenticationActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
 
                 val user = FirebaseAuth.getInstance().currentUser // Get current user
-                Toast.makeText(this, "Logged into ${user!!.email}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Welcome, ${user!!.displayName}!", Toast.LENGTH_SHORT).show()
 
-                var intent = Intent(
-                        this,
-                        MainActivity::class.java)
+                val intent = Intent(
+                    this,
+                    MainActivity::class.java
+                )
 
                 intent.putExtra("email", user.email)
                 intent.putExtra("displayName", user.displayName)
@@ -72,23 +73,25 @@ class AuthenticationActivity : AppCompatActivity() {
 
 //                btn_sign_out.isEnabled = true
             } else {
-                Toast.makeText(this,
-                        "Fail " + response!!.error!!.message,
-                        Toast.LENGTH_SHORT)
-                        .show()
+                Toast.makeText(
+                    this,
+                    "Fail " + response!!.error!!.message,
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
             }
         }
     }
 
     private fun showSignInOptions() {
         startActivityForResult(
-                AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setAvailableProviders(providers)
-                        .setTheme(R.style.MyTheme)
-                        .setLogo(R.drawable.cat)
-                        .setIsSmartLockEnabled(false)
-                        .build(), MY_REQUEST_CODE
+            AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(providers)
+                .setTheme(R.style.MyTheme)
+                .setLogo(R.drawable.cat)
+                .setIsSmartLockEnabled(false)
+                .build(), MY_REQUEST_CODE
         )
     }
 }

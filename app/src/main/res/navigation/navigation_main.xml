@@ -12,14 +12,14 @@
             tools:layout="@layout/fragment_settings"/>
     <fragment
             android:id="@+id/main_fragment"
-            android:name="com.cuidadoanimal.petcare.gui.fragments.Main"
+            android:name="com.cuidadoanimal.petcare.gui.fragments.HomeFragment"
             android:label="fragment_main"
             tools:layout="@layout/fragment_main">
         <action
                 android:id="@+id/action_main_to_settings"
                 app:destination="@id/settings"/>
         <action
-                android:id="@+id/action_new"
+                android:id="@+id/action_new_pet"
                 app:destination="@+id/newpet"/>
     </fragment>
     <fragment
@@ -37,16 +37,16 @@
     </fragment>
     <fragment
             android:id="@+id/pet_dest"
-            android:name="com.cuidadoanimal.petcare.gui.fragments.Pet"
+            android:name="com.cuidadoanimal.petcare.gui.fragments.PetFragment"
             android:label="fragment_pet"
             tools:layout="@layout/fragment_pet">
         <action android:id="@+id/action_pet_dest_to_newVaccine_dest" app:destination="@id/newVaccine_dest"/>
+        <argument android:name="petName" app:argType="string"/>
     </fragment>
     <fragment
             android:id="@+id/list_pet_item"
-            android:name="com.cuidadoanimal.petcare.gui.fragments.ListPetItem"
             android:label="fragment_list_pet_item"
-            tools:layout="@layout/fragment_list_pet_item">
+            tools:layout="@layout/pet_list_item">
         <action
                 android:id="@+id/pet_action"
                 app:destination="@id/pet_dest"/>
@@ -56,8 +56,9 @@
               android:label="fragment_articles" tools:layout="@layout/fragment_articles"/>
     <fragment android:id="@+id/maps_fragment" android:name="com.cuidadoanimal.petcare.gui.fragments.MapsFragment"
               android:label="fragment_maps" tools:layout="@layout/fragment_maps"/>
-    <fragment android:id="@+id/newVaccine_dest" android:name="com.cuidadoanimal.petcare.gui.fragments.newVaccine"
+    <fragment android:id="@+id/newVaccine_dest" android:name="com.cuidadoanimal.petcare.gui.fragments.NewVaccine"
               android:label="fragment_new_vaccine" tools:layout="@layout/fragment_new_vaccine">
         <action android:id="@+id/action_newVaccine_dest_to_pet_dest" app:destination="@id/pet_dest"/>
+        <argument android:name="petName" app:argType="string"/>
     </fragment>
 </navigation>

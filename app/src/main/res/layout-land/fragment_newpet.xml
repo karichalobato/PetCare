@@ -95,13 +95,13 @@
     </ScrollView>
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="@dimen/_90sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="@dimen/_220sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:src="@drawable/registration" />
+            android:id="@+id/iv_resource"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/_220sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/registration" android:contentDescription="TODO"/>
 
 </RelativeLayout>

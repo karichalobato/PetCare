@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/color6"
-    tools:context="com.cuidadoanimal.petcare.gui.fragments.Main">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color6"
+                tools:context="com.cuidadoanimal.petcare.gui.fragments.HomeFragment">
 
 
     <ScrollView
@@ -55,16 +55,16 @@
         app:autoSizeTextType="uniform" />
 
     <Button
-        android:id="@+id/butnew"
-        android:layout_width="@dimen/_90sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/_160sdp"
-        android:layout_marginEnd="@dimen/_445sdp"
-        android:backgroundTint="#85c1e9"
-        android:text="New Pet"
-        android:textColor="@color/colortexto" />
+            android:id="@+id/bt_new_pet"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_160sdp"
+            android:layout_marginEnd="@dimen/_445sdp"
+            android:backgroundTint="#85c1e9"
+            android:text="New Pet"
+            android:textColor="@color/colortexto" />
 
 </RelativeLayout>

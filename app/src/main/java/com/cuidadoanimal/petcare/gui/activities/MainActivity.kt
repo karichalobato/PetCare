@@ -1,93 +1,99 @@
 package com.cuidadoanimal.petcare.gui.activities
 
+//import androidx.lifecycle.ViewModelProviders
+//import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import android.content.pm.ActivityInfo
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProviders
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment.findNavController
-import com.cuidadoanimal.petcare.R
-import com.cuidadoanimal.petcare.data.database.entities.Pet
-import com.cuidadoanimal.petcare.data.database.entities.User
-import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import androidx.navigation.ui.setupWithNavController
-import com.cuidadoanimal.petcare.gui.fragments.*
+import com.cuidadoanimal.petcare.R
+import com.cuidadoanimal.petcare.gui.fragments.NewPet
+import com.cuidadoanimal.petcare.gui.fragments.NewVaccine
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity :
     AppCompatActivity(),
     NewPet.NewPetListener,
-    Vaccine.OnFragmentInteractionListener,
-    newVaccine.NewPetListener {
-    override fun insertVaccine(VaccineName: String, date: String) {
-        val vaccine = com.cuidadoanimal.petcare.data.database.entities.Vaccine(
-            name = VaccineName,
-            next_application = date,
-            contraindications = "null"
-
-        )
-        viewModel.insert(vaccine)
-    }
-
-
-    override fun onInteraction(uri: Uri) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    NewVaccine.NewVaccineListener {
 
     private var doubleBackToExitPressedOnce = false
 
     private val auth = FirebaseAuth.getInstance()
 
-    lateinit var viewModel: PetCareViewModel
-    private var userID: Long = 0
+//    lateinit var viewModel: PetCareViewModel
 
-    fun saveUser(displayName: String, email: String) {
+    /*private var userID: Long = 0*/
 
-        // Ingresar el usuario recientemente registrado, a la base de datos.
-        var newUser = User()  // Crear nuevo usuario
+    /* Obtener instancia de base de datos */
+    private var myDB = FirebaseFirestore.getInstance()
 
-        with(newUser) {
-            // Asignar los valores del usuario actual
-            this.name = displayName
-            this.email = email
-        }
+    override fun insertVaccine(petName: String, vaccineName: String, date: String) {
 
-        userID = /* Guardar ID del registro nuevo */
-            viewModel.insert(newUser)
+        myDB
+            .collection("users")
+            .document(auth.currentUser?.email.toString())
+            .collection("pets")
+            .document(petName)
+            .collection("vaccines")
+            .document(vaccineName)
+            .set(
+                mapOf(
+                    "vaccine_name" to vaccineName,
+                    "vaccine_application_date" to date
+                )
+            )
+    }
+
+    private fun saveUser() {
+
+        myDB
+            .collection("users")
+            .document(auth.currentUser?.email.toString())
+            .set(
+                mapOf(
+                    "display_name" to auth.currentUser?.displayName.toString(),
+                    "email" to auth.currentUser?.email.toString()
+                )
+            )
     }
 
     override fun insertPet(petName: String, petBreed: String, petSex: String) {
 
-        val pet = Pet(
-            name = petName,
-            pet_breed = petBreed,
-            idUser = 1, /* TODO("ID del propietario quemado.") Acceder al ID del usuario actual en Room y mandarlo como FK*/
-            sex = petSex
-        )
-        viewModel.insert(pet)
+        myDB
+            .collection("users")
+            .document(auth.currentUser?.email.toString())
+            .collection("pets")
+            .document(petName)
+            .set(
+                mapOf(
+                    "pet_name" to petName,
+                    "pet_breed" to petBreed,
+                    "pet_sex" to petSex
+                )
+            )
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
 
-        viewModel = ViewModelProviders.of(this).get(PetCareViewModel::class.java)
+//        viewModel = ViewModelProviders.of(this).get(PetCareViewModel::class.java)
         if (resources.getBoolean(R.bool.portrait_only)) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
 
-        var displayName: String? = intent?.getStringExtra("displayName")
-        var email: String? = intent?.getStringExtra("email")
+        val displayName: String? = intent?.getStringExtra("displayName")
+        val email: String? = intent?.getStringExtra("email")
 
-        if (displayName != null && email != null) saveUser(displayName, email)
+        if (displayName != null && email != null) saveUser()
 
         val navController = findNavController(nav_host_fragment)
         setupBottomNavMenu(navController)
@@ -111,3 +117,4 @@ class MainActivity :
             .setupWithNavController(navController)
     }
 }
+

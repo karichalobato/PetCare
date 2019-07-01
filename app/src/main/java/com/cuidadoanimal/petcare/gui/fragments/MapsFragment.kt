@@ -1,6 +1,5 @@
 package com.cuidadoanimal.petcare.gui.fragments
 
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.IntentSender
@@ -10,11 +9,11 @@ import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.cuidadoanimal.petcare.R
@@ -31,11 +30,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_maps.*
-import kotlinx.android.synthetic.main.fragment_maps.view.*
 import java.io.IOException
-import java.lang.Exception
 
 class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
@@ -59,19 +55,16 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var v = inflater.inflate(R.layout.fragment_maps, container, false)
+        val v = inflater.inflate(R.layout.fragment_maps, container, false)
 
-        var mapFragment = childFragmentManager.findFragmentById(R.id.fl_map) as? SupportMapFragment
+        val mapFragment = SupportMapFragment.newInstance()
 
-        var fm: FragmentManager? = fragmentManager
-        var ft: FragmentTransaction? = fm?.beginTransaction()
+        val fm: FragmentManager? = fragmentManager
+        val ft: FragmentTransaction? = fm?.beginTransaction()
 
-        mapFragment = SupportMapFragment.newInstance()
         ft?.replace(R.id.fl_map, mapFragment)?.commit()
 
-        mapFragment?.let {
-            it.getMapAsync(this)
-        }
+        mapFragment?.getMapAsync(this)
 
         fusedLocationClient = activity?.let { LocationServices.getFusedLocationProviderClient(it) }!!
 
@@ -131,7 +124,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
         }
 
         map?.isMyLocationEnabled = true //Desplegar nuestra localización
-        map?.mapType = GoogleMap.MAP_TYPE_HYBRID
+        map?.mapType = GoogleMap.MAP_TYPE_TERRAIN
 
         activity?.let {
             fusedLocationClient.lastLocation.addOnSuccessListener(it) { location ->
@@ -178,7 +171,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
                 }
             }
         } catch (e: IOException) {
-            Log.e("MapsActivity", e.localizedMessage)
+            Log.e("MapsFragment", e.localizedMessage)
         }
 
         return addressText
@@ -246,7 +239,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
     ) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CHECK_SETTINGS) {
-            if (resultCode == Activity.RESULT_OK) {
+            if (resultCode == RESULT_OK) {
                 locationUpdateState = true
                 startLocationUpdates()
             }
