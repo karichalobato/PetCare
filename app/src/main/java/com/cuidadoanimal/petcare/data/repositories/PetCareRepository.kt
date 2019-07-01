@@ -4,7 +4,7 @@ import com.cuidadoanimal.petcare.data.AppConstants.Companion.APPLICATIONS_COLLEC
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.PETS_COLLECTION_NAME
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.USERS_COLLECTION_NAME
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.VACCINES_COLLECTION_NAME
-import com.cuidadoanimal.petcare.data.database.entities.Application
+import com.cuidadoanimal.petcare.data.database.entities.VaccineApplication
 import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.data.database.entities.Vaccine
@@ -15,7 +15,8 @@ class PetCareRepository {
 
     val TAG = "FIREBASE_REPOSITORY"
     var db = FirebaseFirestore.getInstance()
-    var user = FirebaseAuth.getInstance().currentUser
+
+    var firebaseUser = FirebaseAuth.getInstance().currentUser
 
     /** Guardar usuario*/
     fun insertUser(user: User) = getUser().set(user)
@@ -23,7 +24,7 @@ class PetCareRepository {
     /** Obtener usuario actual */
     fun getUser() = db
         .collection(USERS_COLLECTION_NAME)
-        .document(user!!.email.toString())
+        .document(firebaseUser!!.email.toString())
 
     /** Guardar mascota*/
     fun insertPet(pet: Pet) = getPet(pet.pet_name!!)
@@ -50,17 +51,17 @@ class PetCareRepository {
         .document(vaccineName)
 
     /** Guardar aplicación */
-    fun insertApplication(petName: String, vaccineName: String, application: Application) =
-        getApplication(petName, vaccineName, application.application_date!!)
-            .set(application)
+    fun insertVaccineApplication(petName: String, vaccineName: String, vaccineApplication: VaccineApplication) =
+        getVaccineApplication(petName, vaccineName, vaccineApplication.application_date!!)
+            .set(vaccineApplication)
 
     /** Obtener aplicaciones */
-    fun getAllApplications(petName: String, vaccineName: String) = getVaccine(petName, vaccineName)
+    fun getAllVaccineApplications(petName: String, vaccineName: String) = getVaccine(petName, vaccineName)
         .collection(APPLICATIONS_COLLECTION_NAME)
 
     /** Obtener aplicación específica */
-    fun getApplication(petName: String, vaccineName: String, applicationDate: String) =
-        getAllApplications(petName, vaccineName)
+    fun getVaccineApplication(petName: String, vaccineName: String, applicationDate: String) =
+        getAllVaccineApplications(petName, vaccineName)
             .document(applicationDate)
 
 }

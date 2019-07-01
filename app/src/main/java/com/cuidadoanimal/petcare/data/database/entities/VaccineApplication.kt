@@ -1,6 +1,6 @@
 package com.cuidadoanimal.petcare.data.database.entities
 
-data class Application(
+data class VaccineApplication(
 
         val application_date: String? = "N/A",
         val application_year: Int? = 0,

@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Vaccine
+import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.adapters.FirestoreVaccineAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -24,19 +26,22 @@ private const val ARG_PET_NAME = "petName"
 class PetFragment : Fragment() {
     private var petName: String? = null
 
-    private val auth = FirebaseAuth.getInstance()
-
-    private val myDB = FirebaseFirestore.getInstance()
+    private lateinit var vaccineAdapter: FirestoreVaccineAdapter
 
     private lateinit var vaccinesCollection: CollectionReference
 
-    private lateinit var vaccineAdapter: FirestoreVaccineAdapter
+    private lateinit var info: PetCareViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             petName = it.getString(ARG_PET_NAME)
         }
+
+        info = ViewModelProviders.of(this).get(PetCareViewModel::class.java)
+
+        vaccinesCollection = info.getAllVaccines(petName!!)
+
     }
 
     override fun onCreateView(
@@ -54,13 +59,6 @@ class PetFragment : Fragment() {
          * */
 
         view.tv_pet_name.text = petName
-
-        vaccinesCollection = myDB
-            .collection("users")
-            .document(auth.currentUser?.email.toString())
-            .collection("pets")
-            .document(petName!!)
-            .collection("vaccines")
 
         val query = vaccinesCollection.orderBy(
             "vaccine_name",

@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cuidadoanimal.petcare.R
-import com.cuidadoanimal.petcare.data.database.entities.Application
+import com.cuidadoanimal.petcare.data.database.entities.VaccineApplication
+import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.adapters.FirestoreApplicationAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -25,9 +27,7 @@ class VaccineFragment : Fragment() {
     private var petName: String? = null
     private var vaccineName: String? = null
 
-    private val auth = FirebaseAuth.getInstance()
-
-    private val myDB = FirebaseFirestore.getInstance()
+    private lateinit var info: PetCareViewModel
 
     private lateinit var vaccineApplicationCollection: CollectionReference
 
@@ -37,8 +37,13 @@ class VaccineFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             petName = it.getString(ARG_PET_NAME)
+
             vaccineName = it.getString(ARG_VACCINE_NAME)
         }
+
+        info = ViewModelProviders.of(this).get(PetCareViewModel::class.java)
+
+        vaccineApplicationCollection = info.getAllVaccineApplications(petName!!, vaccineName!!)
     }
 
     override fun onCreateView(
@@ -57,26 +62,17 @@ class VaccineFragment : Fragment() {
 
         view.tv_vaccine_name.text = vaccineName
 
-        vaccineApplicationCollection = myDB
-            .collection("users")
-            .document(auth.currentUser?.email.toString())
-            .collection("pets")
-            .document(petName!!)
-            .collection("vaccines")
-            .document(vaccineName!!)
-            .collection("applications")
-
         val query = vaccineApplicationCollection.orderBy(
             "application_date",
             Query.Direction.DESCENDING
         )
 
-        val options: FirestoreRecyclerOptions<Application> =
+        val options: FirestoreRecyclerOptions<VaccineApplication> =
             FirestoreRecyclerOptions
-                .Builder<Application>()
+                .Builder<VaccineApplication>()
                 .setQuery(
                     query,
-                    Application::class.java
+                    VaccineApplication::class.java
                 )
                 .build()
 

@@ -6,29 +6,37 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Pet
+import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.adapters.FirestorePetAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_main.view.*
 
 
 class HomeFragment : Fragment() {
-
-    private val auth = FirebaseAuth.getInstance()
-
-    private val myDB = FirebaseFirestore.getInstance()
-    private var petsCollection = myDB
-        .collection("users")
-        .document(auth.currentUser?.email.toString())
-        .collection("pets")
-
     private lateinit var petsAdapter: FirestorePetAdapter
+
+    private lateinit var info: PetCareViewModel
+
+    private lateinit var petsCollection: CollectionReference
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        info = ViewModelProviders.of(this).get(PetCareViewModel::class.java)
+
+        petsCollection = info.getAllPets()
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

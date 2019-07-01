@@ -26,12 +26,12 @@
     <string name="vaccine_name">Vaccine name</string>
     <string name="create_vaccine">Create Vaccine</string>
     <string name="vaccine_for_pet">New vaccine for %1$s</string>
-    <string name="application_for_vaccine">New application for %1$s</string>
+    <string name="application_for_vaccine">New vaccineApplication for %1$s</string>
     <string name="sex">Sex</string>
     <string name="breed">Breed</string>
     <string name="imagen">Imagen</string>
     <string name="new_vaccine">New Vaccine</string>
     <string name="vaccination_record">Vaccination record</string>
-    <string name="new_application">New application</string>
+    <string name="new_application">New vaccineApplication</string>
 
 </resources>

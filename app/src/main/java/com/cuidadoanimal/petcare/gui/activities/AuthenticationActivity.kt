@@ -57,7 +57,7 @@ class AuthenticationActivity : AppCompatActivity() {
             val response = IdpResponse.fromResultIntent(data)
             if (resultCode == Activity.RESULT_OK) {
 
-                val user = FirebaseAuth.getInstance().currentUser // Get current user
+                val user = FirebaseAuth.getInstance().currentUser // Get current firebaseUser
                 Toast.makeText(this, "Welcome, ${user!!.displayName}!", Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(
