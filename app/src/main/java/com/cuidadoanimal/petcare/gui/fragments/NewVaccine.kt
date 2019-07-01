@@ -49,7 +49,7 @@ class NewVaccine : Fragment() {
 
             var picker = DatePickerDialog(this.context!!,
                     DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                        view.selectDate?.text = "$dayOfMonth/${monthOfYear + 1}/$year"
+                        container.selectDate.text = "$dayOfMonth/${monthOfYear + 1}/$year"
 
                         this.year = year
                         this.month = monthOfYear + 1
