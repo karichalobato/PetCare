@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Vaccine
@@ -26,25 +27,32 @@ internal constructor(options: FirestoreRecyclerOptions<Vaccine>) :
                 )
         )
 
+    private var petName: String = ""
+
+    fun getPetName(petName: String) {
+        this.petName = petName
+    }
+
     override fun onBindViewHolder(
         viewHolder: VaccineViewHolder,
         p1: Int, vaccine: Vaccine
     ) {
-        viewHolder.bind(vaccine)
+        viewHolder.bind(vaccine, petName)
     }
 
     inner class VaccineViewHolder
     internal constructor(view: View) : RecyclerView.ViewHolder(view) {
-        internal fun bind(vaccine: Vaccine) {
+        internal fun bind(vaccine: Vaccine, petName: String) {
             itemView.tv_vaccine_name.text = vaccine.vaccine_name
 
             itemView.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("vaccineName", vaccine.vaccine_name)
+                bundle.putString("petName", petName)
 
-                /*Navigation.findNavController(itemView).navigate(
-                    R.id.pet_dest, bundle
-                ) // TODO(VACCINE DETAILS NO EXISTE)*/
+                Navigation.findNavController(itemView).navigate(
+                    R.id.vaccine_details_dest, bundle
+                )
             }
         }
     }

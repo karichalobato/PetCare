@@ -1,5 +1,5 @@
 package com.cuidadoanimal.petcare.data.database.entities
 
-data class Tag(
-    val name: String
+data class Application(
+    val application_date: String? = "N/A"
 )

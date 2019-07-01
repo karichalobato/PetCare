@@ -51,6 +51,14 @@
                 android:id="@+id/pet_action"
                 app:destination="@id/pet_dest"/>
     </fragment>
+    <fragment
+            android:id="@+id/list_vaccine_item"
+            android:label="fragment_list_vaccine_item"
+            tools:layout="@layout/vaccine_list_item">
+        <action
+                android:id="@+id/vaccine_details_action"
+                app:destination="@+id/vaccine_details_dest"/>
+    </fragment>
     <fragment android:id="@+id/articles_fragment"
               android:name="com.cuidadoanimal.petcare.gui.fragments.ArticlesFragment"
               android:label="fragment_articles" tools:layout="@layout/fragment_articles"/>
@@ -60,5 +68,21 @@
               android:label="fragment_new_vaccine" tools:layout="@layout/fragment_new_vaccine">
         <action android:id="@+id/action_newVaccine_dest_to_pet_dest" app:destination="@id/pet_dest"/>
         <argument android:name="petName" app:argType="string"/>
+    </fragment>
+    <fragment android:id="@+id/vaccine_details_dest"
+              android:name="com.cuidadoanimal.petcare.gui.fragments.VaccineFragment"
+              android:label="fragment_vaccine" tools:layout="@layout/fragment_vaccine">
+        <argument android:name="petName" app:argType="string"/>
+        <argument android:name="vaccineName" app:argType="string"/>
+        <action android:id="@+id/action_vaccine_details_dest_to_new_vaccine_application"
+                app:destination="@+id/new_vaccine_application_dest"/>
+    </fragment>
+    <fragment android:id="@+id/new_vaccine_application_dest"
+              android:name="com.cuidadoanimal.petcare.gui.fragments.NewVaccineApplication"
+              android:label="fragment_new_vaccine_application" tools:layout="@layout/fragment_new_vaccine_application">
+        <argument android:name="petName" app:argType="string"/>
+        <argument android:name="vaccineName" app:argType="string"/>
+        <action android:id="@+id/action_new_vaccine_application_dest_to_vaccine_details_dest"
+                app:destination="@+id/vaccine_details_dest"/>
     </fragment>
 </navigation>

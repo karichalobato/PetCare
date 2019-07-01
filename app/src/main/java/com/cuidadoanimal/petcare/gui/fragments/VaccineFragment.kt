@@ -1,41 +1,43 @@
 package com.cuidadoanimal.petcare.gui.fragments
 
-//import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cuidadoanimal.petcare.R
-import com.cuidadoanimal.petcare.data.database.entities.Vaccine
-import com.cuidadoanimal.petcare.gui.adapters.FirestoreVaccineAdapter
+import com.cuidadoanimal.petcare.data.database.entities.Application
+import com.cuidadoanimal.petcare.gui.adapters.FirestoreApplicationAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import kotlinx.android.synthetic.main.fragment_pet.view.*
+import kotlinx.android.synthetic.main.fragment_vaccine.view.*
 
 private const val ARG_PET_NAME = "petName"
+private const val ARG_VACCINE_NAME = "vaccineName"
 
-class PetFragment : Fragment() {
+class VaccineFragment : Fragment() {
     private var petName: String? = null
+    private var vaccineName: String? = null
 
     private val auth = FirebaseAuth.getInstance()
 
     private val myDB = FirebaseFirestore.getInstance()
 
-    private lateinit var vaccinesCollection: CollectionReference
+    private lateinit var vaccineApplicationCollection: CollectionReference
 
-    private lateinit var vaccineAdapter: FirestoreVaccineAdapter
+    private lateinit var vaccineApplicationAdapter: FirestoreApplicationAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             petName = it.getString(ARG_PET_NAME)
+            vaccineName = it.getString(ARG_VACCINE_NAME)
         }
     }
 
@@ -43,7 +45,7 @@ class PetFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_pet, container, false)
+        var view = inflater.inflate(R.layout.fragment_vaccine, container, false)
         bind(view)
         return view
     }
@@ -53,45 +55,46 @@ class PetFragment : Fragment() {
          * Agregar el adaptador y layoutManager al recyclerView de vacunas
          * */
 
-        view.tv_pet_name.text = petName
+        view.tv_vaccine_name.text = vaccineName
 
-        vaccinesCollection = myDB
+        vaccineApplicationCollection = myDB
             .collection("users")
             .document(auth.currentUser?.email.toString())
             .collection("pets")
             .document(petName!!)
             .collection("vaccines")
+            .document(vaccineName!!)
+            .collection("applications")
 
-        val query = vaccinesCollection.orderBy(
-            "vaccine_name",
-            Query.Direction.ASCENDING
+        val query = vaccineApplicationCollection.orderBy(
+            "application_date",
+            Query.Direction.DESCENDING
         )
 
-        val options: FirestoreRecyclerOptions<Vaccine> =
+        val options: FirestoreRecyclerOptions<Application> =
             FirestoreRecyclerOptions
-                .Builder<Vaccine>()
+                .Builder<Application>()
                 .setQuery(
                     query,
-                    Vaccine::class.java
+                    Application::class.java
                 )
                 .build()
 
-        vaccineAdapter = FirestoreVaccineAdapter(options)
-        vaccineAdapter.getPetName(petName!!)
+        vaccineApplicationAdapter = FirestoreApplicationAdapter(options)
 
         /*view.rv_vaccines.setHasFixedSize(true)*/
-        view.rv_vaccines.adapter = this.vaccineAdapter
-        view.rv_vaccines.layoutManager = LinearLayoutManager(this.context)
+        view.rv_vaccine_applications.adapter = this.vaccineApplicationAdapter
+        view.rv_vaccine_applications.layoutManager = LinearLayoutManager(this.context)
     }
 
     override fun onStart() {
         super.onStart()
-        vaccineAdapter.startListening()
+        vaccineApplicationAdapter.startListening()
     }
 
     override fun onStop() {
         super.onStop()
-        vaccineAdapter.stopListening()
+        vaccineApplicationAdapter.stopListening()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -99,9 +102,10 @@ class PetFragment : Fragment() {
 
         val bundle = Bundle()
         bundle.putString("petName", petName)
+        bundle.putString("vaccineName", vaccineName)
 
-        view.findViewById<TextView>(R.id.bt_new_vaccine)?.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_pet_dest_to_newVaccine_dest, bundle)
+        view.findViewById<Button>(R.id.bt_new_vaccine_application)?.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.new_vaccine_application_dest, bundle)
         )
     }
 }

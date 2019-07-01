@@ -1,7 +1,6 @@
 package com.cuidadoanimal.petcare.gui.adapters
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,8 +43,6 @@ internal constructor(options: FirestoreRecyclerOptions<Pet>) :
             itemView.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("petName", pet.pet_name)
-
-                Log.d("F_PetAdapter", "PASSING ARG: ${bundle.getString("petName")}")
 
                 Navigation.findNavController(itemView).navigate(
                     R.id.pet_dest, bundle

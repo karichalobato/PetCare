@@ -13,14 +13,17 @@ import androidx.navigation.ui.setupWithNavController
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
 import com.cuidadoanimal.petcare.gui.fragments.NewVaccine
+import com.cuidadoanimal.petcare.gui.fragments.NewVaccineApplication
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity :
     AppCompatActivity(),
     NewPet.NewPetListener,
+    NewVaccineApplication.NewVaccineApplicationListener,
     NewVaccine.NewVaccineListener {
 
     private var doubleBackToExitPressedOnce = false
@@ -34,8 +37,7 @@ class MainActivity :
     /* Obtener instancia de base de datos */
     private var myDB = FirebaseFirestore.getInstance()
 
-    override fun insertVaccine(petName: String, vaccineName: String, date: String) {
-
+    override fun insertApplication(petName: String, vaccineName: String, date: String) {
         myDB
             .collection("users")
             .document(auth.currentUser?.email.toString())
@@ -43,12 +45,44 @@ class MainActivity :
             .document(petName)
             .collection("vaccines")
             .document(vaccineName)
+            .collection("applications")
+            .document(date)
             .set(
                 mapOf(
-                    "vaccine_name" to vaccineName,
-                    "vaccine_application_date" to date
+                    "application_date" to date
                 )
             )
+    }
+
+    override fun insertVaccine(petName: String, vaccineName: String, date: String) {
+
+        var vaccine: DocumentReference = myDB
+            .collection("users")
+            .document(auth.currentUser?.email.toString())
+            .collection("pets")
+            .document(petName)
+            .collection("vaccines")
+            .document(vaccineName)
+
+        vaccine.set(
+            mapOf(
+                "vaccine_name" to vaccineName
+            )
+        )
+
+        insertFirstApplication(vaccine, date)
+    }
+
+    private fun insertFirstApplication(vaccine: DocumentReference, date: String) {
+
+        vaccine.collection("applications")
+            .document(date)
+            .set(
+                mapOf(
+                    "application_date" to date
+                )
+            )
+
     }
 
     private fun saveUser() {

@@ -10,43 +10,47 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.cuidadoanimal.petcare.R
 import kotlinx.android.synthetic.main.fragment_new_vaccine.*
-import kotlinx.android.synthetic.main.fragment_new_vaccine.view.*
+import kotlinx.android.synthetic.main.fragment_new_vaccine_application.view.*
 
 private const val ARG_PET_NAME = "petName"
+private const val ARG_VACCINE_NAME = "vaccineName"
 
-class NewVaccine : Fragment() {
+class NewVaccineApplication : Fragment() {
 
     private var petName: String? = null
+    private var vaccineName: String? = null
 
-    private var listenerTool: NewVaccineListener? = null
+    private var listenerTool: NewVaccineApplicationListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
             petName = it.getString(ARG_PET_NAME)
+            vaccineName = it.getString(ARG_VACCINE_NAME)
         }
     }
 
-    interface NewVaccineListener {
-        fun insertVaccine(petName: String, vaccineName: String, date: String)
+    interface NewVaccineApplicationListener {
+        fun insertApplication(petName: String, vaccineName: String, date: String)
     }
 
     private fun initSearchButton(container: View) =
-        container.btncreateVaccine.setOnClickListener {
+        container.bt_create_application.setOnClickListener {
 
-            if (VaccineName.text.isEmpty() || Date.text.isEmpty()) {
+            if (Date.text.isEmpty()) {
                 Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this.context!!, "Vacuna añadida exitosamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context!!, "Aplicación añadida exitosamente", Toast.LENGTH_SHORT).show()
 
-                listenerTool?.insertVaccine(petName!!, VaccineName.text.toString(), Date.text.toString())
+                listenerTool?.insertApplication(petName!!, vaccineName!!, Date.text.toString())
 
                 val bundle = Bundle()
                 bundle.putString("petName", petName)
+                bundle.putString("vaccineName", vaccineName)
 
                 findNavController(this)
-                    .navigate(R.id.action_newVaccine_dest_to_pet_dest, bundle)
+                    .navigate(R.id.action_new_vaccine_application_dest_to_vaccine_details_dest, bundle)
             }
         }
 
@@ -54,13 +58,13 @@ class NewVaccine : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_new_vaccine, container, false)
+        val view = inflater.inflate(R.layout.fragment_new_vaccine_application, container, false)
         bind(view)
         return view
     }
 
     private fun bind(view: View) {
-        view.tv_vaccine_for_pet_name.text = getString(R.string.vaccine_for_pet, petName)
+        view.tv_aplication_for_vaccine.text = getString(R.string.application_for_vaccine, vaccineName)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,7 +75,7 @@ class NewVaccine : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is NewVaccineListener) {
+        if (context is NewVaccineApplicationListener) {
             listenerTool = context
         } else {
             throw RuntimeException("Se necesita una implementación de  la interfaz NewVaccineApplicationListener")
