@@ -72,7 +72,7 @@ class NewVaccineApplication : Fragment() {
                         view.selectDate?.text = "$dayOfMonth/${monthOfYear + 1}/$year"
 
                         this.year = year
-                        this.month = monthOfYear
+                        this.month = monthOfYear+1
                         this.day = dayOfMonth
 
                     }, year, month, day)
