@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Application
+import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
 import com.cuidadoanimal.petcare.gui.fragments.NewVaccine
 import com.cuidadoanimal.petcare.gui.fragments.NewVaccineApplication
@@ -42,6 +43,7 @@ class MainActivity :
         myDB
                 .collection("users")
                 .document(auth.currentUser?.email.toString())
+                // HASTA ACA FUNCION USER()
                 .collection("pets")
                 .document(petName)
                 .collection("vaccines")
@@ -89,14 +91,12 @@ class MainActivity :
     }
 
     private fun saveUser() {
-
+            /*TODO SOLO MANDAR A LLAMAR A insert(con instancia de user) + IDENTIFICAR DONDE HACER INSERT -SI ES NECESARIO INTERFAZ DE FRAGMENTO**/
         myDB
                 .collection("users")
                 .document(auth.currentUser?.email.toString())
-                .set(
-                        mapOf(
-                                "display_name" to auth.currentUser?.displayName.toString(),
-                                "email" to auth.currentUser?.email.toString()
+                .set(User(display_name= auth.currentUser?.displayName.toString(),
+                                email= auth.currentUser?.email.toString()
                         )
                 )
     }
