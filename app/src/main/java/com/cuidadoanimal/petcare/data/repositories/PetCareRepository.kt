@@ -4,10 +4,10 @@ import com.cuidadoanimal.petcare.data.AppConstants.Companion.APPLICATIONS_COLLEC
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.PETS_COLLECTION_NAME
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.USERS_COLLECTION_NAME
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.VACCINES_COLLECTION_NAME
-import com.cuidadoanimal.petcare.data.database.entities.VaccineApplication
 import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.data.database.entities.Vaccine
+import com.cuidadoanimal.petcare.data.database.entities.VaccineApplication
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -52,8 +52,8 @@ class PetCareRepository {
 
     /** Guardar aplicación */
     fun insertVaccineApplication(petName: String, vaccineName: String, vaccineApplication: VaccineApplication) =
-        getVaccineApplication(petName, vaccineName, vaccineApplication.application_date!!)
-            .set(vaccineApplication)
+        getAllVaccineApplications(petName, vaccineName)
+            .add(vaccineApplication)
 
     /** Obtener aplicaciones */
     fun getAllVaccineApplications(petName: String, vaccineName: String) = getVaccine(petName, vaccineName)
@@ -61,7 +61,6 @@ class PetCareRepository {
 
     /** Obtener aplicación específica */
     fun getVaccineApplication(petName: String, vaccineName: String, applicationDate: String) =
-        getAllVaccineApplications(petName, vaccineName)
-            .document(applicationDate)
+        getAllVaccineApplications(petName, vaccineName).whereEqualTo("application_date", applicationDate)
 
 }

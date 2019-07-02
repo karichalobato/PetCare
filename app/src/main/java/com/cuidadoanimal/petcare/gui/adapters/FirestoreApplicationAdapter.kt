@@ -35,7 +35,13 @@ internal constructor(options: FirestoreRecyclerOptions<VaccineApplication>) :
     inner class ApplicationViewHolder
     internal constructor(view: View) : RecyclerView.ViewHolder(view) {
         internal fun bind(vaccineApplication: VaccineApplication) {
-            var displayDate = "${vaccineApplication.application_day}/${vaccineApplication.application_month}/${vaccineApplication.application_year}"
+            val day = if (vaccineApplication.application_day.toString().length == 1)
+                "0${vaccineApplication.application_day}" else "${vaccineApplication.application_day}"
+
+            val month = if (vaccineApplication.application_month.toString().length == 1)
+                "0${vaccineApplication.application_month}" else "${vaccineApplication.application_month}"
+
+            var displayDate = "$day/$month/${vaccineApplication.application_year}"
             itemView.tv_application_date.text = displayDate
         }
     }

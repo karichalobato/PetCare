@@ -14,9 +14,7 @@ import com.cuidadoanimal.petcare.data.database.entities.VaccineApplication
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.adapters.FirestoreApplicationAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_vaccine.view.*
 
@@ -103,5 +101,6 @@ class VaccineFragment : Fragment() {
         view.findViewById<Button>(R.id.bt_new_vaccine_application)?.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.new_vaccine_application_dest, bundle)
         )
+
     }
 }

@@ -49,14 +49,20 @@ class NewVaccineApplication : Fragment() {
             } else {
                 Toast.makeText(this.context!!, "Aplicación añadida exitosamente", Toast.LENGTH_SHORT).show()
 
-                listenerTool?.insertApplication(petName!!, vaccineName!!, this.year.toString(), this.month.toString(), this.day.toString())
+                listenerTool?.insertApplication(
+                    petName!!,
+                    vaccineName!!,
+                    this.year.toString(),
+                    this.month.toString(),
+                    this.day.toString()
+                )
 
                 val bundle = Bundle()
                 bundle.putString("petName", petName)
                 bundle.putString("vaccineName", vaccineName)
 
                 findNavController(this)
-                        .navigate(R.id.action_new_vaccine_application_dest_to_vaccine_details_dest, bundle)
+                    .navigate(R.id.action_new_vaccine_application_dest_to_vaccine_details_dest, bundle)
             }
         }
 
@@ -67,23 +73,31 @@ class NewVaccineApplication : Fragment() {
             val month = calendar.get(Calendar.MONTH)
             val year = calendar.get(Calendar.YEAR)
 
-            var picker = DatePickerDialog(this.context!!,
-                    DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                        container.selectDate.text = "$dayOfMonth/${monthOfYear + 1}/$year"
+            var picker = DatePickerDialog(
+                this.context!!,
+                DatePickerDialog.OnDateSetListener { _, SelectedYear, monthOfYear, dayOfMonth ->
 
-                        this.year = year
-                        this.month = monthOfYear+1
-                        this.day = dayOfMonth
+                    this.year = SelectedYear
+                    this.month = monthOfYear + 1
+                    this.day = dayOfMonth
 
-                    }, year, month, day)
+                    container.selectDate.text =
+                        getString(
+                            R.string.display_date,
+                            if (this.day.toString().length == 1) "0${this.day}" else this.day.toString(),
+                            if (this.month.toString().length == 1) "0${this.month}" else this.month.toString(),
+                            SelectedYear.toString()
+                        )
+                }, year, month, day
+            )
             picker.show()
         }
 
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_new_vaccine_application, container, false)
         bind(view)

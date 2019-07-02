@@ -1,27 +1,24 @@
 package com.cuidadoanimal.petcare.gui.activities
 
-import androidx.lifecycle.ViewModelProviders
-import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Pet
-import com.cuidadoanimal.petcare.data.database.entities.VaccineApplication
 import com.cuidadoanimal.petcare.data.database.entities.User
 import com.cuidadoanimal.petcare.data.database.entities.Vaccine
+import com.cuidadoanimal.petcare.data.database.entities.VaccineApplication
+import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.fragments.NewPet
 import com.cuidadoanimal.petcare.gui.fragments.NewVaccine
 import com.cuidadoanimal.petcare.gui.fragments.NewVaccineApplication
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity :
@@ -35,7 +32,13 @@ class MainActivity :
     private lateinit var info: PetCareViewModel
 
     override fun insertApplication(petName: String, vaccineName: String, year: String, month: String, day: String) {
-        var appDate = "$year/$month/$day"
+
+        var appDate = getString(
+            R.string.display_date,
+            year,
+            if (month.length == 1) "0$month" else month,
+            if (day.length == 1) "0$day" else day
+        )
 
         info.insertVaccineApplication(
             petName,
