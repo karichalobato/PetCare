@@ -1,100 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context="com.cuidadoanimal.petcare.gui.fragments.NewPet">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                tools:context="com.cuidadoanimal.petcare.gui.fragments.NewPet">
 
+    <Spinner
+            android:id="@+id/spinner_breed"
+            android:layout_marginLeft="@dimen/_50sdp"
+            android:layout_width="@dimen/_99sdp"
+            android:layout_height="@dimen/_45sdp"
+    />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/_3sdp"
-        android:layout_marginBottom="@dimen/_15sdp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_15sdp">
 
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_50sdp"
-            android:layout_marginEnd="@dimen/_50sdp"
-            android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginEnd="@dimen/_50sdp"
+                android:orientation="vertical">
 
             <AutoCompleteTextView
-                android:id="@+id/PetName"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:drawablePadding="@dimen/_10sdp"
-                android:hint="@string/pet_name"
-                android:inputType="textEmailAddress"
-                android:paddingStart="@dimen/_10sdp"
-                android:paddingEnd="@dimen/_10sdp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/color4"
-                android:textSize="@dimen/_20sdp" />
+                    android:id="@+id/PetName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:hint="@string/pet_name"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/color4"
+                    android:textSize="@dimen/_20sdp"/>
 
             <AutoCompleteTextView
-                android:id="@+id/PetBreed"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:drawablePadding="@dimen/_10sdp"
-                android:hint="Breed"
-                android:paddingStart="@dimen/_10sdp"
-                android:paddingEnd="@dimen/_10sdp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/color4"
-                android:textSize="@dimen/_15sdp" />
+                    android:id="@+id/PetBreed"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:hint="Breed"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/color4"
+                    android:textSize="@dimen/_15sdp"/>
 
             <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-
-                <RadioGroup
                     android:id="@+id/rg_pet_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checkedButton="@id/rb_sex_female"
                     android:orientation="horizontal">
 
-                    <RadioButton
+                <RadioButton
                         android:id="@+id/rb_sex_female"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/female"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colortexto" />
+                        android:textColorHint="@color/colortexto"/>
 
-                    <RadioButton
+                <RadioButton
                         android:id="@+id/rb_sex_male"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/male"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colortexto" />
-                </RadioGroup>
+                        android:textColorHint="@color/colortexto"/>
             </RadioGroup>
 
             <Button
-                android:id="@+id/btncreateVaccine"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="#85c1e9"
-                android:text="@string/create_pet"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/_15sdp" />
+                    android:id="@+id/btncreateVaccine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="#85c1e9"
+                    android:text="@string/create_pet"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_15sdp"/>
 
         </LinearLayout>
 
     </ScrollView>
 
-    <ImageView
+    <!--<ImageView
             android:id="@+id/iv_resource"
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_100sdp"
@@ -102,6 +102,6 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="@dimen/_220sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:src="@drawable/registration" android:contentDescription="TODO"/>
+            android:src="@drawable/registration" android:contentDescription="TODO"/>-->
 
 </RelativeLayout>

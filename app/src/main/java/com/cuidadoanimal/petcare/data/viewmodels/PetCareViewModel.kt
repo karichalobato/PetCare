@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.database.entities.User
-import com.cuidadoanimal.petcare.data.database.entities.VaccineApplication
 import com.cuidadoanimal.petcare.data.database.entities.Vaccine
+import com.cuidadoanimal.petcare.data.database.entities.VaccineApplication
 import com.cuidadoanimal.petcare.data.repositories.PetCareRepository
 
 class PetCareViewModel(val app: Application) : AndroidViewModel(app) {
@@ -50,4 +50,8 @@ class PetCareViewModel(val app: Application) : AndroidViewModel(app) {
     /** Obtener aplicación específica */
     fun getVaccineApplication(petName: String, vaccineName: String, applicationDate: String) =
         repository.getVaccineApplication(petName, vaccineName, applicationDate)
+
+    /** Obtener especies */
+    fun getSpecies() = repository.getSpecies()
+
 }

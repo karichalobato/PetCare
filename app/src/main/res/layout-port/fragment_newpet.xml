@@ -49,6 +49,11 @@
                     android:textColorHint="@color/color4"
                     android:textSize="@dimen/_15sdp"/>
 
+            <Spinner
+                    android:id="@+id/spinner_breed"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_centerInParent="true"/>
 
             <RadioGroup
                     android:id="@+id/rg_pet_sex"

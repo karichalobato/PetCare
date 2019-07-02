@@ -2,6 +2,7 @@ package com.cuidadoanimal.petcare.data.repositories
 
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.APPLICATIONS_COLLECTION_NAME
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.PETS_COLLECTION_NAME
+import com.cuidadoanimal.petcare.data.AppConstants.Companion.SPECIES_COLLECTION_NAME
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.USERS_COLLECTION_NAME
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.VACCINES_COLLECTION_NAME
 import com.cuidadoanimal.petcare.data.database.entities.Pet
@@ -62,5 +63,9 @@ class PetCareRepository {
     /** Obtener aplicación específica */
     fun getVaccineApplication(petName: String, vaccineName: String, applicationDate: String) =
         getAllVaccineApplications(petName, vaccineName).whereEqualTo("application_date", applicationDate)
+
+    /** Obtener especies */
+    fun getSpecies() = db
+        .collection(SPECIES_COLLECTION_NAME)
 
 }

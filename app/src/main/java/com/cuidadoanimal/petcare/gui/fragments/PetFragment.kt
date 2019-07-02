@@ -1,6 +1,5 @@
 package com.cuidadoanimal.petcare.gui.fragments
 
-//import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,9 +14,7 @@ import com.cuidadoanimal.petcare.data.database.entities.Vaccine
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.adapters.FirestoreVaccineAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_pet.view.*
 
