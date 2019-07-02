@@ -58,7 +58,7 @@
                 android:textSize="@dimen/_15sdp" />
 
             <Button
-                android:id="@+id/btncreateVaccine"
+                android:id="@+id/bt_new_vaccine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"

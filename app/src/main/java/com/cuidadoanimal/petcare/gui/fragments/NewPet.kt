@@ -35,7 +35,7 @@ class NewPet : Fragment(), View.OnClickListener {
     }
 
     private fun initSearchButton(container: View) =
-        container.btncreateVaccine.setOnClickListener {
+        container.bt_new_pet.setOnClickListener {
 
             if (PetName.text.isEmpty() || PetBreed.text.isEmpty()) {
                 Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()

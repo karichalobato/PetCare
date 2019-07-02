@@ -66,7 +66,7 @@ class NewVaccine : Fragment() {
             picker.show()
         }
 
-        container.btncreateVaccine.setOnClickListener {
+        container.bt_new_vaccine.setOnClickListener {
 
             if (VaccineName.text.isEmpty() || this.year == 1/*Date.text.isEmpty()*/) {
                 Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()
