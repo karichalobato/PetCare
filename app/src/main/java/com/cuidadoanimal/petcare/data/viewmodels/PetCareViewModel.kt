@@ -28,7 +28,7 @@ class PetCareViewModel(val app: Application) : AndroidViewModel(app) {
     fun getAllPets() = repository.getAllPets()
 
     /** Obtener mascota específica */
-    fun getPet(petName: String) = repository.getPet(petName)
+    fun getPetReference(petName: String) = repository.getPetReference(petName)
 
     /** Guardar vacuna*/
     fun insertVaccine(petName: String, vaccine: Vaccine) = repository.insertVaccine(petName, vaccine)

@@ -3,6 +3,7 @@ package com.cuidadoanimal.petcare.gui.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -81,17 +82,6 @@ class NewPet : Fragment(), View.OnClickListener {
             bAdapter
         )
 
-        spinner_breed.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                this@NewPet.breed = spinner_breed?.selectedItem.toString()
-            }
-
-        }
-
         /** SPINNER DE SPECIES */
         val species = ArrayList<String>()
 
@@ -106,21 +96,13 @@ class NewPet : Fragment(), View.OnClickListener {
 
         /** Define el manejo de las selecciones (o la falta de ellas) en la lista. */
         spinner_species.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            val initialBreed = ArrayList<String>()
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                breedsCollection = info.getCatBreeds()
-                setUpSpinnerOptions(
-                    breedsCollection,
-                    AppConstants.DOCUMENT_FIELD_NAME,
-                    initialBreed,
-                    bAdapter
-                )
             }
 
             /** Actualiza la lista de razas según la especie seleccionada */
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                this@NewPet.species = spinner_species.selectedItem.toString()
+                this@NewPet.species = spinner_species?.selectedItem.toString()
 
                 if (!breeds.isNullOrEmpty()) breeds.clear()
 
@@ -147,6 +129,24 @@ class NewPet : Fragment(), View.OnClickListener {
 
             }
         }
+
+        spinner_breed.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                this@NewPet.breed = spinner_breed?.selectedItem.toString()
+                Log.d("NEWPET", "THIS.BREED${this@NewPet.breed}")
+                Log.d("NEWPET", "SELECTED ITEM BREED${spinner_breed?.selectedItem.toString()}")
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                Log.d("NEWPET", "PRE ** THIS.BREED${this@NewPet.breed}")
+                if (spinner_breed.selectedItem != null) {
+                    this@NewPet.breed = spinner_breed.selectedItem.toString()
+                }
+                Log.d("NEWPET", "POST ** THIS.BREED${this@NewPet.breed}")
+            }
+
+        }
+
     }
 
     private fun setUpSpinnerAdapter(array: ArrayList<String>, spinner: Spinner): ArrayAdapter<String> {

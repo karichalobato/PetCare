@@ -32,7 +32,7 @@ class PetCareRepository {
         .document(firebaseUser!!.email.toString())
 
     /** Guardar mascota*/
-    fun insertPet(pet: Pet) = getPet(pet.pet_name!!)
+    fun insertPet(pet: Pet) = getPetReference(pet.pet_name!!)
         .set(pet)
 
     /** Obtener mascotas*/
@@ -40,7 +40,7 @@ class PetCareRepository {
         .collection(PETS_COLLECTION_NAME)
 
     /** Obtener mascota específica */
-    fun getPet(petName: String) = getAllPets()
+    fun getPetReference(petName: String) = getAllPets()
         .document(petName)
 
     /** Guardar vacuna*/
@@ -48,7 +48,7 @@ class PetCareRepository {
         .set(vaccine)
 
     /** Obtener vacunas*/
-    fun getAllVaccines(petName: String) = getPet(petName)
+    fun getAllVaccines(petName: String) = getPetReference(petName)
         .collection(VACCINES_COLLECTION_NAME)
 
     /** Obtener vacuna específica */
@@ -83,6 +83,4 @@ class PetCareRepository {
     /** Obtener razas de perro */
     fun getHorseBreeds() = getSpecies().document(HORSE_DOCUMENT_NAME)
         .collection(BREEDS_COLLECTION_NAME)
-
-
 }

@@ -4,9 +4,6 @@
     <string name="facebook_login_protocol_schema" translatable="false">fb2258951821100560</string>
     <string name="title_activity_maps">Explorador</string>
 
-    <string name="hello_map_fragment">Hello map fragment</string>
-    <string name="hello_articles_fragment">Hello articles fragment</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pet_name">Name</string>
     <string name="create_pet">create pet</string>
 
@@ -27,12 +24,13 @@
     <string name="create_vaccine">Create Vaccine</string>
     <string name="vaccine_for_pet">New vaccine for %1$s</string>
     <string name="display_date">%1$s/%2$s/%3$s</string>
-    <string name="application_for_vaccine">New vaccineApplication for %1$s</string>
+    <string name="application_for_vaccine">New vaccine application for %1$s</string>
     <string name="sex">Sex</string>
     <string name="breed">Breed</string>
     <string name="imagen">Imagen</string>
     <string name="new_vaccine">New Vaccine</string>
     <string name="vaccination_record">Vaccination record</string>
-    <string name="new_application">New vaccineApplication</string>
+    <string name="new_application">New vaccine application</string>
+    <string name="species">Species</string>
 
 </resources>

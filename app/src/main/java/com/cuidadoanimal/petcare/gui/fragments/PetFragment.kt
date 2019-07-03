@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cuidadoanimal.petcare.R
+import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.database.entities.Vaccine
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
 import com.cuidadoanimal.petcare.gui.adapters.FirestoreVaccineAdapter
@@ -19,9 +20,12 @@ import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_pet.view.*
 
 private const val ARG_PET_NAME = "petName"
+private const val TAG = "PetFragment"
 
 class PetFragment : Fragment() {
     private var petName: String? = null
+
+    private var pet: Pet = Pet()
 
     private lateinit var vaccineAdapter: FirestoreVaccineAdapter
 
@@ -55,8 +59,6 @@ class PetFragment : Fragment() {
          * Agregar el adaptador y layoutManager al recyclerView de vacunas
          * */
 
-        view.tv_pet_name.text = petName
-
         val query = vaccinesCollection.orderBy(
             "vaccine_name",
             Query.Direction.ASCENDING
@@ -77,6 +79,16 @@ class PetFragment : Fragment() {
         /*view.rv_vaccines.setHasFixedSize(true)*/
         view.rv_vaccines.adapter = this.vaccineAdapter
         view.rv_vaccines.layoutManager = LinearLayoutManager(this.context)
+
+        info.getPetReference(petName!!).addSnapshotListener { snapshot, _ ->
+            if (snapshot != null && snapshot.exists()) {
+                view.tv_pet_breed.text = snapshot.data?.get("pet_breed").toString()
+                view.tv_pet_name.text = snapshot.data?.get("pet_name").toString()
+                view.tv_pet_species.text = snapshot.data?.get("pet_species").toString()
+                view.tv_pet_sex.text = snapshot.data?.get("pet_sex").toString()
+            }
+        }
+
     }
 
     override fun onStart() {
