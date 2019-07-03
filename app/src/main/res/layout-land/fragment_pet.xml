@@ -5,84 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color1"
-    android:paddingLeft="@dimen/_10sdp"
-    android:paddingTop="@dimen/_30sdp"
-    android:paddingRight="@dimen/_10sdp"
-    android:paddingBottom="@dimen/_30sdp"
+    android:paddingLeft="@dimen/_2sdp"
+    android:paddingTop="@dimen/_10sdp"
+    android:paddingRight="@dimen/_2sdp"
+    android:paddingBottom="@dimen/_10sdp"
     tools:context="com.cuidadoanimal.petcare.gui.fragments.PetFragment">
-
-    <ImageView
-        android:id="@+id/iv_resource"
-        android:layout_width="@dimen/_129sdp"
-        android:layout_height="@dimen/_107sdp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="@dimen/_50sdp"
-        android:layout_marginTop="@dimen/_50sdp"
-        android:layout_marginRight="@dimen/_50sdp"
-        android:layout_marginBottom="@dimen/_70sdp"
-        android:contentDescription="@string/imagen"
-        android:src="@drawable/pet" />
 
     <TextView
         android:id="@+id/tv_pet_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_toStartOf="@id/iv_resource"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
         android:gravity="center"
         android:text="@string/pet_name"
-        android:textColor="@color/color4"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_30sdp"
         app:autoSizeTextType="uniform" />
 
+    <ImageView
+        android:id="@+id/iv_resource"
+        android:layout_width="@dimen/_129sdp"
+        android:layout_height="@dimen/_107sdp"
+        android:layout_below="@id/tv_pet_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_35sdp"
+        android:contentDescription="@string/imagen"
+        android:src="@drawable/pet" />
+
+
     <TextView
-        android:id="@+id/tv_pet_species"
+        android:id="@+id/tv_pet_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_pet_name"
+        android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_toStartOf="@id/iv_resource"
         android:gravity="center"
-        android:text="@string/species"
-        android:textColor="@color/color4"
-        app:autoSizeTextType="uniform" />
-
-    <TextView
-        android:id="@+id/tv_pet_breed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_pet_species"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_toStartOf="@id/iv_resource"
-        android:gravity="center"
-        android:text="@string/breed"
-        android:textColor="@color/color4"
-        app:autoSizeTextType="uniform" />
-
-    <TextView
-        android:id="@+id/tv_pet_sex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_pet_breed"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_toStartOf="@id/iv_resource"
-        android:gravity="center"
-        android:text="@string/sex"
-        android:textColor="@color/color4"
+        android:text="@string/pet_description"
+        android:textColor="@color/colorPrimaryDark"
         app:autoSizeTextType="uniform" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_vaccines"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/_50sdp"
-        android:layout_marginEnd="@dimen/_50sdp"
-        android:layout_marginBottom="@dimen/_50sdp"
-        android:layout_toStartOf="@+id/tv_pet_sex" />
+        android:layout_below="@id/iv_resource"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp" />
 
     <TextView
         android:id="@+id/tv_vacc_record"
@@ -90,11 +67,12 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/rv_vaccines"
         android:layout_marginLeft="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginRight="@dimen/_40sdp"
-        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:text="@string/vaccination_record"
-        android:textColor="@color/color4"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_15sdp"
         app:autoSizeTextType="uniform" />
 
     <Button
@@ -104,7 +82,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="@dimen/_30sdp"
-        android:backgroundTint="#85c1e9"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:text="@string/new_vaccine"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/color0" />
+
 </RelativeLayout>

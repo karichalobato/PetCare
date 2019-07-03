@@ -10,8 +10,7 @@ import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import kotlinx.android.synthetic.main.fragment_pet.view.*
-import kotlinx.android.synthetic.main.pet_list_item.view.tv_pet_name
+import kotlinx.android.synthetic.main.pet_list_item.view.*
 
 class PetAdapter
 internal constructor(options: FirestoreRecyclerOptions<Pet>) :

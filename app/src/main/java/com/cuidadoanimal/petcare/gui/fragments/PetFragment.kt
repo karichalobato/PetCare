@@ -46,8 +46,8 @@ class PetFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_pet, container, false)
         bind(view)
@@ -60,18 +60,18 @@ class PetFragment : Fragment() {
          * */
 
         val query = vaccinesCollection.orderBy(
-            "vaccine_name",
-            Query.Direction.ASCENDING
+                "vaccine_name",
+                Query.Direction.ASCENDING
         )
 
         val options: FirestoreRecyclerOptions<Vaccine> =
-            FirestoreRecyclerOptions
-                .Builder<Vaccine>()
-                .setQuery(
-                    query,
-                    Vaccine::class.java
-                )
-                .build()
+                FirestoreRecyclerOptions
+                        .Builder<Vaccine>()
+                        .setQuery(
+                                query,
+                                Vaccine::class.java
+                        )
+                        .build()
 
         vaccineAdapter = VaccineAdapter(options)
         vaccineAdapter.getPetName(petName!!)
@@ -82,10 +82,18 @@ class PetFragment : Fragment() {
 
         info.getPetReference(petName!!).addSnapshotListener { snapshot, _ ->
             if (snapshot != null && snapshot.exists()) {
-                view.tv_pet_breed.text = snapshot.data?.get("pet_breed").toString()
-                view.tv_pet_name.text = snapshot.data?.get("pet_name").toString()
-                view.tv_pet_species.text = snapshot.data?.get("pet_species").toString()
-                view.tv_pet_sex.text = snapshot.data?.get("pet_sex").toString()
+
+                var name = snapshot.data?.get("pet_name").toString()
+
+                view.tv_pet_name.text = name
+
+                view.tv_pet_description.text = getString(R.string.pet_description,
+                        name,
+                        snapshot.data?.get("pet_sex").toString(),
+                        snapshot.data?.get("pet_breed").toString(),
+                        snapshot.data?.get("pet_species").toString()
+                )
+
             }
         }
 
@@ -108,7 +116,7 @@ class PetFragment : Fragment() {
         bundle.putString("petName", petName)
 
         view.findViewById<TextView>(R.id.bt_new_vaccine)?.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_pet_dest_to_newVaccine_dest, bundle)
+                Navigation.createNavigateOnClickListener(R.id.action_pet_dest_to_newVaccine_dest, bundle)
         )
     }
 }
