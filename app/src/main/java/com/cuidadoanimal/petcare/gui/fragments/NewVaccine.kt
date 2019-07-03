@@ -48,51 +48,51 @@ class NewVaccine : Fragment() {
             val year = calendar.get(Calendar.YEAR)
 
             val picker = DatePickerDialog(
-                this.context!!,
-                DatePickerDialog.OnDateSetListener { _, selectedYear, monthOfYear, dayOfMonth ->
-                    this.year = selectedYear
-                    this.month = monthOfYear + 1
-                    this.day = dayOfMonth
+                    this.context!!,
+                    DatePickerDialog.OnDateSetListener { _, selectedYear, monthOfYear, dayOfMonth ->
+                        this.year = selectedYear
+                        this.month = monthOfYear + 1
+                        this.day = dayOfMonth
 
-                    container.selectDate.text =
-                        getString(
-                            R.string.display_date,
-                            if (this.day.toString().length == 1) "0${this.day}" else this.day.toString(),
-                            if (this.month.toString().length == 1) "0${this.month}" else this.month.toString(),
-                            selectedYear.toString()
-                        )
-                }, year, month, day
+                        container.selectDate.text =
+                                getString(
+                                        R.string.display_date,
+                                        if (this.day.toString().length == 1) "0${this.day}" else this.day.toString(),
+                                        if (this.month.toString().length == 1) "0${this.month}" else this.month.toString(),
+                                        selectedYear.toString()
+                                )
+                    }, year, month, day
             )
             picker.show()
         }
 
         container.bt_new_vaccine.setOnClickListener {
 
-            if (VaccineName.text.isEmpty() || this.year == 1/*Date.text.isEmpty()*/) {
+            if (VaccineName.text!!.isEmpty() || this.year == 1/*Date.text.isEmpty()*/) {
                 Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this.context!!, "Vacuna añadida exitosamente", Toast.LENGTH_SHORT).show()
 
                 listenerTool?.insertVaccine(
-                    petName!!,
-                    VaccineName.text.toString(),
-                    this.year.toString(),
-                    this.month.toString(),
-                    this.day.toString()
+                        petName!!,
+                        VaccineName.text.toString(),
+                        this.year.toString(),
+                        this.month.toString(),
+                        this.day.toString()
                 )
 
                 val bundle = Bundle()
                 bundle.putString("petName", petName)
 
                 findNavController(this)
-                    .navigate(R.id.action_newVaccine_dest_to_pet_dest, bundle)
+                        .navigate(R.id.action_newVaccine_dest_to_pet_dest, bundle)
             }
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_new_vaccine, container, false)
         bind(view)

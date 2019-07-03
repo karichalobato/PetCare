@@ -11,9 +11,11 @@
         android:id="@+id/tv_vaccine_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_55sdp"
-        android:layout_marginRight="@dimen/_50sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:layout_toStartOf="@id/imageView"
         android:text="@string/vaccine_name"
         android:textColor="@color/colorPrimaryDark"
@@ -25,35 +27,38 @@
         android:id="@+id/imageView"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/tv_vaccine_name"
         android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/_35sdp"
+        android:layout_marginEnd="@dimen/_35sdp"
+        android:layout_marginBottom="@dimen/_25sdp"
         android:src="@drawable/vaccine" />
 
     <TextView
         android:id="@+id/tv_vaccination_record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/rv_vaccine_applications"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/_38sdp"
+        android:layout_marginTop="@dimen/_18sdp"
         android:text="@string/vaccination_record"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/_15sdp" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_vaccine_applications"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/imageView"
-        android:layout_marginBottom="@dimen/_39sdp" />
+        android:layout_below="@id/tv_vaccination_record"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_toLeftOf="@id/bt_new_vaccine_application" />
 
     <Button
         android:id="@+id/bt_new_vaccine_application"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:background="@color/colorPrimaryDark"
         android:padding="@dimen/_10sdp"
         android:text="@string/new_application"

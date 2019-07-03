@@ -184,7 +184,7 @@ class NewPet : Fragment(), View.OnClickListener {
     private fun initAddButton(container: View) =
             container.bt_new_pet.setOnClickListener {
 
-                if (PetName.text.isEmpty()) {
+                if (PetName.text.isNullOrEmpty()) {
                     Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this.context!!, "Mascota añadida exitosamente", Toast.LENGTH_SHORT).show()
