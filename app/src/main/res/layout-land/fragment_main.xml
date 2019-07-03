@@ -1,68 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/color1"
-    tools:context="com.cuidadoanimal.petcare.gui.fragments.HomeFragment">
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/_184sdp"
-        android:layout_marginBottom="@dimen/_43sdp">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_50sdp"
-            android:layout_marginEnd="@dimen/_50sdp"
-            android:orientation="vertical">
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_pets"
-                android:layout_width="@dimen/_300sdp"
-                android:layout_height="@dimen/_272sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:layout_marginEnd="@dimen/_50sdp" />
-
-
-        </LinearLayout>
-
-
-    </ScrollView>
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color1"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
+                tools:context="com.cuidadoanimal.petcare.gui.fragments.HomeFragment">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="@dimen/_105sdp"
-        android:layout_height="@dimen/_46sdp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/_100sdp"
-        android:layout_marginEnd="@dimen/_437sdp"
-        android:gravity="center"
-        android:text="Your pets"
-        android:textColor="@color/colorPrimaryDark"
-        app:autoSizeTextType="uniform" />
+            android:id="@+id/textView"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="Your pets"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform"/>
 
     <Button
-        android:id="@+id/bt_new_pet"
-        android:layout_width="@dimen/_90sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/_160sdp"
-        android:layout_marginEnd="@dimen/_445sdp"
-        android:backgroundTint="#85c1e9"
-        android:text="New Pet"
-        android:textColor="@color/colortexto" />
+            android:id="@+id/bt_new_pet"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="@string/new_pet"
+            android:textColor="@color/color0"/>
 
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pets"
+            android:layout_width="match_parent"
+            android:layout_below="@id/textView"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_44sdp"/>
 </RelativeLayout>
