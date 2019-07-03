@@ -25,7 +25,7 @@
 
 
     </string>
-    <string name="browser_key">
+    <string name="browser_key" translatable="false">
 
 
         AIzaSyBw7J23lLJsUvu1P1xbiIsjlE06ni3d5bs

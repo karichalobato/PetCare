@@ -4,15 +4,15 @@
     <item
         android:id="@+id/main_fragment"
         android:icon="@drawable/ic_person_black_24dp"
-        android:title="Home" />
+        android:title="@string/home" />
 
     <item
         android:id="@+id/articles_fragment"
         android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
-        android:title="Articles" />
+        android:title="@string/articles" />
 
     <item
         android:id="@+id/maps_fragment"
         android:icon="@drawable/ic_person_pin_circle_black_24dp"
-        android:title="Map" />
+        android:title="@string/map" />
 </menu>
