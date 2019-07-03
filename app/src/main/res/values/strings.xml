@@ -19,9 +19,10 @@
     <string name="pet_food">https://www.youtube.com/watch?v=vuej1XI2lWQ</string>
     <string name="vaccine_name">Vaccine name</string>
     <string name="create_vaccine">Create Vaccine</string>
+    <string name="create_application">Create application</string>
     <string name="vaccine_for_pet">New vaccine for %1$s</string>
     <string name="display_date">%1$s/%2$s/%3$s</string>
-    <string name="application_for_vaccine">New vaccine application for %1$s</string>
+    <string name="application_for_vaccine">New application for vaccine %1$s</string>
     <string name="sex">Sex</string>
     <string name="breed">Breed</string>
     <string name="imagen">Imagen</string>

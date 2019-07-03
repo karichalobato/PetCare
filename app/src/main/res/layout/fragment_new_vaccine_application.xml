@@ -4,59 +4,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color1"
-    tools:context="com.cuidadoanimal.petcare.gui.fragments.NewVaccineApplication">
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginBottom="@dimen/_130sdp">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_50sdp"
-            android:layout_marginEnd="@dimen/_50sdp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/selectDate"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:drawablePadding="@dimen/_10sdp"
-                android:hint="Select Date"
-                android:paddingStart="@dimen/_10sdp"
-                android:paddingEnd="@dimen/_10sdp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/color4"
-                android:textSize="@dimen/_15sdp" />
-
-
-            <Button
-                android:id="@+id/bt_create_application"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="#85c1e9"
-                android:text="@string/create_vaccine"
-                android:textColor="@color/colorPrimary" />
-
-        </LinearLayout>
-    </ScrollView>
+    android:paddingStart="@dimen/_35sdp"
+    android:paddingTop="@dimen/_39sdp"
+    android:paddingEnd="@dimen/_35sdp"
+    android:paddingBottom="@dimen/_50sdp"
+    tools:context="com.cuidadoanimal.petcare.gui.fragments.NewVaccine">
 
     <TextView
         android:id="@+id/tv_aplication_for_vaccine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_40sdp"
-        android:layout_marginVertical="@dimen/_10sdp"
-        android:text="@string/application_for_vaccine"
-        android:textColor="@color/color4" />
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:text="@string/vaccine_for_pet"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_20sdp" />
 
+    <ImageView
+        android:id="@+id/iv_resource"
+        android:layout_width="@dimen/_170sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_below="@+id/tv_aplication_for_vaccine"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:contentDescription="@string/imagen"
+        android:src="@drawable/registration" />
+
+    <TextView
+        android:id="@+id/selectDate"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/iv_resource"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:drawableStart="@drawable/ic_calendar_black_24dp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:gravity="center"
+        android:hint="Select Date"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/color4"
+        android:textSize="@dimen/_15sdp" />
+
+
+    <Button
+        android:id="@+id/bt_create_application"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectDate"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@color/colorPrimaryDark"
+        android:padding="@dimen/_10sdp"
+        android:shadowRadius="@android:integer/config_shortAnimTime"
+        android:text="@string/create_application"
+        android:textColor="@color/color0" />
 
 </RelativeLayout>
