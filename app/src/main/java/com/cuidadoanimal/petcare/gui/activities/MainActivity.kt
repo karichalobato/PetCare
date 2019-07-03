@@ -61,26 +61,29 @@ class MainActivity :
             )
         )
 
+        /** Además de guardar la vacuna en la base de datos,
+         * también guarda la fecha de la primera aplicación. */
         insertApplication(petName, vaccineName, year, month, day)
 
     }
 
     private fun saveUser() {
-        var user = info.user()
+        val user = info.user()
 
         info.insertUser(
             User(
-                display_name = user?.displayName.toString(),
-                email = user?.email.toString()
+                display_name = user!!.displayName.toString(),
+                email = user.email.toString()
             )
         )
     }
 
-    override fun insertPet(petName: String, petBreed: String, petSex: String) {
+    override fun insertPet(petName: String, petSpecies: String, petBreed: String, petSex: String) {
 
         info.insertPet(
             Pet(
                 pet_name = petName,
+                pet_species = petSpecies,
                 pet_breed = petBreed,
                 pet_sex = petSex
             )

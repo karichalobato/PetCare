@@ -54,4 +54,13 @@ class PetCareViewModel(val app: Application) : AndroidViewModel(app) {
     /** Obtener especies */
     fun getSpecies() = repository.getSpecies()
 
+    /** Obtener razas de perro */
+    fun getDogBreeds() = repository.getDogBreeds()
+
+    /** Obtener razas de caballo */
+    fun getHorseBreeds() = repository.getHorseBreeds()
+
+    /** Obtener razas de gato */
+    fun getCatBreeds() = repository.getCatBreeds()
+
 }

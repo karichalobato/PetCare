@@ -1,6 +1,10 @@
 package com.cuidadoanimal.petcare.data.repositories
 
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.APPLICATIONS_COLLECTION_NAME
+import com.cuidadoanimal.petcare.data.AppConstants.Companion.BREEDS_COLLECTION_NAME
+import com.cuidadoanimal.petcare.data.AppConstants.Companion.CAT_DOCUMENT_NAME
+import com.cuidadoanimal.petcare.data.AppConstants.Companion.DOG_DOCUMENT_NAME
+import com.cuidadoanimal.petcare.data.AppConstants.Companion.HORSE_DOCUMENT_NAME
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.PETS_COLLECTION_NAME
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.SPECIES_COLLECTION_NAME
 import com.cuidadoanimal.petcare.data.AppConstants.Companion.USERS_COLLECTION_NAME
@@ -67,5 +71,18 @@ class PetCareRepository {
     /** Obtener especies */
     fun getSpecies() = db
         .collection(SPECIES_COLLECTION_NAME)
+
+    /** Obtener razas de perro */
+    fun getDogBreeds() = getSpecies().document(DOG_DOCUMENT_NAME)
+        .collection(BREEDS_COLLECTION_NAME)
+
+    /** Obtener razas de perro */
+    fun getCatBreeds() = getSpecies().document(CAT_DOCUMENT_NAME)
+        .collection(BREEDS_COLLECTION_NAME)
+
+    /** Obtener razas de perro */
+    fun getHorseBreeds() = getSpecies().document(HORSE_DOCUMENT_NAME)
+        .collection(BREEDS_COLLECTION_NAME)
+
 
 }

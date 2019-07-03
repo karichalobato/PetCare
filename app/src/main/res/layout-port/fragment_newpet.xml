@@ -36,18 +36,11 @@
                     android:textColorHint="@color/color4"
                     android:textSize="@dimen/_15sdp"/>
 
-            <AutoCompleteTextView
-                    android:id="@+id/PetBreed"
+            <Spinner
+                    android:id="@+id/spinner_species"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:drawablePadding="@dimen/_10sdp"
-                    android:hint="@string/breed"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/color4"
-                    android:textSize="@dimen/_15sdp"/>
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_centerInParent="true"/>
 
             <Spinner
                     android:id="@+id/spinner_breed"

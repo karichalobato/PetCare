@@ -28,10 +28,10 @@ class AuthenticationActivity : AppCompatActivity() {
             setContentView(R.layout.activity_authentication)
 
             providers = listOf(
-                AuthUI.IdpConfig.EmailBuilder().build(),
-                AuthUI.IdpConfig.FacebookBuilder().build(),
-                AuthUI.IdpConfig.GoogleBuilder().build(),
-                AuthUI.IdpConfig.PhoneBuilder().build()
+                AuthUI.IdpConfig.EmailBuilder().build(),/*
+                AuthUI.IdpConfig.FacebookBuilder().build(),*/
+                AuthUI.IdpConfig.GoogleBuilder().build()/*,
+                AuthUI.IdpConfig.PhoneBuilder().build()*/
             )
             showSignInOptions()
 
