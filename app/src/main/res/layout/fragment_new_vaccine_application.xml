@@ -17,7 +17,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/_30sdp"
-        android:text="@string/vaccine_for_pet"
+        android:text="@string/application_for_vaccine"
+        android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/_20sdp" />
 
@@ -40,11 +41,12 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_below="@id/iv_resource"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:drawableStart="@drawable/ic_calendar_black_24dp"
         android:drawablePadding="@dimen/_10sdp"
         android:gravity="center"
-        android:hint="Select Date"
+        android:hint="@string/select_date"
         android:paddingStart="@dimen/_10sdp"
         android:paddingEnd="@dimen/_10sdp"
         android:textAlignment="center"
