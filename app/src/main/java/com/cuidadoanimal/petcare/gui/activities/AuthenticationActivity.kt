@@ -88,7 +88,8 @@ class AuthenticationActivity : AppCompatActivity() {
             AuthUI.getInstance()
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
-                .setTheme(R.style.MyTheme)
+                .setTheme(R.style.CustomTheme)
+//                .setTheme(R.style.MyTheme)
                 .setLogo(R.drawable.cat)
                 .setIsSmartLockEnabled(false)
                 .build(), MY_REQUEST_CODE

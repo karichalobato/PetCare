@@ -52,7 +52,7 @@
         android:drawableStart="@drawable/ic_calendar_black_24dp"
         android:drawablePadding="@dimen/_10sdp"
         android:gravity="center"
-        android:hint="Select Date"
+        android:hint="@string/select_date"
         android:paddingStart="@dimen/_10sdp"
         android:paddingEnd="@dimen/_10sdp"
         android:textAlignment="center"

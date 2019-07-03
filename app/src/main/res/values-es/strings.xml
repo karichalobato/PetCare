@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="application_for_vaccine">Nueva aplicación para la vacuna %1$s</string>
+    <string name="breed">Raza</string>
+    <string name="btn_login">Iniciar sesión</string>
+    <string name="create_application">Crear aplicación</string>
+    <string name="create_pet">Crear mascota</string>
+    <string name="create_vaccine">Crear vacuna</string>
+    <string name="email">correo electrónico</string>
+    <string name="vacine">Nueva vacuna</string>
+    <string name="vaccine_name">Nombre de la vacuna</string>
+    <string name="vaccine_for_pet">Nueva vacuna para %1$s</string>
+    <string name="vaccination_record">Registros de vacunación</string>
+    <string name="title_activity_maps">Explorador</string>
+    <string name="species">Especie</string>
+    <string name="sex">Sexo</string>
+    <string name="select_date">Seleccionar fecha</string>
+    <string name="pet_name">Nombre</string>
+    <string name="pet_description">%1$s es un hermoso espécimen %2$s de un %3$s %4$s</string>
+    <string name="new_vaccine">Nueva vacuna</string>
+    <string name="new_pet">Nueva mascota</string>
+    <string name="new_application">Nueva aplicación de vacuna</string>
+    <string name="msg_your_pets_will_show_here">Tus mascotas aparecerán acá</string>
+    <string name="male">Macho</string>
+    <string name="imagen">Imagen</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_email">correo electrónico</string>
+    <string name="female">Hembra</string>
+    <string name="map">Mapa</string>
+    <string name="articles">Artículos</string>
+    <string name="home">Inicio</string>
+</resources>

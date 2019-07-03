@@ -52,8 +52,8 @@ class NewPet : Fragment(), View.OnClickListener {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_newpet, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,10 +75,10 @@ class NewPet : Fragment(), View.OnClickListener {
         val bAdapter = setUpSpinnerAdapter(breeds, spinner_breed)
 
         setUpSpinnerOptions(
-                breedsCollection,
-                AppConstants.DOCUMENT_FIELD_NAME,
-                breeds,
-                bAdapter
+            breedsCollection,
+            AppConstants.DOCUMENT_FIELD_NAME,
+            breeds,
+            bAdapter
         )
 
         /** SPINNER DE SPECIES */
@@ -87,10 +87,10 @@ class NewPet : Fragment(), View.OnClickListener {
         val sAdapter = setUpSpinnerAdapter(species, spinner_species)
 
         setUpSpinnerOptions(
-                speciesCollection,
-                AppConstants.DOCUMENT_FIELD_NAME,
-                species,
-                sAdapter
+            speciesCollection,
+            AppConstants.DOCUMENT_FIELD_NAME,
+            species,
+            sAdapter
         )
 
         /** Define el manejo de las selecciones (o la falta de ellas) en la lista. */
@@ -120,10 +120,10 @@ class NewPet : Fragment(), View.OnClickListener {
                 }
 
                 setUpSpinnerOptions(
-                        breedsCollection,
-                        AppConstants.DOCUMENT_FIELD_NAME,
-                        breeds,
-                        bAdapter
+                    breedsCollection,
+                    AppConstants.DOCUMENT_FIELD_NAME,
+                    breeds,
+                    bAdapter
                 )
 
             }
@@ -147,9 +147,9 @@ class NewPet : Fragment(), View.OnClickListener {
     private fun setUpSpinnerAdapter(array: ArrayList<String>, spinner: Spinner): ArrayAdapter<String> {
 
         val adapter = ArrayAdapter(
-                this@NewPet.context!!,
-                android.R.layout.simple_spinner_item,
-                array
+            this@NewPet.context!!,
+            android.R.layout.simple_spinner_item,
+            array
         )
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -162,10 +162,10 @@ class NewPet : Fragment(), View.OnClickListener {
 
     /** Obtiene los resultados de la consulta y los coloca en una lista, que se asignará al adaptador del spinner*/
     private fun setUpSpinnerOptions(
-            collection: CollectionReference,
-            field: String,
-            optionsArray: ArrayList<String>,
-            adapter: ArrayAdapter<String>
+        collection: CollectionReference,
+        field: String,
+        optionsArray: ArrayList<String>,
+        adapter: ArrayAdapter<String>
     ) {
         collection.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -182,24 +182,24 @@ class NewPet : Fragment(), View.OnClickListener {
      *  Envía a la actividad principal los datos seleccionados por el usuario
      *  para la inserción de la mascota en la base de datos. */
     private fun initAddButton(container: View) =
-            container.bt_new_pet.setOnClickListener {
+        container.bt_new_pet.setOnClickListener {
 
-                if (PetName.text.isNullOrEmpty()) {
-                    Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this.context!!, "Mascota añadida exitosamente", Toast.LENGTH_SHORT).show()
+            if (PetName.text.isNullOrEmpty()) {
+                Toast.makeText(this.context!!, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this.context!!, "Mascota añadida exitosamente", Toast.LENGTH_SHORT).show()
 
-                    listenerTool?.insertPet(
-                            PetName.text.toString(),
-                            species,
-                            breed,
-                            sex
-                    )
+                listenerTool?.insertPet(
+                    PetName.text.toString(),
+                    species,
+                    breed,
+                    sex
+                )
 
-                    findNavController(this)
-                            .navigate(R.id.action_newpet_to_main)
-                }
+                findNavController(this)
+                    .navigate(R.id.action_newpet_to_main)
             }
+        }
 
     /** Asignación de valores del radio button*/
     override fun onClick(view: View?) {
@@ -209,11 +209,11 @@ class NewPet : Fragment(), View.OnClickListener {
             when (view.getId()) {
                 R.id.rb_sex_female ->
                     if (checked) {
-                        this.sex = "Female"
+                        this.sex = getString(R.string.female)
                     }
                 R.id.rb_sex_male ->
                     if (checked) {
-                        this.sex = "Male"
+                        this.sex = getString(R.string.male)
                     }
             }
         }
