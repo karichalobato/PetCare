@@ -20,4 +20,13 @@
     <color name="color14">#3D5AFE</color>
     <color name="color15">#304FFE</color>
     <color name="colortexto">#FF1744</color>
+    <color name="material_gray_600">#546e7a</color>
+    <color name="material_grey_500">#607d8b</color>
+    <color name="material_grey_700">#455a64</color>
+    <color name="material_blue_a200">#448aff</color>
+    <color name="material_blue_a800">#2962ff</color>
+    <color name="material_blue_50">#eceff1</color>
+    <color name="material_pink_a700">#c51162</color>
+    <color name="material_pink_500">#e91e63</color>
+
 </resources>
