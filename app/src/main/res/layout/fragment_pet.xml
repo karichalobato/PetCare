@@ -1,109 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                android:paddingTop="@dimen/_30sdp"
-                android:paddingBottom="@dimen/_30sdp"
-                android:paddingLeft="@dimen/_10sdp"
-                android:paddingRight="@dimen/_10sdp"
-                tools:context="com.cuidadoanimal.petcare.gui.fragments.PetFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color1"
+    android:paddingLeft="@dimen/_2sdp"
+    android:paddingTop="@dimen/_10sdp"
+    android:paddingRight="@dimen/_2sdp"
+    android:paddingBottom="@dimen/_10sdp"
+    tools:context="com.cuidadoanimal.petcare.gui.fragments.PetFragment">
+
+    <TextView
+        android:id="@+id/tv_pet_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center"
+        android:text="@string/pet_name"
+        android:textSize="@dimen/_30sdp"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark"
+        app:autoSizeTextType="uniform" />
 
     <ImageView
-            android:id="@+id/iv_resource"
-            android:layout_width="@dimen/_129sdp"
-            android:layout_height="@dimen/_107sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="@dimen/_50sdp"
-            android:layout_marginLeft="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_50sdp"
-            android:layout_marginBottom="@dimen/_70sdp"
-            android:src="@drawable/pet"
-            android:contentDescription="@string/imagen"/>
+        android:id="@+id/iv_resource"
+        android:layout_width="@dimen/_129sdp"
+        android:layout_height="@dimen/_107sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginRight="@dimen/_50sdp"
+        android:layout_marginBottom="@dimen/_70sdp"
+        android:contentDescription="@string/imagen"
+        android:src="@drawable/pet" />
+
 
     <TextView
-            android:id="@+id/tv_pet_name"
-            android:layout_toLeftOf="@id/iv_resource"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/pet_name"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:textColor="@color/color4"
-            app:autoSizeTextType="uniform"/>
+        android:id="@+id/tv_pet_species"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_pet_name"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_toStartOf="@id/iv_resource"
+        android:gravity="center"
+        android:text="@string/species"
+        android:textColor="@color/color4"
+        app:autoSizeTextType="uniform" />
 
     <TextView
-            android:id="@+id/tv_pet_species"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_toStartOf="@id/iv_resource"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/species"
-            android:textColor="@color/color4"
-            android:layout_below="@id/tv_pet_name"
-            app:autoSizeTextType="uniform"/>
-    <TextView
-            android:id="@+id/tv_pet_breed"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_toStartOf="@id/iv_resource"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/breed"
-            android:textColor="@color/color4"
-            android:layout_below="@id/tv_pet_species"
-            app:autoSizeTextType="uniform"/>
+        android:id="@+id/tv_pet_breed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_pet_species"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_toStartOf="@id/iv_resource"
+        android:gravity="center"
+        android:text="@string/breed"
+        android:textColor="@color/color4"
+        app:autoSizeTextType="uniform" />
 
     <TextView
-            android:id="@+id/tv_pet_sex"
-            android:layout_width="wrap_content"
-            android:layout_toStartOf="@id/iv_resource"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:gravity="center"
-            android:text="@string/sex"
-            android:textColor="@color/color4"
-            android:layout_below="@id/tv_pet_breed"
-            app:autoSizeTextType="uniform"/>
+        android:id="@+id/tv_pet_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_pet_breed"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_toStartOf="@id/iv_resource"
+        android:gravity="center"
+        android:text="@string/sex"
+        android:textColor="@color/color4"
+        app:autoSizeTextType="uniform" />
 
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginStart="@dimen/_50sdp"
-            android:layout_marginEnd="@dimen/_50sdp"
-            android:id="@+id/rv_vaccines"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/color5"
-            android:layout_below="@id/iv_resource"/>
+        android:id="@+id/rv_vaccines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_resource"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp" />
 
     <TextView
-            android:id="@+id/tv_vacc_record"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/rv_vaccines"
-            android:text="@string/vaccination_record"
-            android:textColor="@color/color4"
-            app:autoSizeTextType="uniform"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_40sdp"
-            android:layout_marginRight="@dimen/_40sdp"/>
+        android:id="@+id/tv_vacc_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rv_vaccines"
+        android:layout_marginLeft="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:text="@string/vaccination_record"
+        android:textColor="@color/color4"
+        app:autoSizeTextType="uniform" />
 
     <Button
-            android:id="@+id/bt_new_vaccine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="@dimen/_30sdp"
-            android:backgroundTint="#85c1e9"
-            android:text="@string/new_vaccine"
-            android:textColor="@color/colorPrimary"/>
+        android:id="@+id/bt_new_vaccine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="@string/new_vaccine"
+        android:textColor="@color/color0" />
 
 </RelativeLayout>

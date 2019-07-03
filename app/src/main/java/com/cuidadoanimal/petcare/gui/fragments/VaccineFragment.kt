@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.VaccineApplication
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
-import com.cuidadoanimal.petcare.gui.adapters.FirestoreApplicationAdapter
+import com.cuidadoanimal.petcare.gui.adapters.VaccineApplicationAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.Query
@@ -29,7 +29,7 @@ class VaccineFragment : Fragment() {
 
     private lateinit var vaccineApplicationCollection: CollectionReference
 
-    private lateinit var vaccineApplicationAdapter: FirestoreApplicationAdapter
+    private lateinit var vaccineApplicationAdapter: VaccineApplicationAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +48,7 @@ class VaccineFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = inflater.inflate(R.layout.fragment_vaccine, container, false)
+        val view = inflater.inflate(R.layout.fragment_vaccine, container, false)
         bind(view)
         return view
     }
@@ -74,7 +74,7 @@ class VaccineFragment : Fragment() {
                 )
                 .build()
 
-        vaccineApplicationAdapter = FirestoreApplicationAdapter(options)
+        vaccineApplicationAdapter = VaccineApplicationAdapter(options)
 
         /*view.rv_vaccines.setHasFixedSize(true)*/
         view.rv_vaccine_applications.adapter = this.vaccineApplicationAdapter

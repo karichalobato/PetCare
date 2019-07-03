@@ -4,57 +4,42 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/color6"
+                android:background="@color/color1"
+                android:paddingLeft="@dimen/_2sdp"
+                android:paddingRight="@dimen/_2sdp"
                 tools:context="com.cuidadoanimal.petcare.gui.fragments.HomeFragment">
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="@dimen/_47sdp">
-
-
-        <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pets"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_50sdp"
-            android:layout_marginEnd="@dimen/_50sdp"
-            android:orientation="vertical"
-
-            >
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_pets"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_290sdp"
-                android:layout_marginTop="@dimen/_100sdp"
-                android:background="@color/color5" />
-
-
-        </LinearLayout>
-
-
-    </ScrollView>
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginBottom="@dimen/_10sdp"/>
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_70sdp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/_37sdp"
-        android:layout_marginEnd="@dimen/_149sdp"
-        android:layout_marginRight="199dp"
-        android:autoText="false"
-        android:gravity="center"
-        android:text="Your pets"
-        android:textColor="@color/color4"
-        app:autoSizeTextType="uniform" />
+            android:id="@+id/tv_pets_list_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/msg_your_pets_will_show_here"
+            android:layout_marginTop="@dimen/_250sdp"
+            android:textAlignment="center"
+            android:visibility="invisible"
+            android:textSize="@dimen/_17sdp"/>
+
+    <TextView
+            android:id="@+id/textView"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_37sdp"
+            android:layout_marginEnd="@dimen/_149sdp"
+            android:layout_marginRight="199dp"
+            android:gravity="center"
+            android:text="Your pets"
+            android:textColor="@color/colorPrimaryDark"
+            app:autoSizeTextType="uniform"/>
 
     <Button
             android:id="@+id/bt_new_pet"
@@ -66,9 +51,9 @@
             android:layout_marginTop="77dp"
             android:layout_marginEnd="60dp"
             android:layout_marginRight="60dp"
-            android:backgroundTint="#85c1e9"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:text="New Pet"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/color0"/>
 
 
 </RelativeLayout>

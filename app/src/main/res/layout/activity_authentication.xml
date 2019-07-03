@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color4"
+    android:background="@color/color1"
     tools:context=".gui.activities.AuthenticationActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

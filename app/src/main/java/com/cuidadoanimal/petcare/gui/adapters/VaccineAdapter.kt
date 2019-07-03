@@ -12,9 +12,9 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import kotlinx.android.synthetic.main.vaccine_list_item.view.*
 
-class FirestoreVaccineAdapter
+class VaccineAdapter
 internal constructor(options: FirestoreRecyclerOptions<Vaccine>) :
-    FirestoreRecyclerAdapter<Vaccine, FirestoreVaccineAdapter.VaccineViewHolder>(options) {
+    FirestoreRecyclerAdapter<Vaccine, VaccineAdapter.VaccineViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         VaccineViewHolder(

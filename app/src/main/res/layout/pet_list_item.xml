@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                   android:id="@+id/cv_pet_item"
-                                   android:layout_width="match_parent"
-                                   android:layout_height="wrap_content"
-                                   android:layout_margin="@dimen/_8sdp"
-                                   app:cardBackgroundColor="@color/colorPrimary"
-                                   app:cardCornerRadius="@dimen/_5sdp"
-                                   app:cardElevation="@dimen/_10sdp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv_pet_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    android:layout_marginBottom="0dp"
+    app:cardBackgroundColor="@color/color0"
+    app:cardCornerRadius="@dimen/_5sdp"
+    app:cardElevation="@dimen/_5sdp">
+
 
     <TextView
-            android:id="@+id/tv_pet_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:gravity="center_horizontal"
-            android:text="@string/app_name"
-            android:textAllCaps="true"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/_18sdp" />
+        android:id="@+id/tv_pet_species"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_240sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:text="@string/app_name"
+        android:textColor="@color/colorPrimaryLight"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/tv_pet_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_25sdp"
+        android:drawableStart="@drawable/ic_pets_black_24dp"
+        android:gravity="center_horizontal"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_15sdp" />
 
 </androidx.cardview.widget.CardView>

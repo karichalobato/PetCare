@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/color6"
-                tools:context="com.cuidadoanimal.petcare.gui.fragments.HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color1"
+    tools:context="com.cuidadoanimal.petcare.gui.fragments.HomeFragment">
 
 
     <ScrollView
@@ -30,8 +30,7 @@
                 android:layout_width="@dimen/_300sdp"
                 android:layout_height="@dimen/_272sdp"
                 android:layout_marginTop="@dimen/_30sdp"
-                android:layout_marginEnd="@dimen/_50sdp"
-                android:background="@color/color5" />
+                android:layout_marginEnd="@dimen/_50sdp" />
 
 
         </LinearLayout>
@@ -48,23 +47,22 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="@dimen/_100sdp"
         android:layout_marginEnd="@dimen/_437sdp"
-        android:autoText="false"
         android:gravity="center"
         android:text="Your pets"
-        android:textColor="@color/colortexto"
+        android:textColor="@color/colorPrimaryDark"
         app:autoSizeTextType="uniform" />
 
     <Button
-            android:id="@+id/bt_new_pet"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_160sdp"
-            android:layout_marginEnd="@dimen/_445sdp"
-            android:backgroundTint="#85c1e9"
-            android:text="New Pet"
-            android:textColor="@color/colortexto" />
+        android:id="@+id/bt_new_pet"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_160sdp"
+        android:layout_marginEnd="@dimen/_445sdp"
+        android:backgroundTint="#85c1e9"
+        android:text="New Pet"
+        android:textColor="@color/colortexto" />
 
 </RelativeLayout>

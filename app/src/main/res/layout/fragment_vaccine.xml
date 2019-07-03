@@ -3,61 +3,58 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
+                android:background="@color/color1"
+                android:padding="@dimen/_10sdp"
                 tools:context="com.cuidadoanimal.petcare.gui.fragments.VaccineFragment">
 
+    <TextView
+            android:layout_toLeftOf="@id/imageView"
+            android:id="@+id/tv_vaccine_name"
+            android:text="@string/new_vaccine"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_55sdp"
+            android:layout_marginRight="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:textSize="@dimen/_20sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginBottom="@dimen/_47sdp">
-
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_50sdp"
-                android:layout_marginEnd="@dimen/_50sdp"
-                android:orientation="vertical">
-
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tv_vaccine_name"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_vaccine_applications"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_290sdp"
-                    android:layout_marginTop="@dimen/_100sdp"
-                    android:background="@color/color5"/>
-        </LinearLayout>
-
-    </ScrollView>
 
     <ImageView
             android:id="@+id/imageView"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="@dimen/_112sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/_35sdp"
             android:src="@drawable/vaccine"/>
+
+    <TextView
+            android:layout_above="@id/rv_vaccine_applications"
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_vaccination_record"
+            android:text="@string/vaccination_record"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textSize="@dimen/_15sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_vaccine_applications"
+            android:layout_width="match_parent"
+            android:layout_below="@id/imageView"
+            android:layout_height="match_parent"/>
 
     <Button
             android:id="@+id/bt_new_vaccine_application"
-            android:layout_width="@dimen/_140sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_125sdp"
-            android:layout_marginEnd="@dimen/_85sdp"
-            android:layout_toStartOf="@id/imageView"
-            android:background="#85c1e9"
+            android:background="@color/colorPrimaryDark"
             android:text="@string/new_application"
-            android:textColor="@color/colortexto"/>
+            android:textColor="@color/color0"/>
 
 </RelativeLayout>

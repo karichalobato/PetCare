@@ -12,9 +12,6 @@
     <string name="hint_password">Password</string>
 
     <string name="btn_login">LOGIN</string>
-    <string name="btn_link_to_register">¿No eres miembro? ¡Regístrate!</string>
-    <string name="btn_link_to_login">Already registered. Login Me!</string>
-    <string name="btn_forgot_password">¿Olvidaste tu contraseña?</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="vacine">New Vaccine</string>
@@ -32,5 +29,6 @@
     <string name="vaccination_record">Vaccination record</string>
     <string name="new_application">New vaccine application</string>
     <string name="species">Species</string>
+    <string name="msg_your_pets_will_show_here">Your pets will show here</string>
 
 </resources>

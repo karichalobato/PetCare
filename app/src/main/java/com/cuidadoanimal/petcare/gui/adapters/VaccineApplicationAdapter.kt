@@ -10,9 +10,9 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import kotlinx.android.synthetic.main.vaccine_application_list_item.view.*
 
-class FirestoreApplicationAdapter
+class VaccineApplicationAdapter
 internal constructor(options: FirestoreRecyclerOptions<VaccineApplication>) :
-        FirestoreRecyclerAdapter<VaccineApplication, FirestoreApplicationAdapter.ApplicationViewHolder>(options) {
+        FirestoreRecyclerAdapter<VaccineApplication, VaccineApplicationAdapter.ApplicationViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
             ApplicationViewHolder(
@@ -26,8 +26,8 @@ internal constructor(options: FirestoreRecyclerOptions<VaccineApplication>) :
             )
 
     override fun onBindViewHolder(
-        viewHolder: ApplicationViewHolder,
-        p1: Int, vaccineApplication: VaccineApplication
+            viewHolder: ApplicationViewHolder,
+            p1: Int, vaccineApplication: VaccineApplication
     ) {
         viewHolder.bind(vaccineApplication)
     }
@@ -41,7 +41,7 @@ internal constructor(options: FirestoreRecyclerOptions<VaccineApplication>) :
             val month = if (vaccineApplication.application_month.toString().length == 1)
                 "0${vaccineApplication.application_month}" else "${vaccineApplication.application_month}"
 
-            var displayDate = "$day/$month/${vaccineApplication.application_year}"
+            val displayDate = "$day/$month/${vaccineApplication.application_year}"
             itemView.tv_application_date.text = displayDate
         }
     }

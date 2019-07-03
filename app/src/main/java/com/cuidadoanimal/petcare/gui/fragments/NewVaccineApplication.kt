@@ -73,7 +73,7 @@ class NewVaccineApplication : Fragment() {
             val month = calendar.get(Calendar.MONTH)
             val year = calendar.get(Calendar.YEAR)
 
-            var picker = DatePickerDialog(
+            val picker = DatePickerDialog(
                 this.context!!,
                 DatePickerDialog.OnDateSetListener { _, SelectedYear, monthOfYear, dayOfMonth ->
 

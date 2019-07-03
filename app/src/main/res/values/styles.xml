@@ -9,13 +9,13 @@
     </style>
 
     <style name="MyTheme" parent="AppTheme">
-        <item name="android:windowBackground">@color/color5</item>
+        <item name="android:windowBackground">@color/color1</item>
 
     </style>
 
     <style name="MyButton" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorControlHighlight">@color/colorAccent</item>
-        <item name="colorButtonNormal">@color/color6</item>
+        <item name="colorButtonNormal">@color/colorPrimaryLight</item>
     </style>
 
 </resources>

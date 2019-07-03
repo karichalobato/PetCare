@@ -12,17 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
-import com.cuidadoanimal.petcare.gui.adapters.FirestorePetAdapter
+import com.cuidadoanimal.petcare.gui.adapters.PetAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_main.view.*
 
 
 class HomeFragment : Fragment() {
-    private lateinit var petsAdapter: FirestorePetAdapter
+    private lateinit var petsAdapter: PetAdapter
 
     private lateinit var info: PetCareViewModel
 
@@ -48,6 +46,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun bind(view: View) {
+
         /**
          * Agregar el adaptador y layoutManager al recyclerView de mascotas
          * */
@@ -67,7 +66,7 @@ class HomeFragment : Fragment() {
                 )
                 .build()
 
-        petsAdapter = FirestorePetAdapter(options)
+        petsAdapter = PetAdapter(options)
 
         /*view.rv_pets.setHasFixedSize(true)*/
         view.rv_pets.adapter = this.petsAdapter

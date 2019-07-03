@@ -13,6 +13,8 @@ class PetCareViewModel(val app: Application) : AndroidViewModel(app) {
     val TAG = "FIRESTORE_VIEW_MODEL"
     private val repository: PetCareRepository = PetCareRepository()
 
+    var database = repository.db
+
     /** Guardar usuario*/
     fun insertUser(user: User) = repository.insertUser(user)
 
@@ -62,5 +64,4 @@ class PetCareViewModel(val app: Application) : AndroidViewModel(app) {
 
     /** Obtener razas de gato */
     fun getCatBreeds() = repository.getCatBreeds()
-
 }

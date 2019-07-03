@@ -13,7 +13,7 @@ import com.cuidadoanimal.petcare.R
 import com.cuidadoanimal.petcare.data.database.entities.Pet
 import com.cuidadoanimal.petcare.data.database.entities.Vaccine
 import com.cuidadoanimal.petcare.data.viewmodels.PetCareViewModel
-import com.cuidadoanimal.petcare.gui.adapters.FirestoreVaccineAdapter
+import com.cuidadoanimal.petcare.gui.adapters.VaccineAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.Query
@@ -27,7 +27,7 @@ class PetFragment : Fragment() {
 
     private var pet: Pet = Pet()
 
-    private lateinit var vaccineAdapter: FirestoreVaccineAdapter
+    private lateinit var vaccineAdapter: VaccineAdapter
 
     private lateinit var vaccinesCollection: CollectionReference
 
@@ -73,7 +73,7 @@ class PetFragment : Fragment() {
                 )
                 .build()
 
-        vaccineAdapter = FirestoreVaccineAdapter(options)
+        vaccineAdapter = VaccineAdapter(options)
         vaccineAdapter.getPetName(petName!!)
 
         /*view.rv_vaccines.setHasFixedSize(true)*/

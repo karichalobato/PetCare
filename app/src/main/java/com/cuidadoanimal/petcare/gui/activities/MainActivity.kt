@@ -33,7 +33,7 @@ class MainActivity :
 
     override fun insertApplication(petName: String, vaccineName: String, year: String, month: String, day: String) {
 
-        var appDate = getString(
+        val appDate = getString(
             R.string.display_date,
             year,
             if (month.length == 1) "0$month" else month,
